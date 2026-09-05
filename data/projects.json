@@ -1,0 +1,648 @@
+{
+  "engineering": [
+    {
+      "id": 1,
+      "title": "DELHI PUBLIC SCHOOL",
+      "description": "RAIGARH (C.G.)",
+      "image": "images/DELHI PUBLIC SCHOOL RAIGARH.jpg",
+      "images": [
+        "images/DELHI PUBLIC SCHOOL RAIGARH.jpg",
+        "images/dps_raigarh_elevation.png"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "INDIAN PUBLIC SCHOOL",
+      "description": "SAMBALPUR (ODISHA)",
+      "image": "images/indian_public_school_sambalpur_clean.jpg",
+      "images": [
+        "images/indian_public_school_sambalpur_clean.jpg",
+        "images/INDIAN PUBLIC SCHOOL SAMBALPUR .jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "KRISHNA PUBLIC SCHOOL (DUNDA)",
+      "description": "RAIPUR (C.G.)",
+      "image": "images/kps_dunda.jpg",
+      "images": [
+        "images/kps_dunda.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "KRISHNA PUBLIC SCHOOL (SARONA)",
+      "description": "RAIPUR (C.G.)",
+      "image": "images/kps_sarona.jpg",
+      "images": [
+        "images/kps_sarona.jpg",
+        "images/KRISHNA PUBLIC SCHOOL raipur.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "KRISHNA KIDS ACADEMY (KAMAL VIHAR)",
+      "description": "RAIPUR (C.G.)",
+      "image": "images/KAMAL VIHAR NURSERY.jpg",
+      "images": [
+        "images/KAMAL VIHAR NURSERY.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "YUGANTAR PUBLIC SCHOOL",
+      "description": "RAJNANDGAON (C.G.)",
+      "image": "images/YUGANTAR PUBLIC SHOOL.jpg",
+      "images": [
+        "images/YUGANTAR PUBLIC SHOOL.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "DELHI PUBLIC SCHOOL",
+      "description": "AMRAVATI (M.S.)",
+      "image": "images/dps_amravati_front.png",
+      "images": [
+        "images/dps_amravati_front.png",
+        "images/dps_amravati_aerial.png",
+        "images/RANA INTERNATIONAL SCHOOL AMT.jpg"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "JITO DELHI PUBLIC SCHOOL",
+      "description": "CHH. SAMBHAJI NAGAR (M.S.)",
+      "image": "images/jito_dps_aurangabad.jpg",
+      "images": [
+        "images/jito_dps_aurangabad.jpg"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "DELHI WORLD PUBLIC SCHOOL",
+      "description": "BHATAPARA (C.G.)",
+      "image": "images/DPS_WORLD_SCHOOL_-BHATAPARA-.jpg",
+      "images": [
+        "images/DPS_WORLD_SCHOOL_-BHATAPARA-.jpg"
+      ]
+    },
+    {
+      "id": 10,
+      "title": "DELHI WORLD PUBLIC SCHOOL",
+      "description": "MAHENDRAGARH (C.G.)",
+      "image": "images/dwps_manendragarh_aerial.jpg",
+      "images": [
+        "images/dwps_manendragarh_aerial.jpg"
+      ]
+    },
+    {
+      "id": 11,
+      "title": "DELHI WORLD PUBLIC SCHOOL",
+      "description": "PARLI VAIJNATH (M.S.)",
+      "image": "images/dwps_parli_render.png",
+      "images": [
+        "images/dwps_parli_render.png"
+      ]
+    },
+    {
+      "id": 12,
+      "title": "SANSKARBHARTI PUBLIC SCHOOL",
+      "description": "WARORA (M.S.)",
+      "image": "images/sanskarbharti_warora.jpg",
+      "images": [
+        "images/sanskarbharti_warora.jpg"
+      ]
+    },
+    {
+      "id": 13,
+      "title": "NEERAJ PUBLIC SCHOOL",
+      "description": "RAJNANDGAON (C.G.)",
+      "image": "images/neeraj_public_school_rajnandgaon.jpg",
+      "images": [
+        "images/neeraj_public_school_rajnandgaon.jpg"
+      ]
+    },
+    {
+      "id": 14,
+      "title": "VIDYANCHAL THE SCHOOL",
+      "description": "AKOT, AKOLA (M.S.)",
+      "image": "images/vidyanchal_akot.png",
+      "images": [
+        "images/vidyanchal_akot.png"
+      ]
+    },
+    {
+      "id": 15,
+      "title": "MSM MADHUBHAU SAOJI ENGLISH SCHOOL",
+      "description": "MALKAPUR (M.S.)",
+      "image": "images/msm_malkapur.png",
+      "images": [
+        "images/msm_malkapur.png"
+      ]
+    },
+    {
+      "id": 16,
+      "title": "PODAR LEARN SCHOOL",
+      "description": "PUSAD (M.S.)",
+      "image": "images/podar_pusad.png",
+      "images": [
+        "images/podar_pusad.png"
+      ]
+    },
+    {
+      "id": 17,
+      "title": "HAPPY FACES CONCEPT SCHOOL",
+      "description": "WASHIM (M.S.)",
+      "image": "images/happy_faces_washim.jpg",
+      "images": [
+        "images/happy_faces_washim.jpg",
+        "images/WASHIM HOSTEL.jpg"
+      ]
+    },
+    {
+      "id": 18,
+      "title": "G.D. GOENKA INTERNATIONAL SCHOOL",
+      "description": "CAMPUS DEVELOPMENT",
+      "image": "images/gd_goenka_render.png",
+      "images": [
+        "images/gd_goenka_render.png",
+        "images/gd_goenka_photo.jpg"
+      ]
+    },
+    {
+      "id": 19,
+      "title": "DELHI PUBLIC SCHOOL",
+      "description": "KATNI (M.P.)",
+      "image": "images/dps_katni_masterplan.png",
+      "images": [
+        "images/dps_katni_masterplan.png",
+        "images/DPS KATNI aerial.jpg",
+        "images/DPS KATNI HOSTEL.jpg"
+      ]
+    },
+    {
+      "id": 20,
+      "title": "JET KIDS SCHOOL",
+      "description": "PUSAD (M.S.)",
+      "image": "images/jet_kids_school_pusad_opt.jpg",
+      "images": [
+        "images/jet_kids_school_pusad_opt.jpg",
+        "images/_JET_KID_SCHOOL pusad.jpg"
+      ]
+    },
+    {
+      "id": 21,
+      "title": "VIVEK MANDIR SCHOOL",
+      "description": "GONDIA (M.S.)",
+      "image": "images/vivek_mandir_gondia_hires.png",
+      "images": [
+        "images/vivek_mandir_gondia_hires.png",
+        "images/GONDIA SCHOOL.jpg"
+      ]
+    },
+    {
+      "id": 22,
+      "title": "SUNRISE CONVENT",
+      "description": "ARNI, YAVATMAL (M.S.)",
+      "image": "images/SUNRISE_CONVENT_ARNI.JPG",
+      "images": [
+        "images/SUNRISE_CONVENT_ARNI.JPG"
+      ]
+    },
+    {
+      "id": 23,
+      "title": "R.K. SCHOOL",
+      "description": "MANGRULPIR (M.S.)",
+      "image": "images/magrulpir_SCHOOL.jpg",
+      "images": [
+        "images/magrulpir_SCHOOL.jpg"
+      ]
+    },
+    {
+      "id": 24,
+      "title": "RASHTRIYA HINDI VIDYALAYA",
+      "description": "JALNA (M.S.)",
+      "image": "images/JALNA RHV SCHOOL (2).jpg",
+      "images": [
+        "images/JALNA RHV SCHOOL (2).jpg"
+      ]
+    },
+    {
+      "id": 25,
+      "title": "MANSAROVAR SCHOOL",
+      "description": "BETUL (M.P.)",
+      "image": "images/MANSAROVAR BETUL.jpg",
+      "images": [
+        "images/MANSAROVAR BETUL.jpg"
+      ]
+    }
+  ],
+  "residential": [
+    {
+      "id": 1,
+      "title": "PALACE OF SHRAMAN SANGH",
+      "description": "DURG (C.G.)",
+      "image": "images/durg shraman sangh sthanak & residential complex .jpg",
+      "images": [
+        "images/durg shraman sangh sthanak & residential complex .jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "RAGHAV SANKUL",
+      "description": "KHAMGAON (M.S.)",
+      "image": "images/KHAMGAON ( RAGHAV SANKUL TRIANGULAR PLOT).jpg",
+      "images": [
+        "images/KHAMGAON ( RAGHAV SANKUL TRIANGULAR PLOT).jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Leo galaxy",
+      "description": "NAGPUR (M.S.)",
+      "image": "images/leo galaxy 4.jpg",
+      "images": [
+        "images/leo galaxy 4.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "SHREERAM PLAZA",
+      "description": "KHAMGAON (M.S.)",
+      "image": "images/KHAMGAON SHREERAM PLAZA .jpg",
+      "images": [
+        "images/KHAMGAON SHREERAM PLAZA .jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Heda Shopping Complex",
+      "description": "WASHIM (M.S.)",
+      "image": "images/heda_shopping_res.jpg",
+      "images": [
+        "images/heda_shopping_res.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Shri Saptshrungi Heights",
+      "description": "KHAMGAON (M.S.)",
+      "image": "images/khamgaon dinesh agrawal.jpg",
+      "images": [
+        "images/khamgaon dinesh agrawal.jpg"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "TRANQUIL APARTMENT",
+      "description": "NAGPUR (M.S.)",
+      "image": "images/dhantoli tranquil apartment.jpg",
+      "images": [
+        "images/dhantoli tranquil apartment.jpg"
+      ]
+    }
+  ],
+  "hostel": [
+    {
+      "id": 1,
+      "title": "HAPPY FACES THE CONCEPT SCHOOL",
+      "description": "WASHIM (M.S.)",
+      "image": "images/WASHIM HOSTEL.jpg",
+      "images": [
+        "images/WASHIM HOSTEL.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "SHANKRACHARYA HOSTEL",
+      "description": "BHILAI (C.G.)",
+      "image": "images/bhilai shankracharya hostel.jpg",
+      "images": [
+        "images/bhilai shankracharya hostel.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "ATITHI BHAWAN",
+      "description": "JALNA (M.S.)",
+      "image": "images/JALNA ATITHI BHAWAN.jpg",
+      "images": [
+        "images/JALNA ATITHI BHAWAN.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "GAUSHALA",
+      "description": "RAJNANDGAON (C.G.)",
+      "image": "images/gaushala Aerial view.jpg",
+      "images": [
+        "images/gaushala Aerial view.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "RUNGHTA HOSTEL COMPLEX",
+      "description": "BHILAI (C.G.)",
+      "image": "images/RUNGHTA ARIEL VIEW HOS.jpg",
+      "images": [
+        "images/RUNGHTA ARIEL VIEW HOS.jpg"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "JAIN GIRLS HOSTEL",
+      "description": "RAIPUR (C.G.)",
+      "image": "images/MANOJ JAIN HOSTEL BUILDING .jpg",
+      "images": [
+        "images/MANOJ JAIN HOSTEL BUILDING .jpg"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "DPS BOYS HOSTEL",
+      "description": "KATNI (M.P.)",
+      "image": "images/DPS KATNI HOSTEL.jpg",
+      "images": [
+        "images/DPS KATNI HOSTEL.jpg"
+      ]
+    }
+  ],
+  "bungalow": [
+    {
+      "id": 1,
+      "title": "TYAGI RESIDENCE",
+      "description": "GHAZIABAD (U.P.)",
+      "image": "images/tyagi_ji_residence.jpg",
+      "images": [
+        "images/tyagi_ji_residence.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "SANCHETI BUNGALOW",
+      "description": "LONAR (M.S.)",
+      "image": "images/LONAR BUNGALOW.jpg",
+      "images": [
+        "images/LONAR BUNGALOW.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "PAKAL RESIDENCE",
+      "description": "CHH. SAMBHAJI NAGAR (M.S.)",
+      "image": "images/pakal residence aurangabad.jpg",
+      "images": [
+        "images/pakal residence aurangabad.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "BUNGLOW FOR MR.SHARMA",
+      "description": "MALKAPUR (M.S.)",
+      "image": "images/malkapur yogesh residence.jpg",
+      "images": [
+        "images/malkapur yogesh residence.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "VEERANI RESIDENTIAL COMPLEX",
+      "description": "MANDLA (M.P.)",
+      "image": "images/MANDLA VEERANInight .jpg",
+      "images": [
+        "images/MANDLA VEERANInight .jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "GREEN CITY TOWNSHIP",
+      "description": "RAJNANDGAON (C.G.)",
+      "image": "images/green city.jpg",
+      "images": [
+        "images/green city.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "BAGMAR BUNGLOW BANGLOWS",
+      "description": "JABALPUR (M.P.)",
+      "image": "images/bagmar jabalpur.jpg",
+      "images": [
+        "images/bagmar jabalpur.jpg"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "JILHEWAR RESIDENCE ARNI",
+      "description": "ARNI (M.S.)",
+      "image": "images/suhas_jhelehwar_residence.jpg",
+      "images": [
+        "images/suhas_jhelehwar_residence.jpg"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "TOWNSHIP",
+      "description": "JANJGIR (C.G.)",
+      "image": "images/JANGIR TOWNSHIP.jpg",
+      "images": [
+        "images/JANGIR TOWNSHIP.jpg"
+      ]
+    }
+  ],
+  "banquets": [
+    {
+      "id": 1,
+      "title": "TIRUMALA LAWNS",
+      "description": "HINGOLI (M.S.)",
+      "image": "images/hingoli tirupati nagar mangal karyalay.jpg",
+      "images": [
+        "images/hingoli tirupati nagar mangal karyalay.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "SHOPPING AND DHARAMSHALA COMPLEX",
+      "description": "JALNA (M.S.)",
+      "image": "images/jalna vardhman sthanak & hotel.jpg",
+      "images": [
+        "images/jalna vardhman sthanak & hotel.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "COMPLEX & HOTEL",
+      "description": "HINGOLI (M.S.)",
+      "image": "images/COMPLEX & HOTEL HINGOLI.jpg",
+      "images": [
+        "images/COMPLEX & HOTEL HINGOLI.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "SHOPPING CENTER",
+      "description": "JALNA (M.S.)",
+      "image": "images/jalna SHOPPING CENTER.jpg",
+      "images": [
+        "images/jalna SHOPPING CENTER.jpg"
+      ]
+    }
+  ],
+  "medi": [
+    {
+      "id": 1,
+      "title": "P.P. MULTISPECIALITY HOSPITAL",
+      "description": "PARBHANI (M.S.)",
+      "image": "images/PARBHANI_MULTISPECIALITY HOSPITAL.jpg",
+      "images": [
+        "images/PARBHANI_MULTISPECIALITY HOSPITAL.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "TRIVENI MULTISPECIALITY HOSPITAL",
+      "description": "BILASPUR (C.G.)",
+      "image": "images/BILASPUR HOSPITAL-1.jpg",
+      "images": [
+        "images/BILASPUR HOSPITAL-1.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "MEDI-COMPLEX",
+      "description": "BETUL (M.P.)",
+      "image": "images/BAITUL_POLY.jpg",
+      "images": [
+        "images/BAITUL_POLY.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "MEDISHINE HEALTH CARE MULTISPECIALITY",
+      "description": "RAIPUR (C.G.)",
+      "image": "images/MEDISHINE HEALTH CARE MULTISPECIALITY HOSP.jpg",
+      "images": [
+        "images/MEDISHINE HEALTH CARE MULTISPECIALITY HOSP.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "CARDIOLOGY CENTER",
+      "description": "LATUR (M.S.)",
+      "image": "images/latur_hospital_new-1.jpg",
+      "images": [
+        "images/latur_hospital_new-1.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "SNEHI HOSPITAL ",
+      "description": "KAWARDHA (C.G.)",
+      "image": "images/kawardha_hospital(1).jpg",
+      "images": [
+        "images/kawardha_hospital(1).jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "CHANDRAYAN MULTY-HOSPITAL",
+      "description": "KAWARDHA (C.G.)",
+      "image": "images/CHANDRAYAN_MULTY_HOSPITAL-KAWARDHA.jpg",
+      "images": [
+        "images/CHANDRAYAN_MULTY_HOSPITAL-KAWARDHA.jpg"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "MOHOTA HOSPITAL",
+      "description": "NANDURA (M.S.)",
+      "image": "images/nandura hospital.jpg",
+      "images": [
+        "images/nandura hospital.jpg"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "ORTHOPEDIC HOSPITAL",
+      "description": "PUSAD (M.S.)",
+      "image": "images/DR SANJAY SINGH GAUTAM hospital.jpeg",
+      "images": [
+        "images/DR SANJAY SINGH GAUTAM hospital.jpeg"
+      ]
+    }
+  ],
+  "college": [
+    {
+      "id": 1,
+      "title": "SHANKARACHARYA MEDICAL COLLEGE",
+      "description": "BHILAI (C.G.)",
+      "image": "images/SHANKARACHARYA MEDICAL COLLEGE BHILAI.jpg",
+      "images": [
+        "images/SHANKARACHARYA MEDICAL COLLEGE BHILAI.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "RMCH AYURVEDIC COLLEGE",
+      "description": "RAIGARH (C.G.)",
+      "image": "images/AYURVEDIC_COLLEGE_RAIGARH.jpg",
+      "images": [
+        "images/AYURVEDIC_COLLEGE_RAIGARH.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "KRISHNA ENG.COLLEGE",
+      "description": "BHILAI (C.G.)",
+      "image": "images/KRISHNA ENG. COLLEGE BHILAI.jpg",
+      "images": [
+        "images/KRISHNA ENG. COLLEGE BHILAI.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "V.B KOLTE ENG.COLLEGE",
+      "description": "MALKAPUR (M.S.)",
+      "image": "images/KOLTE ENG. COLLEGE MALKAPUR.jpg",
+      "images": [
+        "images/KOLTE ENG. COLLEGE MALKAPUR.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "PRAGATI ENG.COLLEGE",
+      "description": "RAIPUR (C.G.)",
+      "image": "images/PRAGATI ENG. COLLEGE RAIPUR.jpg",
+      "images": [
+        "images/PRAGATI ENG. COLLEGE RAIPUR.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "CITM",
+      "description": "BHILAI (C.G.)",
+      "image": "images/CITM BHILAI.jpg",
+      "images": [
+        "images/CITM BHILAI.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "CHHATTISGARH AYURVED MEDICAL COLLEGE",
+      "description": "RAJNANDGAON (C.G.)",
+      "image": "images/rajnandgaon ayurvedic_college.jpg",
+      "images": [
+        "images/rajnandgaon ayurvedic_college.jpg"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "SHANKARACHARYA NURSING COLLEGE",
+      "description": "BHILAI (C.G.)",
+      "image": "images/nursing college bhilai.jpg",
+      "images": [
+        "images/nursing college bhilai.jpg"
+      ]
+    }
+  ]
+}

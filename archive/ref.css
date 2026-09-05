@@ -1,0 +1,209 @@
+/* Overall page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffe5d9; /* Peach background */
+    color: #5a5a5a; /* Soft gray text */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  /* Projects section styling */
+  .projects-section {
+    background-color: #fff; /* White background for contrast */
+    border-radius: 8px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .projects-section h1 {
+    font-size: 2.5rem;
+    color: #d96459; /* Deeper peachy color for headers */
+    margin-bottom: 20px;
+  }
+  
+  .project-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .project-list li {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #5a5a5a; /* Soft gray for text */
+    padding: 5px 0;
+  }
+  
+  /* Back button styling */
+  .back-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #d96459; /* Deeper peach color for button */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .back-button:hover {
+    background-color: #ff7e67; /* Slightly lighter peach on hover */
+    transform: scale(1.05);
+  }
+  
+  /*contact us css*/
+  /* Global Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  overflow: hidden;
+}
+
+/* Header Styles */
+header {
+  background: #4CAF50; /* Green background */
+  color: #fff;
+  padding: 10px 0;
+}
+
+h1 {
+  text-align: center;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.menu-toggle {
+  display: none; /* Hide for larger screens */
+  cursor: pointer;
+  font-size: 24px;
+  text-align: right;
+  padding: 10px;
+}
+
+nav {
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Section Styles */
+section {
+  background: white;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #4CAF50;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  background: #4CAF50; /* Green button */
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #45a049; /* Darker green on hover */
+}
+
+/* Map Styles */
+iframe {
+  display: block;
+  margin: 20px auto;
+  border-radius: 5px;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  background: #4CAF50; /* Same green */
+  color: white;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .menu-toggle {
+      display: block; /* Show menu toggle for smaller screens */
+  }
+
+  nav ul {
+      display: none; /* Hide menu items by default */
+      flex-direction: column;
+      text-align: center;
+  }
+
+  nav ul li {
+      margin: 10px 0;
+  }
+
+  nav.active ul {
+      display: flex; /* Show menu items when active */
+  }
+}

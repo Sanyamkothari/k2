@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | K2 Architects</title>
+    <link rel="stylesheet" href="/k2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>K2 Architects</h1>
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="k2.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul> 
+            </nav>
+        </div>
+    </header>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Our Projects</h2>
+            <div class="filter-buttons">
+                <button class="filter-button" data-filter="all">All</button>
+                <button class="filter-button" data-filter="residential">Residential</button>
+                <button class="filter-button" data-filter="commercial">Commercial</button>
+                <button class="filter-button" data-filter="public">Public</button>
+            </div>
+            <div class="gallery">
+                <a href="/p1.jpg" data-lightbox="projects" data-title="Modern Residential Building in City A" class="project" data-category="residential">
+                    <img src="/p1.jpg" alt="Project 1">
+                    <div class="project-info">
+                        <h3>Modern Residential Building</h3>
+                        <p>City A</p>
+                    </div>
+                </a>
+                <a href="https://via.placeholder.com/600" data-lightbox="projects" data-title="Innovative Office Space in City B" class="project" data-category="commercial">
+                    <img src="https://via.placeholder.com/400" alt="Project 2">
+                    <div class="project-info">
+                        <h3>Innovative Office Space</h3>
+                        <p>City B</p>
+                    </div>
+                </a>
+                <!-- Add more project entries here -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 K2 Architects. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/k2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <json><source>/portfolio</json>
+</body>
+</html>
+
+
+<!--contact us form-->
+<section class="contact-form" id="contact">
+    <div class="section-header">
+        <h1 class="section-heading">Contact Us</h1>
+        <div class="underline"></div>
+    </div>
+    <form action="submit_form.php" method="POST"> <!-- Change action to your form handler -->
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your name" />
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number" />
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email" />
+        </div>
+        <div class="form-group">
+            <label for="enquiry-type">Enquiry Type:</label>
+            <select id="enquiry-type" name="enquiry_type" required>
+                <option value="">Select an option</option>
+                <option value="general">General Enquiry</option>
+                <option value="projects">Projects</option>
+                <option value="collaboration">Collaboration</option>
+                <option value="feedback">Feedback</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" placeholder="Enter your message here..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+</section>
