@@ -1,188 +1,146 @@
 /* ==========================================================================
-   Contact Us Page Styles
+   K2 ARCHITECTS — CONTACT US REDESIGN (DIRECTION 3)
    ========================================================================== */
 
-/* Global styles */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
+@import url('tokens.css');
+@import url('style.css');
+
+.contact-hero {
+  padding-top: calc(7rem + 2vw);
+  padding-bottom: 2.5rem;
+  text-align: center;
+  background: var(--bg-canvas);
 }
 
-/* Navbar */
-.navbar {
+.contact-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+  margin-bottom: var(--section-pad-y);
+}
+
+/* Left Bento: Inquiry Form */
+.contact-form-bento {
+  grid-column: span 7;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: clamp(2rem, 4vw, 3rem);
+  box-shadow: var(--shadow-card);
+}
+
+.form-group-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-field {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 0.85rem 1.15rem;
+  font-size: var(--text-sm);
+  font-family: inherit;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--terracotta-500);
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px var(--terracotta-glow);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Right Bento: Studio Details & Map */
+.contact-info-bento {
+  grid-column: span 5;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.studio-card-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-subtle);
+}
+
+.studio-card-box h3 {
+  font-size: var(--text-xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  display: flex;
   align-items: center;
-  background-color: #333;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.512);
-  position: fixed;
+  gap: 0.6rem;
+}
+
+.contact-row-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  margin-bottom: 1.15rem;
+}
+
+.contact-row-item i {
+  color: var(--terracotta-500);
+  margin-top: 0.35rem;
+}
+
+.map-container-box {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-subtle);
+  height: 280px;
+  background: var(--bg-dark);
+}
+
+.map-container-box iframe {
   width: 100%;
-  height: 90px;
-  top: 0;
-  padding-top: 0.5%;
-  padding-left: 2%;
-  transition: background-color 0.3s ease;
-  z-index: 1000;
-}
-
-.navbar-toggler-icon {
-  filter: invert(1);
-  transform: scale(1.9);
-}
-
-.show {
-  background-color: #333;
-  border-radius: 20px;
-  transition: background-color 0.3s ease;
-}
-
-.navbar li {
-  margin: 20px;
-  color: white;
-}
-
-.navbar .nav-link,
-.navbar .navbar-brand {
-  color: #fff;
-  text-decoration: none;
-  position: relative;
-  font-size: medium;
-}
-
-.navbar .nav-link::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  display: block;
-  margin-top: 5px;
-  right: 0;
-  background: #c29525;
-  transition: width 0.3s ease;
-}
-
-.navbar .nav-link:hover::after,
-.navbar .navbar-brand:hover::after {
-  width: 100%;
-  left: 0;
-  right: auto;
-}
-
-.navbar .nav-link:hover,
-.navbar .navbar-brand:hover {
-  color: #ccc;
-}
-
-/* Contact Section */
-#contact {
-  margin-top: 100px;
-  padding: 40px 20px;
-  text-align: center;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#contact h2 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-
-#contact > p {
-  color: #666;
-  font-size: 16px;
-  margin-bottom: 25px;
-}
-
-#contact-info {
-  margin: 20px 0 30px;
-  padding: 30px 20px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-#contact-info h3 {
-  font-size: 22px;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-#contact-info p {
-  font-size: 16px;
-  margin: 10px 0;
-  line-height: 1.6;
-}
-
-#contact-info p a {
-  color: #333;
-  text-decoration: underline;
-}
-
-#contact-info p a:hover {
-  color: #c29525;
-}
-
-.cta-button {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 12px 28px;
-  background-color: #333;
-  color: white !important;
+  height: 100%;
   border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
 }
 
-.cta-button:hover {
-  background-color: #c29525;
-  color: white !important;
+@media (max-width: 1024px) {
+  .contact-form-bento { grid-column: span 12; }
+  .contact-info-bento { grid-column: span 12; }
 }
 
-#map {
-  margin-top: 20px;
-  width: 100%;
-  height: 400px;
-  border: 0;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Footer */
-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 25px 0;
-  margin-top: 40px;
-}
-
-footer p {
-  margin: 5px 0;
-  color: #ccc;
-}
-
-footer a {
-  color: #fff;
-  text-decoration: none;
-}
-
-footer a:hover {
-  color: #c29525;
-}
-
-footer .social-icons a {
-  color: white;
-  margin: 0 10px;
-  font-size: 24px;
-  transition: color 0.3s;
-}
-
-footer .social-icons a:hover {
-  color: #ccc;
+@media (max-width: 640px) {
+  .form-group-grid { grid-template-columns: 1fr; }
 }

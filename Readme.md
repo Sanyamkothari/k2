@@ -26,7 +26,7 @@ public_html_FULL_SITE/
 │       └── tilt.js         # 3D parallax tilt effect for cards
 │
 ├── data/
-│   └── projects.json       # Structured project database (57 projects across 7 categories)
+│   └── projects.json       # Structured project database (69 projects across 7 categories)
 │
 ├── images/                 # Image assets (hero backgrounds, team photos, project photos)
 │
@@ -47,9 +47,10 @@ public_html_FULL_SITE/
 
 - **Modular Asset Organization**: Clean separation between markup (`*.html`), stylesheets (`css/`), scripts (`js/`), and data (`data/`).
 - **Dynamic Project Filtering**: Fast clientside rendering and filtering for 7 categories (Schools, Residential, Hostels, Bungalows, Banquets, Hospitals, Colleges).
+- **Multi-Image Lightbox Gallery**: Projects can feature multiple photos with badge counts, keyboard arrow navigation (`←`/`→`), interactive indicator dots, and fullscreen preview.
 - **Responsive Navigation**: Synchronized navbar across pages with smooth transitions and mobile hamburger menu support.
 - **Full-Screen Project Preview**: Interactive modal with keyboard (`Escape`) and backdrop click support.
-- **Consistent Data Standards**: Uniform `CITY (STATE)` notation across all 57 projects.
+- **Consistent Data Standards**: Uniform `CITY (STATE)` notation across all 69 projects.
 
 ---
 

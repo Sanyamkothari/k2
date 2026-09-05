@@ -1,108 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>K2 Architects Projects</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/projects.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Architectural Portfolio | K2 Architects</title>
+  <meta name="description" content="Explore K2 Architects' portfolio of over 450 projects spanning schools, university campuses, multi-specialty hospitals, residential towers, and civic master plans across India." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo1.png" />
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="css/projects.css?v=7.0" />
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
-    <div class="container-fluid">
-      <a class="navbar-brand" style="margin-left:0px;" href="index.html">
-        <img src="images/logo1.png" width="70" height="70" alt="">
+  <!-- Floating Glass Navbar -->
+  <header class="nav-wrapper">
+    <nav class="nav-pill" id="navbar" aria-label="Main Navigation">
+      <a href="index.html" class="brand-link">
+        <img src="images/logo1.png" alt="K2 Architects Logo" class="brand-logo-img" />
+        <span class="brand-name">
+          K2 ARCHITECTS
+          <span class="brand-tag">SINCE 1999</span>
+        </span>
       </a>
-      <button class="navbar-toggler" id="burger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.html#about-us">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.html#team">Team</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="projects.html">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contactus.html">Contact Us</a>
-          </li>
-        </ul>
+
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link-item">Home</a></li>
+        <li><a href="index.html#philosophy" class="nav-link-item">Philosophy</a></li>
+        <li><a href="index.html#typologies" class="nav-link-item">Typologies</a></li>
+        <li><a href="index.html#featured" class="nav-link-item">Featured</a></li>
+        <li><a href="index.html#studio" class="nav-link-item">The Studio</a></li>
+        <li><a href="projects.html" class="nav-link-item active">Portfolio</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="contactus.html" class="btn-pill btn-pill-primary">
+          <span>Start a Project</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <button class="burger-btn" id="mobile-toggle" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
-  <!-- Main Content -->
-  <div class="main">
-    <h1>Our Projects</h1>
-    <div class="underline"></div>
-
-    <!-- Category Buttons -->
-    <div class="buttons">
-      <button onclick="showProjects('engineering')" class="active">Schools</button>
-      <button onclick="showProjects('residential')">Residential & Commercial Tower</button>
-      <button onclick="showProjects('hostel')">Public Buildings (Hostel)</button>
-      <button onclick="showProjects('bungalow')">Bungalow, Farmhouse, Townships</button>
-      <button onclick="showProjects('banquets')">Banquets</button>
-      <button onclick="showProjects('medi')">Hospital & Medi Complex</button>
-      <button onclick="showProjects('college')">College Campus</button> <!-- New Button -->
-    </div>
-    
-
-    <!-- Projects Grid -->
-    <div id="projects-container" class="projects">
-      <!-- Projects will be injected here dynamically -->
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-drawer" id="mobile-drawer" role="dialog" aria-modal="true">
+    <div class="mobile-drawer-content">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+        <span class="brand-name">K2 ARCHITECTS</span>
+        <button id="mobile-close" aria-label="Close menu" style="font-size: 1.25rem;"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="index.html#philosophy" class="mobile-nav-link">Philosophy</a>
+      <a href="index.html#typologies" class="mobile-nav-link">Typologies</a>
+      <a href="index.html#featured" class="mobile-nav-link">Featured Projects</a>
+      <a href="index.html#studio" class="mobile-nav-link">The Studio</a>
+      <a href="projects.html" class="mobile-nav-link">Full Portfolio (69 Projects)</a>
+      <a href="contactus.html" class="btn-pill btn-pill-primary" style="justify-content: center; margin-top: 1rem;">
+        Start a Project <i class="fa-solid fa-arrow-right"></i>
+      </a>
     </div>
   </div>
 
-  <!-- Modal for Full-Screen Project Gallery -->
-  <div id="modal" role="dialog" aria-modal="true" aria-label="Project Gallery">
-    <button class="modal-close" id="modal-close" aria-label="Close gallery">&times;</button>
-    
-    <div class="modal-content-wrapper">
-      <button class="modal-nav modal-prev" id="modal-prev" aria-label="Previous image">
-        <i class="fas fa-chevron-left"></i>
-      </button>
-
-      <div class="modal-image-container">
-        <img id="modal-image" src="" alt="Project Image">
-        <div id="modal-counter" class="modal-counter"></div>
+  <main>
+    <!-- Portfolio Hero Header -->
+    <section class="portfolio-hero">
+      <div class="container">
+        <div class="portfolio-header-content">
+          <span class="section-label">
+            <i class="fa-solid fa-cubes"></i>
+            Project Archive & Index
+          </span>
+          <h1 class="section-title">Architectural Portfolio & Master Plans</h1>
+          <p class="section-subtitle">
+            Explore 69 landmark developments executed across 7 states, spanning institutional educational campuses, multi-specialty healthcare, high-density residential towers, and civic gathering venues.
+          </p>
+        </div>
       </div>
+    </section>
 
-      <button class="modal-nav modal-next" id="modal-next" aria-label="Next image">
-        <i class="fas fa-chevron-right"></i>
-      </button>
+    <!-- Sticky Filter & Search Control Bar -->
+    <div class="portfolio-controls-bar">
+      <div class="container">
+        <div class="controls-inner">
+          <div class="category-pills-wrap">
+            <button class="category-pill-btn active" data-category="all">All Projects</button>
+            <button class="category-pill-btn" data-category="engineering">Schools & Campuses</button>
+            <button class="category-pill-btn" data-category="college">Colleges & Universities</button>
+            <button class="category-pill-btn" data-category="medi">Hospitals & Healthcare</button>
+            <button class="category-pill-btn" data-category="residential">Residential & Commercial</button>
+            <button class="category-pill-btn" data-category="bungalow">Bungalows & Farmhouses</button>
+            <button class="category-pill-btn" data-category="banquets">Banquets & Hospitality</button>
+            <button class="category-pill-btn" data-category="hostel">Public Buildings & Hostels</button>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div class="search-box-wrap">
+              <i class="fa-solid fa-magnifying-glass search-icon"></i>
+              <input type="text" id="search-projects" class="search-input" placeholder="Search by city, title..." aria-label="Search projects" />
+            </div>
+            <span id="project-count" class="font-mono text-terracotta" style="font-size: var(--text-xs); font-weight: 700; white-space: nowrap;">
+              Showing Works
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="modal-info">
-      <h3 id="modal-title"></h3>
-      <p id="modal-desc"></p>
-      <div id="modal-dots" class="modal-dots"></div>
-    </div>
-  </div>
+    <!-- Masonry Grid Section -->
+    <section class="projects-grid-section">
+      <div class="container">
+        <div id="projects-container" class="projects-masonry">
+          <!-- Dynamic Project Cards Injected by projects.js -->
+        </div>
+      </div>
+    </section>
+  </main>
 
-  <!-- Footer -->
- 
-  <footer class="footer">
-    <div class="footer-content">
-      <p class="copyright">
-        Copyright &copy; 2022, k2-Architect - All Rights Reserved
-        <br>  9422101718 | ar8880@gmail.com
-        <br> 101, Ozone Apartment, puranik layout,
-        Bharat Nagar, Amravati road, Nagpur
-      </p>
+  <!-- Native Accessible Modal Dialog for Project Inspection -->
+  <dialog id="project-modal" closedby="any" class="project-modal" aria-labelledby="modal-title">
+    <div class="modal-content-wrap">
+      <div class="modal-media-view">
+        <img id="modal-img" src="" alt="Project Visual Preview" />
+        <button id="modal-close-btn" class="modal-close-btn" aria-label="Close dialog">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-meta-view">
+        <span id="modal-category" class="modal-project-badge">Category</span>
+        <h2 id="modal-title" class="modal-project-title">Project Title</h2>
+        <div id="modal-loc" class="modal-project-loc">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Location</span>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Modern Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom-row" style="border-top: none; padding-top: 0;">
+        <div>
+          &copy; 2026 K2 Architects. All rights reserved. 450+ Projects Across India.
+        </div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="index.html">Home</a>
+          <a href="contactus.html">Contact Studio</a>
+          <a href="#navbar">Back to Top ↑</a>
+        </div>
+      </div>
     </div>
   </footer>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Scripts -->
   <script src="js/main.js"></script>
   <script src="js/projects.js"></script>
 </body>

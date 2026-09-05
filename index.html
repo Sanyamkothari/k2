@@ -2,312 +2,671 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-
-  <!-- Primary SEO Meta Tags -->
-  <title>Architectural Design & Planning by K2 Architects | Award-Winning Firm</title>
-  <meta name="description" content="K2 Architects is a leading architecture & design firm offering premier architectural, technical, and engineering solutions since 1999. We are one of the best architects in central India for institutional designs. Contact us for innovative projects." />
-  <meta name="keywords" content="Architecture, Design, Planning, Construction, Institutional design, Landscape, Urban Development" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:title" content="K2 Architects - Innovative Architectural Designs" />
-  <meta property="og:description" content="We are one of the best architects in central India for institutional designs. K2 Architects offers architectural, technical, and engineering solutions for diverse projects." />
-  <meta property="og:image" content="images/og-image.jpg" />
-  <meta property="og:url" content="https://yourdomain.com" />
+  <!-- Primary SEO Meta Tags -->
+  <title>K2 Architects | Architectural Design, Master Planning & Landscape Ecology</title>
+  <meta name="description" content="K2 Architects is an award-winning architecture and landscape master planning firm in Central India. 25+ years of heritage and 450+ executed projects across institutional, healthcare, residential, and urban sectors." />
+  <meta name="keywords" content="K2 Architects, Sachin Kothari, Riya Kothari, Architecture firm Nagpur, Institutional design, Campus master planning, Healthcare architects, Landscape architecture" />
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="K2 Architects — Architecture & Landscape Master Planning" />
+  <meta property="og:description" content="Shaping spaces since 1999. Over 450 projects executed across 7 states in India." />
+  <meta property="og:image" content="images/DPS KATNI aerial.jpg" />
   <meta property="og:type" content="website" />
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="K2 Architects - Innovative Architectural Designs" />
-  <meta name="twitter:description" content="We are one of the best architects in central India for institutional designs. K2 Architects offers architectural, technical, and engineering solutions for diverse projects." />
-  <meta name="twitter:image" content="images/og-image.jpg" />
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-
-  <!-- Font Awesome (Free) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-  <!-- Google Fonts -->
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700;800&family=Josefin+Slab:ital,wght@0,400;0,600;1,300;1,400;1,600&family=Muli:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" 
-    rel="stylesheet"
-  />
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/style.css?v=6.3">
-
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="images/logo1.png" />
+  <link rel="icon" type="image/png" href="images/logo1.png" />
 
-  <!-- Font Awesome Pro (For Thin Icons if needed) -->
-  <link 
-    rel="stylesheet" 
-    href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css"
-  >
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Design Tokens & Main Redesign Stylesheet -->
+  <link rel="stylesheet" href="css/style.css?v=7.0" />
 </head>
 <body>
-  <!-- Preloader / Spinner Container -->
-  <div class="spinner-container" id="preloader">
-    <div class="circles">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+
+  <!-- ========================================================================
+       21st.dev FLOATING GLASS PILL NAVBAR
+       ======================================================================== -->
+  <header class="nav-wrapper">
+    <nav class="nav-pill" id="navbar" aria-label="Main Navigation">
+      <a href="index.html" class="brand-link" aria-label="K2 Architects Homepage">
+        <img src="images/logo1.png" alt="K2 Architects Logo" class="brand-logo-img" />
+        <span class="brand-name">
+          K2 ARCHITECTS
+          <span class="brand-tag">SINCE 1999</span>
+        </span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="#hero" class="nav-link-item active">Home</a></li>
+        <li><a href="#philosophy" class="nav-link-item">Philosophy</a></li>
+        <li><a href="#typologies" class="nav-link-item">Typologies</a></li>
+        <li><a href="#featured" class="nav-link-item">Featured</a></li>
+        <li><a href="#studio" class="nav-link-item">The Studio</a></li>
+        <li><a href="projects.html" class="nav-link-item">Portfolio</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="contactus.html" class="btn-pill btn-pill-primary">
+          <span>Start a Project</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <button class="burger-btn" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-drawer" id="mobile-drawer" role="dialog" aria-modal="true">
+    <div class="mobile-drawer-content">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+        <span class="brand-name">K2 ARCHITECTS</span>
+        <button id="mobile-close" aria-label="Close menu" style="font-size: 1.25rem;"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <a href="#hero" class="mobile-nav-link">Home</a>
+      <a href="#philosophy" class="mobile-nav-link">Philosophy</a>
+      <a href="#typologies" class="mobile-nav-link">Typologies</a>
+      <a href="#featured" class="mobile-nav-link">Featured Projects</a>
+      <a href="#studio" class="mobile-nav-link">The Studio</a>
+      <a href="projects.html" class="mobile-nav-link">Full Portfolio (57 Projects)</a>
+      <a href="contactus.html" class="btn-pill btn-pill-primary" style="justify-content: center; margin-top: 1rem;">
+        Start a Project <i class="fa-solid fa-arrow-right"></i>
+      </a>
     </div>
   </div>
 
-  <!-- Header / Banner Section -->
-  <header class="header" id="home">
-    <div class="img-wrapper">
-      <img src="images/bg4.jpg" alt="Modern architectural background with a city skyline" />
-    </div>
-    <div class="banner">
-      <!-- Primary H1 for the page -->
-      <h1>Architectural Design & Planning</h1>
-      <p>SHAPING SPACES SINCE 1999..</p>
-      <a href="projects.html">
-        <button class="discover-button">Discover Now</button>
-      </a>
-    </div>
-  </header>
-
-  <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg fixed-top" id="navbar" aria-label="Main Navigation">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#" style="margin-left:25px;">
-        <img src="images/logo1.png" width="70" height="70" alt="K2 Architects Logo" />
-      </a>
-      <button 
-        class="navbar-toggler" 
-        id="burger" 
-        type="button" 
-        data-bs-toggle="collapse" 
-        data-bs-target="#navbarNav" 
-        aria-controls="navbarNav" 
-        aria-expanded="false" 
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about-us">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#team">Team</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="projects.html">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contactus.html">Contact Us</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Main Content Wrapper -->
   <main>
-    <!-- About Us Section -->
-    <section class="about-us" id="about-us">
-      <div class="section-header">
-        <h2 class="section-heading">About Us</h2>
-        <p class="about-description">
-          K2 Architects is a syndicate of architectural consultancy services that provides premier architectural, technical, and engineering solutions. The organisation also offers other services directly related to development, project management, building services, and installation for various construction projects. 
-          Twenty five years of vivid experience have offered us diverse and deep expertise in every field. We have executed over 450 projects in Chhattisgarh, Maharashtra, M.P., A.P., Punjab, Gujarat, and Orissa, overcoming all challenges. Keeping in view the unique ideas, global trends, increasing demands, and a wide range of variety of projects, our firm has fostered partnerships and consortiums with national organisations to provide added value to customers.
-        </p>
-        <div class="underline"></div>
-      </div>
+    <!-- ======================================================================
+         21st.dev BENTO HERO SECTION
+         ====================================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-bento-grid">
 
-      <!-- Sectors Section -->
-      <section class="sectors">
-        <div class="container">
-          <h2 class="section-title">Sectors We Work In</h2>
-          <div class="sectors-grid">
-            <!-- Education/Institution -->
-            <div class="sector-card">
-              <a href="projects.html" class="sector-link" style="text-decoration: none; color: inherit;">
-                <div class="icon">
-                  <i class="fa-solid fa-book" style="font-size:40px;"></i>
-                </div>
-                <h3>Education/Institution</h3>
-                <p>Campus Designing, Institutional Facilities, University Master Planning</p>
+          <!-- Left Bento Cell: Architectural Manifesto & CTA -->
+          <div class="bento-hero-main">
+            <div class="hero-content">
+              <span class="section-label">
+                <i class="fa-solid fa-compass-drafting"></i>
+                Architecture • Master Planning • Landscape Ecology
+              </span>
+
+              <h1 class="hero-title">
+                Architecture Rooted in <span class="editorial-serif">Landscape</span> & Human Experience.
+              </h1>
+
+              <p class="hero-desc">
+                For over 25 years, K2 Architects has unified structural precision with landscape ecology—crafting visionary educational campuses, multi-specialty healthcare institutions, high-density residential towers, and civic landmarks across 7 Indian states.
+              </p>
+
+              <div class="hero-btn-group">
+                <a href="projects.html" class="btn-pill btn-pill-primary">
+                  <span>Explore 450+ Projects</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#philosophy" class="btn-pill btn-pill-outline">
+                  <span>Our Philosophy</span>
+                  <i class="fa-solid fa-arrow-down"></i>
+                </a>
+              </div>
+            </div>
+
+            <div style="margin-top: 2rem; display: flex; align-items: center; gap: 1rem; border-top: 1px solid var(--border-subtle); padding-top: 1.5rem;">
+              <span class="font-mono text-terracotta" style="font-size: var(--text-xs); font-weight: 700;">OFFICE COORDINATES</span>
+              <span class="font-mono" style="font-size: var(--text-xs); color: var(--text-muted);">21.1458° N, 79.0882° E • NAGPUR, MH</span>
+            </div>
+          </div>
+
+          <!-- Right Bento Cell: Featured Aerial Master Plan Visual -->
+          <div class="bento-hero-media">
+            <img src="images/DPS KATNI aerial.jpg" alt="Delhi Public School Katni Campus Master Plan by K2 Architects" loading="eager" />
+            <div class="bento-media-overlay"></div>
+
+            <div class="bento-media-badge-top">
+              <span class="badge-dot"></span>
+              <span>FEATURED CAMPUS MASTER PLAN</span>
+            </div>
+
+            <div class="bento-media-caption">
+              <div class="bento-project-type">Institutional & Educational</div>
+              <h2 class="bento-project-title">Delhi Public School Campus</h2>
+              <div class="bento-project-loc">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Katni, Madhya Pradesh</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Bento Row: 4 Metric Cards (By the Numbers) -->
+          <div class="bento-metric-card metric-col-1">
+            <div>
+              <div class="metric-number-wrapper">
+                <span class="metric-number" data-target="25">25</span>
+                <span class="metric-suffix">+</span>
+              </div>
+              <div class="metric-label">Years of Heritage</div>
+            </div>
+            <div class="metric-sub">Shaping spaces since 1999 with structural innovation.</div>
+          </div>
+
+          <div class="bento-metric-card metric-col-2">
+            <div>
+              <div class="metric-number-wrapper">
+                <span class="metric-number" data-target="450">450</span>
+                <span class="metric-suffix">+</span>
+              </div>
+              <div class="metric-label">Executed Projects</div>
+            </div>
+            <div class="metric-sub">Across educational, healthcare, and urban typologies.</div>
+          </div>
+
+          <div class="bento-metric-card metric-col-3">
+            <div>
+              <div class="metric-number-wrapper">
+                <span class="metric-number" data-target="7">7</span>
+                <span class="metric-suffix">States</span>
+              </div>
+              <div class="metric-label">National Footprint</div>
+            </div>
+            <div class="metric-sub">MH, CG, M.P., A.P., Punjab, Gujarat, and Odisha.</div>
+          </div>
+
+          <div class="bento-metric-card metric-col-4">
+            <div>
+              <div class="metric-number-wrapper">
+                <span class="metric-number" data-target="10">10</span>
+                <span class="metric-suffix">M+ Sq.Ft</span>
+              </div>
+              <div class="metric-label">Master Planned</div>
+            </div>
+            <div class="metric-sub">High-efficiency institutional and residential built environments.</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         21st.dev INFINITE CLIENT MARQUEE
+         ====================================================================== -->
+    <section class="marquee-section" aria-label="Trusted Clients">
+      <div class="marquee-header-label">Trusted by Leading Educational & Civic Institutions Across India</div>
+      <div class="marquee-track-container">
+        <div class="marquee-track">
+          <div class="marquee-item">
+            <img src="images/clientdps.png" alt="Delhi Public School" />
+            <span class="marquee-client-name">Delhi Public School</span>
+          </div>
+          <div class="marquee-item">
+            <img src="images/jindalschool.jpg" alt="Jindal School" />
+            <span class="marquee-client-name">Jindal School</span>
+          </div>
+          <div class="marquee-item">
+            <img src="images/vidyanchal.png" alt="Vidyanchal School" />
+            <span class="marquee-client-name">Vidyanchal</span>
+          </div>
+          <div class="marquee-item">
+            <img src="images/sanskarschool.png" alt="Sanskar School" />
+            <span class="marquee-client-name">Sanskar School</span>
+          </div>
+          <div class="marquee-item">
+            <img src="images/yugantarschool.png" alt="Yugantar Public School" />
+            <span class="marquee-client-name">Yugantar School</span>
+          </div>
+          <div class="marquee-item">
+            <img src="images/happyfaces.png" alt="Happy Faces Concept School" />
+            <span class="marquee-client-name">Happy Faces</span>
+          </div>
+          <div class="marquee-item">
+            <img src="images/clg1.png" alt="Engineering College" />
+            <span class="marquee-client-name">Polytechnic Institute</span>
+          </div>
+
+          <!-- Duplicate items for seamless infinite marquee loop -->
+          <div class="marquee-item">
+            <img src="images/clientdps.png" alt="Delhi Public School" />
+            <span class="marquee-client-name">Delhi Public School</span>
+          </div>
+          <div class="marquee-item">
+            <img src="images/jindalschool.jpg" alt="Jindal School" />
+            <span class="marquee-client-name">Jindal School</span>
+          </div>
+          <div class="marquee-item">
+            <img src="images/vidyanchal.png" alt="Vidyanchal School" />
+            <span class="marquee-client-name">Vidyanchal</span>
+          </div>
+          <div class="marquee-item">
+            <img src="images/sanskarschool.png" alt="Sanskar School" />
+            <span class="marquee-client-name">Sanskar School</span>
+          </div>
+          <div class="marquee-item">
+            <img src="images/yugantarschool.png" alt="Yugantar Public School" />
+            <span class="marquee-client-name">Yugantar School</span>
+          </div>
+          <div class="marquee-item">
+            <img src="images/happyfaces.png" alt="Happy Faces Concept School" />
+            <span class="marquee-client-name">Happy Faces</span>
+          </div>
+          <div class="marquee-item">
+            <img src="images/clg1.png" alt="Engineering College" />
+            <span class="marquee-client-name">Polytechnic Institute</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         PHILOSOPHY SECTION: BIOPHILIC & TERRACOTTA
+         ====================================================================== -->
+    <section class="studio-section" id="philosophy">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(12, 1fr); gap: 2.5rem; align-items: center;">
+          <div style="grid-column: span 6;">
+            <span class="section-label">
+              <i class="fa-solid fa-leaf"></i>
+              01 / Design Philosophy
+            </span>
+            <h2 class="section-title">
+              Where Built Form Meets <span class="font-serif text-terracotta">Living Landscape</span>.
+            </h2>
+            <p style="font-size: var(--text-lg); color: var(--text-secondary); line-height: var(--leading-relaxed); margin-bottom: 1.5rem;">
+              Architecture is not an isolated object imposed upon the earth; it is an organic extension of its topography, sunlight, climate, and community. 
+            </p>
+            <p style="font-size: var(--text-base); color: var(--text-secondary); line-height: var(--leading-relaxed); margin-bottom: 2rem;">
+              Led by Principal Architect <strong>Ar. Sachin Kothari</strong> and Landscape Architect <strong>Ar. Riya Kothari</strong>, our studio harmonizes high-capacity institutional master planning with passive climatic comfort, bio-swales, green courtyards, and native regional materials. Every structure is engineered to endure and inspire.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; border-top: 1px solid var(--border-light); padding-top: 1.5rem;">
+              <div>
+                <h4 style="font-size: var(--text-base); font-weight: 700; margin-bottom: 0.35rem;">Climate Responsive</h4>
+                <p style="font-size: var(--text-sm); color: var(--text-muted);">Harnessing natural ventilation, daylight orientation, and solar shading.</p>
+              </div>
+              <div>
+                <h4 style="font-size: var(--text-base); font-weight: 700; margin-bottom: 0.35rem;">Ecosystem Harmony</h4>
+                <p style="font-size: var(--text-sm); color: var(--text-muted);">Integrating native flora, water management, and therapeutic campus greens.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="grid-column: span 6;">
+            <div style="position: relative; border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--border-light); box-shadow: var(--shadow-card);">
+              <img src="images/AYURVEDIC_COLLEGE_RAIGARH.jpg" alt="Ayurvedic College Raigarh Campus Architecture by K2 Architects" style="width: 100%; height: 480px; object-fit: cover;" />
+              <div style="position: absolute; bottom: 0; inset-inline: 0; background: linear-gradient(180deg, transparent, rgba(22, 24, 22, 0.85)); padding: 2rem; color: #FFFFFF;">
+                <span class="font-mono" style="font-size: var(--text-xs); color: var(--terracotta-200); text-transform: uppercase;">Institutional & Healthcare</span>
+                <h3 style="font-size: var(--text-xl); font-weight: 700;">Ayurvedic College & Hospital Campus</h3>
+                <p style="font-size: var(--text-sm); color: rgba(255,255,255,0.8);">Raigarh, Chhattisgarh • Master Planned by K2 Architects</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         21st.dev INTERACTIVE TYPOLOGIES (7 SECTORS)
+         ====================================================================== -->
+    <section class="typologies-section" id="typologies" style="background: var(--bg-surface-elevated); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+      <div class="container">
+        <div class="typologies-header-wrapper">
+          <span class="section-label">
+            <i class="fa-solid fa-shapes"></i>
+            02 / Architectural Disciplines
+          </span>
+          <h2 class="section-title">Seven Disciplines of Specialized Practice</h2>
+          <p class="section-subtitle">
+            From expansive university master plans to multi-specialty trauma centers and bespoke private residences, our multi-disciplinary studio delivers end-to-end consultancy.
+          </p>
+        </div>
+
+        <div class="typologies-grid">
+
+          <!-- 01: Education & Campuses -->
+          <div class="typology-card typology-span-4">
+            <div class="typology-img-wrap">
+              <img src="images/DELHI PUBLIC SCHOOL RAIGARH.jpg" alt="Educational Campus Architecture" loading="lazy" />
+              <span class="typology-num-pill">01 / CAMPUSES</span>
+            </div>
+            <div class="typology-body">
+              <div>
+                <h3 class="typology-title">Educational & Institutional</h3>
+                <p class="typology-desc">
+                  University master plans, CBSE/ICSE schools, polytechnic colleges, and academic clusters with optimized pedestrian spines and green spaces.
+                </p>
+              </div>
+              <a href="projects.html?category=engineering" class="typology-link">
+                <span>View 20+ Schools & Colleges</span>
+                <i class="fa-solid fa-arrow-right"></i>
               </a>
             </div>
+          </div>
 
-            <!-- Health / Public Places -->
-            <div class="sector-card">
-              <div class="icon">
-                <i class="fa-solid fa-hospital" style="font-size:40px;"></i>
-              </div>
-              <h3>Health / Public Places</h3>
-              <p>Multi Specialty Hospitals, Healthcare Institutions, Teerth Master Planning</p>
+          <!-- 02: Healthcare -->
+          <div class="typology-card typology-span-4">
+            <div class="typology-img-wrap">
+              <img src="images/CHANDRAYAN_MULTY_HOSPITAL-KAWARDHA.jpg" alt="Healthcare and Hospital Architecture" loading="lazy" />
+              <span class="typology-num-pill">02 / HEALTHCARE</span>
             </div>
-
-            <!-- Township and Farmhouses -->
-            <div class="sector-card">
-              <div class="icon">
-                <i class="fas fa-home" style="font-size:40px;"></i>
+            <div class="typology-body">
+              <div>
+                <h3 class="typology-title">Healthcare & Medi-Complex</h3>
+                <p class="typology-desc">
+                  NABH-compliant multi-specialty hospitals, medical colleges, clinical trauma centers, and diagnostic complexes engineered for medical flow.
+                </p>
               </div>
-              <h3>Township and Farmhouses</h3>
-              <p>Multi-storied Apartments, Mini & Major Townships, Independent Bungalows</p>
-            </div>
-
-            <!-- Industrial Projects -->
-            <div class="sector-card">
-              <div class="icon">
-                <i class="fa-solid fa-industry" style="font-size:40px;"></i>
-              </div>
-              <h3>Industrial Projects</h3>
-              <p>Industrial Plant, Factory Building, Wire Drawing Plant</p>
-            </div>
-
-            <!-- Urban Development -->
-            <div class="sector-card">
-              <div class="icon">
-                <i class="fa-solid fa-location-dot" style="font-size:40px;"></i>
-              </div>
-              <h3>Urban Development</h3>
-              <p>Urban Development Planning, Land Use, Land Development</p>
+              <a href="projects.html?category=medi" class="typology-link">
+                <span>View Hospital Projects</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
             </div>
           </div>
-        </div>
-      </section>
-    </section>
 
-    <!-- Team Section -->
-    <section class="team" id="team">
-      <div class="section-header">
-        <h2 class="section-heading">Our Team</h2>
-      </div>
-      <div class="cards-wrapper">
-        <!-- Card 1 -->
-        <div class="personcard">
-          <div class="card-img-wrapper">
-            <img src="images/team1.jpg" alt="Ar. Sachin Kothari, Principal Architect at K2 Architects" />
+          <!-- 03: Townships & High-Rises -->
+          <div class="typology-card typology-span-4">
+            <div class="typology-img-wrap">
+              <img src="images/KHAMGAON SHREERAM PLAZA .jpg" alt="Commercial & Residential Towers" loading="lazy" />
+              <span class="typology-num-pill">03 / TOWNSHIPS</span>
+            </div>
+            <div class="typology-body">
+              <div>
+                <h3 class="typology-title">Townships & Commercial Towers</h3>
+                <p class="typology-desc">
+                  High-density mixed-use complexes, retail hubs, commercial plazas, and master-planned residential townships across Central India.
+                </p>
+              </div>
+              <a href="projects.html?category=residential" class="typology-link">
+                <span>View Commercial & Towers</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
           </div>
-          <div class="card-info">
-            <h2>Ar. Sachin Kothari</h2>
-            <h4>Principal Architect</h4>
-          </div>
-        </div>
 
-        <!-- Card 2 -->
-        <div class="personcard">
-          <div class="card-img-wrapper">
-            <img src="images/team333pre2.png" alt="Ar. Riya Kothari, Landscape Architect at K2 Architects" />
+          <!-- 04: Luxury Bungalows & Farmhouses -->
+          <div class="typology-card typology-span-6">
+            <div class="typology-img-wrap">
+              <img src="images/LONAR BUNGALOW.jpg" alt="Luxury Residential Bungalow" loading="lazy" />
+              <span class="typology-num-pill">04 / RESIDENCES</span>
+            </div>
+            <div class="typology-body">
+              <div>
+                <h3 class="typology-title">Luxury Bungalows & Farmhouses</h3>
+                <p class="typology-desc">
+                  Bespoke private villas, serene country farmhouses, and contemporary family estates celebrating indoor-outdoor living, light, and natural textures.
+                </p>
+              </div>
+              <a href="projects.html?category=bungalow" class="typology-link">
+                <span>View Private Estates</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
           </div>
-          <div class="card-info">
-            <h2>Ar. Riya Kothari</h2>
-            <h4>Landscape Architect</h4>
-          </div>
-        </div>
 
-        <!-- Card 3 -->
-        <div class="personcard">
-          <div class="card-img-wrapper">
-            <img src="images/mem44.jpg" alt="Ar. Mustan, Studio Incharge at K2 Architects" />
+          <!-- 05: Hospitality & Banquets -->
+          <div class="typology-card typology-span-6">
+            <div class="typology-img-wrap">
+              <img src="images/hingoli tirupati nagar mangal karyalay.jpg" alt="Banquets and Hospitality" loading="lazy" />
+              <span class="typology-num-pill">05 / HOSPITALITY</span>
+            </div>
+            <div class="typology-body">
+              <div>
+                <h3 class="typology-title">Banquets, Hotels & Public Spaces</h3>
+                <p class="typology-desc">
+                  Grand celebratory banquet complexes, hotels, cultural auditoriums, and community gathering venues engineered for massive celebratory gatherings.
+                </p>
+              </div>
+              <a href="projects.html?category=banquets" class="typology-link">
+                <span>View Hospitality Projects</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
           </div>
-          <div class="card-info">
-            <h2>Ar. Mustan</h2>
-            <h4>Studio Incharge</h4>
-          </div>
-        </div>
 
-        <!-- Card 4 -->
-        <div class="personcard">
-          <div class="card-img-wrapper">
-            <img src="images/team22.png" alt="Er. Lata, Studio Incharge at K2 Architects" />
-          </div>
-          <div class="card-info">
-            <h2>Er. Lata</h2>
-            <h4>Studio Incharge</h4>
-          </div>
         </div>
       </div>
-      <div class="underline"></div>
     </section>
 
-    <!-- Clients Section -->
-    <section class="clients">
-      <h2 class="section-heading">Our Esteemed Clients</h2>
-      <div class="row">
-        <div class="client-logos-wrapper">
-          <div class="client-logos">
-            <div class="client-logo">
-              <img src="images/clg1.png" alt="Client 1 Logo" />
+    <!-- ======================================================================
+         FEATURED MASTERPIECES SHOWCASE (DARK CONTRAST SECTION)
+         ====================================================================== -->
+    <section class="featured-section" id="featured">
+      <div class="container">
+        <div class="featured-header">
+          <div>
+            <span class="section-label" style="background: rgba(184, 93, 56, 0.2); border-color: rgba(184, 93, 56, 0.4); color: var(--terracotta-200);">
+              <i class="fa-solid fa-star"></i>
+              03 / Selected Works
+            </span>
+            <h2 class="section-title featured-title">Featured Architectural Landmarks</h2>
+            <p class="featured-subtitle">Curated projects showcasing institutional mastery, urban scale, and structural elegance.</p>
+          </div>
+          <a href="projects.html" class="btn-pill btn-pill-primary">
+            <span>View All 57 Projects</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="featured-grid">
+
+          <!-- Project 1 -->
+          <div class="project-feature-card" style="grid-column: span 4;">
+            <div class="project-img-box">
+              <img src="images/DPS KATNI aerial.jpg" alt="DPS Katni Aerial View" loading="lazy" />
+              <span class="project-badge-tag">School Campus</span>
             </div>
-            <div class="client-logo">
-              <img src="images/clientdps.png" alt="Client DPS Logo" />
+            <div class="project-card-info">
+              <h3 class="project-card-heading">Delhi Public School</h3>
+              <div class="project-card-location">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Katni, Madhya Pradesh</span>
+              </div>
             </div>
-            <div class="client-logo">
-              <img src="images/client3.png" alt="Client 3 Logo" />
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-feature-card" style="grid-column: span 4;">
+            <div class="project-img-box">
+              <img src="images/MEDISHINE HEALTH CARE MULTISPECIALITY HOSP.jpg" alt="Medishine Multi Speciality Hospital" loading="lazy" />
+              <span class="project-badge-tag">Healthcare</span>
             </div>
-            <div class="client-logo">
-              <img src="images/client4-removebg.png" alt="Client 4 Logo" />
+            <div class="project-card-info">
+              <h3 class="project-card-heading">Medishine Multispeciality Hospital</h3>
+              <div class="project-card-location">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Raipur, Chhattisgarh</span>
+              </div>
             </div>
-            <div class="client-logo">
-              <img src="images/vidyanchal.png" alt="Vidyanchal Logo" />
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-feature-card" style="grid-column: span 4;">
+            <div class="project-img-box">
+              <img src="images/JANGIR TOWNSHIP.jpg" alt="Jangir Township" loading="lazy" />
+              <span class="project-badge-tag">Township</span>
             </div>
-            <div class="client-logo">
-              <img src="images/sanskarschool.png" alt="Sanskar School Logo" />
+            <div class="project-card-info">
+              <h3 class="project-card-heading">Jangir Integrated Township</h3>
+              <div class="project-card-location">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Chhattisgarh</span>
+              </div>
             </div>
-            <div class="client-logo">
-              <img src="images/happyfaces.png" alt="Happy Faces Logo" />
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         THE STUDIO & DUAL LEADERSHIP PROFILE
+         ====================================================================== -->
+    <section class="studio-section" id="studio">
+      <div class="container">
+        <div style="text-align: center; max-width: 740px; margin-inline: auto;">
+          <span class="section-label">
+            <i class="fa-solid fa-users"></i>
+            04 / Leadership & Studio
+          </span>
+          <h2 class="section-title">The Minds Behind K2 Architects</h2>
+          <p class="section-subtitle" style="margin-inline: auto;">
+            A synergistic leadership pairing twenty-five years of structural mastery with innovative landscape ecology.
+          </p>
+        </div>
+
+        <div class="leadership-grid">
+
+          <!-- Principal Architect: Sachin Kothari -->
+          <div class="leader-card">
+            <div class="leader-header-row">
+              <div class="leader-avatar">
+                <img src="images/team1.jpg" alt="Ar. Sachin Kothari, Principal Architect" />
+              </div>
+              <div class="leader-meta">
+                <h3>Ar. Sachin Kothari</h3>
+                <div class="leader-role">Principal Architect & Founder</div>
+                <div style="font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem;">Council of Architecture Regd.</div>
+              </div>
             </div>
-            <div class="client-logo">
-              <img src="images/jindalschool.jpg" alt="Jindal School Logo" />
+            <div class="leader-body">
+              <p class="leader-bio">
+                With a career spanning over a quarter-century, Ar. Sachin Kothari has directed the master planning and structural realization of over 450 major institutional, healthcare, and urban developments across India. His philosophy combines structural economy, bold geometric clarity, and operational functionality.
+              </p>
+              <div class="leader-focus-list">
+                <span class="focus-pill">Campus Master Planning</span>
+                <span class="focus-pill">Institutional Architecture</span>
+                <span class="focus-pill">Healthcare Design</span>
+                <span class="focus-pill">High-Density Towers</span>
+              </div>
             </div>
-            <div class="client-logo">
-              <img src="images/yugantarschool.png" alt="Yugantar School Logo" />
+          </div>
+
+          <!-- Landscape Architect: Riya Kothari -->
+          <div class="leader-card">
+            <div class="leader-header-row">
+              <div class="leader-avatar">
+                <img src="images/team333pre2.png" alt="Ar. Riya Kothari, Landscape Architect" />
+              </div>
+              <div class="leader-meta">
+                <h3>Ar. Riya Kothari</h3>
+                <div class="leader-role">Landscape Architect & Partner</div>
+                <div style="font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem;">Landscape Specialist</div>
+              </div>
             </div>
+            <div class="leader-body">
+              <p class="leader-bio">
+                Specializing in environmental design, Ar. Riya Kothari spearheads the firm's biophilic and landscape ecology initiatives. Her work transforms institutional campuses, townships, and private estates into self-sustaining ecosystems featuring water retention, native micro-forests, and therapeutic outdoor realms.
+              </p>
+              <div class="leader-focus-list">
+                <span class="focus-pill">Landscape Ecology</span>
+                <span class="focus-pill">Biophilic Design</span>
+                <span class="focus-pill">Sustainable Micro-Climates</span>
+                <span class="focus-pill">Botanical Integration</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         21st.dev CALL TO ACTION / INQUIRY BANNER
+         ====================================================================== -->
+    <section class="cta-banner-section">
+      <div class="container">
+        <div class="cta-bento-card">
+          <div class="cta-text-wrap">
+            <span class="font-mono text-terracotta" style="font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;">
+              LET'S SHAPE YOUR VISION
+            </span>
+            <h2 class="cta-heading">
+              Ready to Design an <span class="serif-italic">Enduring Landmark</span>?
+            </h2>
+            <p class="cta-desc">
+              Whether you are planning a multi-acre educational campus, a state-of-the-art hospital, or a landmark township, our studio is ready to collaborate.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a href="contactus.html" class="btn-pill btn-pill-primary" style="padding: 0.85rem 1.75rem; font-size: var(--text-base);">
+              <span>Initiate Consultation</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="tel:9422101718" class="btn-pill btn-pill-outline" style="border-color: rgba(255,255,255,0.2); color: #FFFFFF; background: rgba(255,255,255,0.06);">
+              <i class="fa-solid fa-phone"></i>
+              <span>+91 9422101718</span>
+            </a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-content">
-      <p class="copyright">
-        &copy; 2022 K2 Architects - All Rights Reserved<br>
-        9422101718 | <a href="mailto:ar8880@gmail.com">ar8880@gmail.com</a><br>
-        101, Ozone Apartment, Puranik Layout, Bharat Nagar, Amravati Road, Nagpur
-      </p>
+  <!-- ========================================================================
+       MODERN ARCHITECTURAL FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+
+        <div class="footer-col-main">
+          <div class="footer-brand">
+            <img src="images/logo1.png" alt="K2 Logo" style="width: 32px; height: 32px;" />
+            <span>K2 ARCHITECTS</span>
+          </div>
+          <p class="footer-about">
+            Premier architectural, engineering, and landscape ecology consultancy. Shaping sustainable, human-centric built environments across Central India since 1999.
+          </p>
+          <div class="font-mono" style="font-size: var(--text-xs); color: var(--text-muted);">
+            EST. 1999 • 450+ PROJECTS • 7 STATES
+          </div>
+        </div>
+
+        <div class="footer-col-nav">
+          <h4>Disciplines</h4>
+          <ul class="footer-links-list">
+            <li><a href="projects.html?category=engineering">Institutional Campuses</a></li>
+            <li><a href="projects.html?category=medi">Healthcare & Hospitals</a></li>
+            <li><a href="projects.html?category=residential">Townships & Commercial</a></li>
+            <li><a href="projects.html?category=bungalow">Luxury Bungalows</a></li>
+            <li><a href="projects.html?category=banquets">Hospitality & Banquets</a></li>
+            <li><a href="projects.html?category=hostel">Public Buildings & Hostels</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col-contact">
+          <h4>Head Studio</h4>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>101, Ozone Apartment, Puranik Layout, Bharat Nagar, Amravati Road, Nagpur, Maharashtra - 440033</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <span>+91 9422101718</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:ar8880@gmail.com" style="color: inherit;">ar8880@gmail.com</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom-row">
+        <div>
+          &copy; 2026 K2 Architects. All rights reserved. Registered with Council of Architecture.
+        </div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="projects.html">Portfolio Index</a>
+          <a href="contactus.html">Contact Us</a>
+          <a href="#hero">Back to Top ↑</a>
+        </div>
+      </div>
     </div>
   </footer>
 
-  <!-- Scroll to Top Button -->
-  <a href="#" class="scroll-btn" aria-label="Scroll back to top">
-    <i class="fas fa-arrow-up"></i>
-  </a>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-
-  <!-- jQuery (optional) -->
-  <script 
-    src="https://code.jquery.com/jquery-3.5.1.js" 
-    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" 
-    crossorigin="anonymous">
-  </script>
-
-  <!-- Tilt.js -->
-  <script src="js/vendor/tilt.js"></script>
-
-  <!-- Main Scripts -->
-  <script src="js/main.js" defer></script>
+  <!-- Main JavaScript -->
+  <script src="js/main.js"></script>
 </body>
 </html>

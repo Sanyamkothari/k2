@@ -1,73 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | K2 Architects</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/contact.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Studio | K2 Architects</title>
+  <meta name="description" content="Initiate a consultation with K2 Architects for institutional campuses, healthcare facilities, townships, and landscape master planning." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo1.png" />
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/contact.css?v=7.0" />
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
-        <div class="container-fluid">
-          <a class="navbar-brand" style="margin-left:0px;" href="index.html">
-            <img src="images/logo1.png" width="70" height="70" alt="">
-          </a>
-          <button class="navbar-toggler" id="burger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="index.html#about-us">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="index.html#team">Team</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="projects.html">Projects</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="contactus.html">Contact Us</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+  <!-- Floating Glass Navbar -->
+  <header class="nav-wrapper">
+    <nav class="nav-pill" id="navbar" aria-label="Main Navigation">
+      <a href="index.html" class="brand-link">
+        <img src="images/logo1.png" alt="K2 Architects Logo" class="brand-logo-img" />
+        <span class="brand-name">
+          K2 ARCHITECTS
+          <span class="brand-tag">SINCE 1999</span>
+        </span>
+      </a>
 
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>We would love to hear from you! Here’s how you can reach us:</p>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link-item">Home</a></li>
+        <li><a href="index.html#philosophy" class="nav-link-item">Philosophy</a></li>
+        <li><a href="index.html#typologies" class="nav-link-item">Typologies</a></li>
+        <li><a href="index.html#featured" class="nav-link-item">Featured</a></li>
+        <li><a href="index.html#studio" class="nav-link-item">The Studio</a></li>
+        <li><a href="projects.html" class="nav-link-item">Portfolio</a></li>
+      </ul>
 
-        <div id="contact-info">
-            <h3>Contact Information</h3>
-            <p><strong>Phone:</strong> 9422101718</p>
-            <p><strong>Email:</strong> <a href="mailto:ar8880@gmail.com">ar8880@gmail.com</a></p>
-            <p><strong>Address:</strong> 101, Ozone Apartment, Puranik Layout, Bharat Nagar, Amravati Road, Nagpur</p>
-            <a href="mailto:ar8880@gmail.com" class="cta-button">Get in Touch</a>
-        </div>
+      <div class="nav-actions">
+        <a href="contactus.html" class="btn-pill btn-pill-primary">
+          <span>Start a Project</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <button class="burger-btn" id="mobile-toggle" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
 
-        <h3>Our Location</h3>
-        <iframe
-            id="map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.0878375730654!2d79.0476678!3d21.1489024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c1c732727e2f%3A0x8d2d17482f9ef606!2sOzone%20Apartments!5e0!3m2!1sen!2sin!4v1729431073089!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-drawer" id="mobile-drawer" role="dialog" aria-modal="true">
+    <div class="mobile-drawer-content">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+        <span class="brand-name">K2 ARCHITECTS</span>
+        <button id="mobile-close" aria-label="Close menu" style="font-size: 1.25rem;"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="index.html#philosophy" class="mobile-nav-link">Philosophy</a>
+      <a href="index.html#typologies" class="mobile-nav-link">Typologies</a>
+      <a href="index.html#featured" class="mobile-nav-link">Featured Projects</a>
+      <a href="index.html#studio" class="mobile-nav-link">The Studio</a>
+      <a href="projects.html" class="mobile-nav-link">Full Portfolio (69 Projects)</a>
+      <a href="contactus.html" class="btn-pill btn-pill-primary" style="justify-content: center; margin-top: 1rem;">
+        Start a Project <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- Contact Hero Header -->
+    <section class="contact-hero">
+      <div class="container">
+        <span class="section-label">
+          <i class="fa-solid fa-envelope-open-text"></i>
+          Connect & Consult
+        </span>
+        <h1 class="section-title">Initiate an Architectural Dialogue</h1>
+        <p class="section-subtitle" style="margin-inline: auto;">
+          Whether you are an institution embarking on a new campus or a private client developing a bespoke residence, our partners are ready to discuss your vision.
+        </p>
+      </div>
     </section>
 
-    <footer>
-        <div>
-            <p>&copy; 2024 K2 Architects. All rights reserved.</p>
-            <p>9422101718 | <a href="mailto:ar8880@gmail.com">ar8880@gmail.com</a></p>
-        </div>
-    </footer>
+    <!-- Bento Contact Section -->
+    <section class="container">
+      <div class="contact-bento-grid">
 
-    <script src="js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Left: Project Inquiry Form -->
+        <div class="contact-form-bento">
+          <h2 style="font-size: var(--text-2xl); font-weight: 800; margin-bottom: 0.5rem;">Project Inquiry Form</h2>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: 2rem;">
+            Provide brief project parameters and our principal studio team will connect within 24 business hours.
+          </p>
+
+          <form onsubmit="event.preventDefault(); alert('Thank you for reaching out to K2 Architects. Our studio will review your project requirements and contact you shortly.');">
+            <div class="form-group-grid">
+              <div class="form-field">
+                <label class="form-label" for="client-name">Your Name / Organisation *</label>
+                <input type="text" id="client-name" class="form-input" placeholder="e.g. DPS Society / Dr. A. Sharma" required />
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="client-email">Email Address *</label>
+                <input type="email" id="client-email" class="form-input" placeholder="name@organisation.com" required />
+              </div>
+            </div>
+
+            <div class="form-group-grid">
+              <div class="form-field">
+                <label class="form-label" for="client-phone">Phone / WhatsApp *</label>
+                <input type="tel" id="client-phone" class="form-input" placeholder="+91 98765 43210" required />
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="project-type">Project Typology *</label>
+                <select id="project-type" class="form-select" required>
+                  <option value="" disabled selected>Select Typology</option>
+                  <option value="school">Educational / School Campus</option>
+                  <option value="college">University / College Master Plan</option>
+                  <option value="hospital">Healthcare & Multi-Specialty Hospital</option>
+                  <option value="township">Integrated Township / Commercial</option>
+                  <option value="bungalow">Bespoke Bungalow / Farmhouse</option>
+                  <option value="banquet">Banquets & Public Facilities</option>
+                  <option value="landscape">Landscape Ecology & Master Planning</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group-grid">
+              <div class="form-field">
+                <label class="form-label" for="project-loc">Project Location (City & State)</label>
+                <input type="text" id="project-loc" class="form-input" placeholder="e.g. Raipur (C.G.) or Nagpur (M.S.)" />
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="project-area">Estimated Plot / Built-Up Area</label>
+                <input type="text" id="project-area" class="form-input" placeholder="e.g. 5 Acres / 50,000 Sq. Ft." />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="project-msg">Brief Project Scope & Requirements</label>
+              <textarea id="project-msg" class="form-textarea" placeholder="Describe the site context, timeline, or key objectives..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-pill btn-pill-primary" style="padding: 0.85rem 2rem; font-size: var(--text-base); justify-content: center; width: 100%;">
+              <span>Submit Architectural Inquiry</span>
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Right: Studio Details & Map -->
+        <div class="contact-info-bento">
+          <div class="studio-card-box">
+            <h3>
+              <i class="fa-solid fa-building-columns text-terracotta"></i>
+              Head Studio Office
+            </h3>
+
+            <div class="contact-row-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>
+                <strong>K2 Architects</strong><br>
+                101, Ozone Apartment, Puranik Layout,<br>
+                Bharat Nagar, Amravati Road,<br>
+                Nagpur, Maharashtra - 440033
+              </span>
+            </div>
+
+            <div class="contact-row-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>
+                <strong>Direct Studio Line:</strong><br>
+                <a href="tel:9422101718" style="color: var(--terracotta-500); font-weight: 600;">+91 9422101718</a>
+              </span>
+            </div>
+
+            <div class="contact-row-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>
+                <strong>Principal Email:</strong><br>
+                <a href="mailto:ar8880@gmail.com" style="color: var(--terracotta-500); font-weight: 600;">ar8880@gmail.com</a>
+              </span>
+            </div>
+
+            <div class="contact-row-item">
+              <i class="fa-solid fa-clock"></i>
+              <span>
+                <strong>Studio Hours:</strong><br>
+                Monday &ndash; Saturday: 10:00 AM &ndash; 7:30 PM<br>
+                Sunday: By Prior Appointment
+              </span>
+            </div>
+          </div>
+
+          <!-- Embedded Map -->
+          <div class="map-container-box">
+            <iframe
+              title="K2 Architects Studio Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.0878375730654!2d79.0476678!3d21.1489024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c1c732727e2f%3A0x8d2d17482f9ef606!2sOzone%20Apartments!5e0!3m2!1sen!2sin!4v1729431073089!5m2!1sen!2sin"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Modern Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom-row" style="border-top: none; padding-top: 0;">
+        <div>
+          &copy; 2026 K2 Architects. All rights reserved. Registered with Council of Architecture.
+        </div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Portfolio</a>
+          <a href="#navbar">Back to Top ↑</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
