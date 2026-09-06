@@ -1,0 +1,60 @@
+---
+import { nav, site } from '../lib/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="footer container-x">
+  <div class="footer__top">
+    <p class="footer__word display-4xl" aria-hidden="true">K2 Architects</p>
+  </div>
+  <div class="footer__cols">
+    <div class="footer__col">
+      <p class="label muted">Studio</p>
+      <address>
+        {site.address.line1}<br />
+        {site.address.line2}<br />
+        {site.address.line3}
+      </address>
+      <a class="link" href={site.mapLink} target="_blank" rel="noopener">Open in Maps <span class="arrow">→</span></a>
+    </div>
+    <div class="footer__col">
+      <p class="label muted">Contact</p>
+      <a class="link" href={`tel:+91${site.phone}`}>{site.phoneDisplay}</a><br />
+      <a class="link" href={`mailto:${site.email}`}>{site.email}</a>
+      <p class="muted">{site.hours}</p>
+    </div>
+    <div class="footer__col">
+      <p class="label muted">Index</p>
+      <ul>
+        {nav.map((n) => <li><a class="link" href={n.href}>{n.label}</a></li>)}
+        <li><a class="link" href="/styleguide">Style guide</a></li>
+      </ul>
+    </div>
+    <div class="footer__col footer__col--meta">
+      <p class="label muted">Since {site.since}</p>
+      <p>Ar. Sachin Kothari, Principal Architect<br />Ar. Riya Kothari, Landscape Architect</p>
+      <p class="muted tnum">© {year} K2 Architects. Nagpur.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer { padding-block: var(--section-sm) 2rem; border-top: 1px solid var(--color-rule); }
+  .footer__word { margin: 0 0 var(--section-sm) -0.03em; color: var(--color-ink); }
+  .footer__cols {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem var(--gutter);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-rule);
+    font-size: var(--text-sm);
+    line-height: 1.55;
+  }
+  @media (min-width: 64rem) { .footer__cols { grid-template-columns: 3fr 3fr 2fr 4fr; } }
+  .footer__col > * + * { margin-top: 0.5rem; }
+  .footer__col .label { margin-bottom: 1rem; }
+  address { font-style: normal; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li + li { margin-top: 0.25rem; }
+  .footer__col--meta { justify-self: stretch; }
+</style>

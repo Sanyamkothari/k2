@@ -1,0 +1,117 @@
+---
+import { nav, site } from '../lib/site';
+interface Props { transparent?: boolean }
+const { transparent = false } = Astro.props;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header class:list={['nav', { 'nav--over': transparent }]} id="site-nav" data-transparent={transparent ? 'true' : 'false'}>
+  <div class="nav__bar container-x">
+    <a href="/" class="nav__brand" aria-label={`${site.name} — home`}>
+      <img src="/brand/mark-ink.png" alt="" width="40" height="32" class="mark mark--ink" />
+      <img src="/brand/mark-white.png" alt="" width="40" height="32" class="mark mark--white" />
+      <span class="wordmark">K2 Architects</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      {nav.map((item) => (
+        <a href={item.href} class="link" aria-current={item.href === path ? 'page' : undefined}>{item.label}</a>
+      ))}
+    </nav>
+    <button class="nav__toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+      <span class="nav__toggle-line"></span>
+      <span class="nav__toggle-line"></span>
+    </button>
+  </div>
+</header>
+
+<div class="menu" id="nav-menu" hidden>
+  <nav class="menu__inner container-x" aria-label="Mobile">
+    <ol class="menu__list">
+      {nav.map((item, i) => (
+        <li style={`--i:${i}`}>
+          <a href={item.href} class="menu__link" aria-current={item.href === path ? 'page' : undefined}>
+            <span class="menu__idx tnum">0{i + 1}</span>
+            <span class="menu__label">{item.label}</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+    <div class="menu__meta">
+      <a href={`tel:+91${site.phone}`} class="link">{site.phoneDisplay}</a>
+      <a href={`mailto:${site.email}`} class="link">{site.email}</a>
+      <p class="muted">{site.address.line1}, {site.address.line2}, {site.address.line3}</p>
+    </div>
+  </nav>
+</div>
+
+<style>
+  .nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 60;
+    color: var(--color-ink);
+    transition: background-color 400ms var(--ease), color 400ms var(--ease), border-color 400ms var(--ease), transform 500ms var(--ease);
+    border-bottom: 1px solid transparent;
+  }
+  .nav--over { color: #fff; }
+  .nav.is-solid {
+    color: var(--color-ink);
+    background: color-mix(in srgb, var(--color-paper) 82%, transparent);
+    backdrop-filter: blur(14px) saturate(1.2);
+    -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    border-bottom-color: var(--color-rule);
+  }
+  .nav.is-hidden { transform: translateY(-100%); }
+  .nav.is-hidden:focus-within { transform: none; }
+  .nav__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4.5rem;
+  }
+  .nav__brand { display: inline-flex; align-items: center; gap: 0.75rem; }
+  .mark { width: 40px; height: 32px; object-fit: contain; }
+  .mark--white { display: none; }
+  .nav--over:not(.is-solid) .mark--white { display: block; }
+  .nav--over:not(.is-solid) .mark--ink { display: none; }
+  .wordmark { font-family: var(--font-sans); font-size: var(--text-sm); font-weight: 500; letter-spacing: -0.01em; }
+  .nav__links { display: none; gap: 2.25rem; font-size: var(--text-sm); font-weight: 500; }
+
+  .nav__toggle {
+    display: grid;
+    gap: 6px;
+    width: 40px;
+    height: 40px;
+    place-content: center;
+    margin-right: -8px;
+  }
+  @media (min-width: 48rem) { .nav__links { display: flex; } .nav__toggle { display: none; } }
+  .nav__toggle-line { display: block; width: 22px; height: 1.5px; background: currentColor; transition: transform 300ms var(--ease); }
+  .nav__toggle[aria-expanded='true'] .nav__toggle-line:first-child { transform: translateY(3.75px) rotate(45deg); }
+  .nav__toggle[aria-expanded='true'] .nav__toggle-line:last-child { transform: translateY(-3.75px) rotate(-45deg); }
+  body.menu-open .nav { color: var(--color-ink); }
+  body.menu-open .nav .mark--white { display: none; }
+  body.menu-open .nav .mark--ink { display: block; }
+
+  .menu {
+    position: fixed;
+    inset: 0;
+    z-index: 55;
+    background: var(--color-paper);
+    display: grid;
+    align-content: end;
+    padding-bottom: 2.5rem;
+    opacity: 0;
+    transition: opacity 400ms var(--ease);
+  }
+  .menu.is-open { opacity: 1; }
+  .menu__list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--color-rule); }
+  .menu__list li { border-bottom: 1px solid var(--color-rule); transform: translateY(1rem); opacity: 0; transition: transform 700ms var(--ease), opacity 700ms var(--ease); transition-delay: calc(80ms + var(--i) * 60ms); }
+  .menu.is-open li { transform: none; opacity: 1; }
+  .menu__link { display: flex; align-items: baseline; gap: 1.25rem; padding: 1.1rem 0; }
+  .menu__idx { font-size: var(--text-2xs); letter-spacing: var(--tracking-label); color: var(--color-ink-2); }
+  .menu__label { font-family: var(--font-display); font-size: clamp(2.5rem, 11vw, 4.5rem); line-height: 1; letter-spacing: -0.025em; }
+  .menu__link[aria-current='page'] .menu__label { text-decoration: underline; text-decoration-color: var(--color-accent); text-underline-offset: 0.12em; text-decoration-thickness: 2px; }
+  .menu__meta { display: grid; gap: 0.35rem; margin-top: 2rem; font-size: var(--text-sm); }
+  @media (min-width: 48rem) { .menu { display: none; } }
+</style>

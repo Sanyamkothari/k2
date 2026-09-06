@@ -1,0 +1,31 @@
+---
+import SectionHead from '../SectionHead.astro';
+import { rendition } from '../../lib/images';
+import { team } from '../../lib/site';
+const people = team.map((m) => ({ ...m, img: rendition(m.image, { widths: [480, 800], sizes: '(min-width: 48rem) 22vw, 45vw' }) }));
+---
+
+<section class="team container-x" aria-labelledby="team-title">
+  <SectionHead index="03" title="People" />
+  <ul class="team__grid" data-reveal-group>
+    {people.map((m) => (
+      <li class="person">
+        <figure class="figure ratio-portrait person__fig">
+          <img src={m.img.src} srcset={m.img.srcset} sizes={m.img.sizes} width={m.img.width} height={m.img.height} alt={`${m.name}, ${m.role}`} loading="lazy" decoding="async" />
+        </figure>
+        <p class="person__name">{m.name}</p>
+        <p class="label muted">{m.role}</p>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .team { padding-top: var(--section); }
+  .team__grid { list-style: none; margin: clamp(2rem, 5vw, 4rem) 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem var(--gutter); }
+  @media (min-width: 48rem) { .team__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } .person:nth-child(even) { margin-top: 3rem; } }
+  .person__fig img { object-position: center top; filter: grayscale(1) contrast(1.04) sepia(0.06); transition: filter 500ms var(--ease), transform var(--dur-slow) var(--ease); }
+  .person:hover .person__fig img { filter: grayscale(0) contrast(1.04) saturate(0.9) sepia(0.06); }
+  .person__name { margin-top: 0.9rem; font-size: var(--text-base); }
+  .person .label { margin-top: 0.2rem; }
+</style>

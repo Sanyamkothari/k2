@@ -1,0 +1,85 @@
+/* Works page: filters, grid, index table, hover preview, gallery. Global because the island is React. */
+.works-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  border-top: 1px solid var(--color-rule);
+  border-bottom: 1px solid var(--color-rule);
+  padding-block: 0.75rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+.filters { min-width: 0; flex: 1 1 auto; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; margin-inline: calc(-1 * var(--margin-x)); padding-inline: var(--margin-x); }
+.filters::-webkit-scrollbar { display: none; }
+@media (max-width: 63.99rem) { .filters { mask-image: linear-gradient(to right, #000 calc(100% - 3rem), transparent); } }
+@media (min-width: 64rem) { .filters { margin-inline: 0; padding-inline: 0; overflow: visible; } .filters__list { flex-wrap: wrap; white-space: normal; row-gap: 0; } }
+.filters__list { display: flex; gap: 0.25rem 1.75rem; list-style: none; margin: 0; padding: 0; white-space: nowrap; }
+.filter {
+  display: inline-flex; align-items: baseline; gap: 0.25rem;
+  font-size: var(--text-sm); font-weight: 500; padding-block: 0.4rem;
+  text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 0.35em; text-decoration-thickness: 1px;
+  transition: text-decoration-color var(--dur-hover) var(--ease), color var(--dur-hover) var(--ease);
+  color: var(--color-ink-2);
+}
+.filter:hover { color: var(--color-ink); }
+.filter.is-active { color: var(--color-ink); text-decoration-color: var(--color-accent); }
+.filter__count { font-size: 0.6rem; letter-spacing: 0.04em; color: var(--color-ink-2); margin-left: 0.15rem; }
+.view-toggle { display: flex; gap: 0.6rem; font-size: var(--text-sm); font-weight: 500; flex: 0 0 auto; }
+.toggle { color: var(--color-ink-2); padding-block: 0.4rem; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 0.35em; text-decoration-thickness: 1px; transition: color var(--dur-hover) var(--ease), text-decoration-color var(--dur-hover) var(--ease); }
+.toggle:hover { color: var(--color-ink); }
+.toggle.is-active { color: var(--color-ink); text-decoration-color: var(--color-accent); }
+.toggle-sep { color: var(--color-rule-2); }
+
+/* Grid */
+.wgrid { list-style: none; margin: clamp(2.5rem, 5vw, 4rem) 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(2rem, 4vw, 3.5rem) var(--gutter); align-items: start; }
+@media (min-width: 40rem) { .wcell--wide { grid-column: span 2; } }
+@media (min-width: 64rem) { .wgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 39.99rem) { .wgrid { grid-template-columns: 1fr; } }
+.wcard { display: block; }
+.wcard__meta { display: flex; flex-direction: column; gap: 0.3rem; padding-top: 0.8rem; }
+.wcard__title { font-family: var(--font-display); font-size: var(--text-lg); line-height: 1.1; letter-spacing: -0.01em; }
+.wcard:hover .wcard__title { text-decoration: underline; text-decoration-color: var(--color-accent); text-underline-offset: 0.12em; text-decoration-thickness: 1px; }
+
+/* Index */
+.windex-wrap { position: relative; margin-top: clamp(1.5rem, 3vw, 2.5rem); overflow-x: auto; }
+.windex { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
+.windex th { text-align: left; font-weight: 500; padding: 0.75rem 1.5rem 0.75rem 0; border-bottom: 1px solid var(--color-rule); }
+.windex td { padding: 1rem 1.5rem 1rem 0; border-bottom: 1px solid var(--color-rule); vertical-align: baseline; }
+.windex tr:hover td { color: var(--color-ink); }
+.windex__title { font-family: var(--font-display); font-size: var(--text-xl); line-height: 1.05; letter-spacing: -0.015em; display: inline-block; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 0.12em; text-decoration-thickness: 1px; transition: text-decoration-color var(--dur-hover) var(--ease); }
+tr:hover .windex__title, .windex__title:focus-visible { text-decoration-color: var(--color-accent); }
+.windex__n { text-align: right; padding-right: 0 !important; white-space: nowrap; }
+@media (max-width: 47.99rem) { .windex th:nth-child(2), .windex td:nth-child(2) { display: none; } }
+
+/* Floating preview (shared with the sector list) */
+.hover-preview {
+  position: fixed; left: 0; top: 0;
+  width: clamp(14rem, 22vw, 22rem); aspect-ratio: 4 / 3;
+  pointer-events: none; z-index: 40; opacity: 0;
+  transition: opacity var(--dur-hover) var(--ease);
+}
+.hover-preview.is-on { opacity: 1; }
+.hover-preview img { width: 100%; height: 100%; object-fit: cover; }
+@media (hover: none), (max-width: 63.99rem) { .hover-preview { display: none; } }
+
+/* Gallery */
+.gallery {
+  position: fixed; inset: 0; z-index: 90;
+  background: var(--color-paper);
+  display: grid; grid-template-rows: auto 1fr auto;
+  padding: 1rem var(--margin-x) 1.25rem;
+}
+.gallery__bar, .gallery__foot { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+.gallery__bar { height: 2.5rem; align-items: center; }
+.gallery__close { font-size: var(--text-sm); font-weight: 500; display: inline-flex; gap: 0.5rem; align-items: center; padding: 0.4rem 0; }
+.gallery__close:hover { text-decoration: underline; text-decoration-color: var(--color-accent); text-underline-offset: 0.3em; }
+.gallery__stage { position: relative; display: grid; place-items: center; min-height: 0; touch-action: pan-y; user-select: none; overflow: hidden; }
+.gallery__img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; filter: contrast(1.04) saturate(0.9) sepia(0.06); grid-area: 1 / 1; }
+.gallery__foot { padding-top: 1rem; border-top: 1px solid var(--color-rule); }
+.gallery__caption { display: flex; flex-direction: column; gap: 0.25rem; min-width: 0; }
+.gallery__title { font-family: var(--font-display); font-size: var(--text-xl); line-height: 1.05; letter-spacing: -0.015em; }
+.gallery__nav { display: flex; gap: 0.5rem; flex: 0 0 auto; }
+.gallery__nav button { width: 2.75rem; height: 2.75rem; border: 1px solid var(--color-ink); display: grid; place-items: center; font-size: var(--text-lg); transition: background var(--dur-hover) var(--ease), color var(--dur-hover) var(--ease); }
+.gallery__nav button:hover { background: var(--color-ink); color: var(--color-paper); }
+@media (max-width: 47.99rem) { .gallery { padding-top: 0.5rem; } .gallery__foot { flex-wrap: wrap; } }

@@ -1,0 +1,167 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../lib/site';
+import { SECTORS, CATEGORY_ORDER } from '../lib/projects';
+import { FORMSPREE_ID } from '../lib/site.config.js';
+const action = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '';
+const contactPoint = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact K2 Architects',
+  url: new URL('/contact', Astro.site).toString(),
+};
+---
+
+<Base title="Contact" description="Talk to K2 Architects about a school, hospital, campus or township. Phone, email and studio address in Nagpur, Maharashtra." jsonLd={[contactPoint]}>
+  <section class="contact container-x">
+    <div class="contact__grid">
+      <div class="contact__left">
+        <h1 class="display-hero contact__title" data-split>Let's talk.</h1>
+        <dl class="contact__list" data-reveal data-delay="0.2">
+          <div>
+            <dt class="label muted">Phone</dt>
+            <dd><a class="link contact__big" href={`tel:+91${site.phone}`}>{site.phoneDisplay}</a></dd>
+          </div>
+          <div>
+            <dt class="label muted">Email</dt>
+            <dd><a class="link contact__big" href={`mailto:${site.email}`}>{site.email}</a></dd>
+          </div>
+          <div>
+            <dt class="label muted">Studio</dt>
+            <dd>
+              <a class="link" href={site.mapLink} target="_blank" rel="noopener">
+                {site.address.line1}, {site.address.line2},<br />{site.address.line3}
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt class="label muted">Hours</dt>
+            <dd>{site.hours}</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="contact__right" data-reveal data-delay="0.3">
+        <form class="form" id="contact-form" method="POST" action={action || undefined} data-mode={action ? 'post' : 'mailto'} data-email={site.email} novalidate>
+          <p class="form__intro muted">A few lines is enough. We reply within two working days.</p>
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="f-org">Organisation</label>
+            <input id="f-org" name="organisation" type="text" autocomplete="organization" />
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div class="field">
+            <label for="f-type">Project type</label>
+            <select id="f-type" name="project_type" required>
+              <option value="" disabled selected>Choose a sector</option>
+              {CATEGORY_ORDER.map((k) => <option value={SECTORS[k]}>{SECTORS[k]}</option>)}
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-msg">Message</label>
+            <textarea id="f-msg" name="message" rows="5" required></textarea>
+          </div>
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="sr-only" aria-hidden="true" />
+          <div class="form__foot">
+            <button type="submit" class="btn-primary">Send message <span class="arrow">→</span></button>
+            <p class="form__status muted" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="map" data-reveal>
+      <iframe
+        src={site.mapEmbed}
+        title="Map showing the K2 Architects studio at Ozone Apartments, Amravati Road, Nagpur"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+      ></iframe>
+      <p class="label muted map__cap">Ozone Apartments, Amravati Road, Nagpur · <a class="link" href={site.mapLink} target="_blank" rel="noopener">Directions</a></p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .contact { padding-top: clamp(7rem, 16vw, 12rem); padding-bottom: var(--section); }
+  .contact__grid { display: grid; grid-template-columns: 1fr; gap: 4rem var(--gutter); }
+  @media (min-width: 64rem) { .contact__grid { grid-template-columns: 6fr 1fr 5fr; } .contact__right { grid-column: 3; } }
+  .contact__title { margin-left: -0.04em; }
+  .contact__list { display: grid; gap: 1.75rem; margin: clamp(2.5rem, 5vw, 4rem) 0 0; padding-top: 1.5rem; border-top: 1px solid var(--color-rule); }
+  .contact__list dt { margin-bottom: 0.35rem; }
+  .contact__list dd { margin: 0; line-height: 1.5; }
+  .contact__big { font-family: var(--font-display); font-size: var(--text-xl); line-height: 1.1; letter-spacing: -0.015em; }
+
+  .form { display: grid; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--color-rule); }
+  @media (min-width: 64rem) { .form { padding-top: 0; border-top: 0; margin-top: 0.75rem; } }
+  .form__intro { font-size: var(--text-sm); }
+  .field { display: grid; gap: 0.4rem; }
+  .field label { font-size: var(--text-2xs); letter-spacing: var(--tracking-label); text-transform: uppercase; font-weight: 500; color: var(--color-ink-2); }
+  .field input, .field select, .field textarea {
+    width: 100%; box-sizing: border-box;
+    font: inherit; color: var(--color-ink);
+    background: transparent; border: 0; border-bottom: 1px solid var(--color-rule-2); border-radius: 0;
+    padding: 0.6rem 0; transition: border-color var(--dur-hover) var(--ease);
+  }
+  .field select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' fill='none' stroke='%23111' stroke-width='1.25'/></svg>"); background-repeat: no-repeat; background-position: right 0 center; padding-right: 1.5rem; }
+  .field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline: none; border-bottom-color: var(--color-accent); }
+  .field textarea { resize: vertical; min-height: 7rem; }
+  .field input[aria-invalid='true'], .field select[aria-invalid='true'], .field textarea[aria-invalid='true'] { border-bottom-color: #a13a2b; }
+  .form__foot { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 0.5rem; }
+  .form__status { font-size: var(--text-sm); }
+
+  .map { margin-top: var(--section); }
+  .map iframe { display: block; width: 100%; aspect-ratio: 16 / 7; min-height: 320px; border: 1px solid var(--color-rule); filter: grayscale(1) contrast(0.95) sepia(0.08); transition: filter 500ms var(--ease); }
+  .map:hover iframe { filter: grayscale(0.4) contrast(0.98) sepia(0.04); }
+  .map__cap { margin-top: 0.75rem; }
+</style>
+
+<script>
+  function initForm() {
+    const form = document.getElementById('contact-form') as HTMLFormElement | null;
+    if (!form || form.dataset.bound) return;
+    form.dataset.bound = '1';
+    const status = form.querySelector('.form__status') as HTMLElement;
+    const fields = () => Array.from(form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('input[required], select[required], textarea[required]'));
+
+    const validate = () => {
+      let ok = true;
+      fields().forEach((f) => { const valid = f.checkValidity(); f.setAttribute('aria-invalid', valid ? 'false' : 'true'); if (!valid && ok) { f.focus(); ok = false; } });
+      return ok;
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!validate()) { status.textContent = 'Please complete the highlighted fields.'; return; }
+      const data = new FormData(form);
+      const get = (k: string) => String(data.get(k) || '').trim();
+
+      if (form.dataset.mode === 'mailto') {
+        const subject = encodeURIComponent(`Project enquiry: ${get('project_type')} — ${get('organisation') || get('name')}`);
+        const body = encodeURIComponent(`Name: ${get('name')}\nOrganisation: ${get('organisation')}\nEmail: ${get('email')}\nProject type: ${get('project_type')}\n\n${get('message')}`);
+        window.location.href = `mailto:${form.dataset.email}?subject=${subject}&body=${body}`;
+        status.textContent = 'Opening your email app…';
+        return;
+      }
+
+      status.textContent = 'Sending…';
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        if (!res.ok) throw new Error(String(res.status));
+        form.reset();
+        status.textContent = 'Thank you. We will be in touch.';
+      } catch {
+        status.textContent = `Something went wrong. Email us at ${form.dataset.email}.`;
+      }
+    });
+  }
+  document.addEventListener('astro:page-load', initForm);
+</script>

@@ -1,0 +1,168 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHead from '../components/SectionHead.astro';
+import Picture from '../components/Picture.astro';
+
+const colours = [
+  { name: 'Paper', token: '--color-paper', hex: '#F4F2ED', use: 'Page ground' },
+  { name: 'Paper 2', token: '--color-paper-2', hex: '#EBE8E1', use: 'Recessed surfaces' },
+  { name: 'Ink', token: '--color-ink', hex: '#111111', use: 'Text, rules on hover, the ghost button' },
+  { name: 'Ink 2', token: '--color-ink-2', hex: '#5F5C56', use: 'Secondary text, labels' },
+  { name: 'Rule', token: '--color-rule', hex: '#D6D2C8', use: 'Hairlines' },
+  { name: 'Rule 2', token: '--color-rule-2', hex: '#BDB8AD', use: 'Hairlines on inputs, resting manifesto words' },
+  { name: 'Accent', token: '--color-accent', hex: '#1C74AA', use: 'Hover underlines, the active filter, one primary button, focus rings' },
+];
+const type = [
+  { name: 'Hero', cls: 'display-hero', token: '--text-hero', spec: 'clamp(3.5rem, 9vw, 9rem) · 0.95 · −0.03em', sample: 'Institutions that last' },
+  { name: 'Display 4xl', cls: 'display-4xl', token: '--text-4xl', spec: 'clamp(3rem, 7vw, 7rem) · 0.95 · −0.03em', sample: 'Have a project in mind?' },
+  { name: 'Display 3xl', cls: 'display-3xl', token: '--text-3xl', spec: 'clamp(2.75rem, 5.5vw, 5rem) · 1 · −0.025em', sample: 'Twenty-five years of experience' },
+  { name: 'Display 2xl', cls: 'display-2xl', token: '--text-2xl', spec: 'clamp(2.25rem, 4vw, 3.5rem) · 1.02 · −0.02em', sample: 'Education & Institutions' },
+  { name: 'Display xl', cls: 'display-xl', token: '--text-xl', spec: 'clamp(1.75rem, 2.6vw, 2.25rem) · 1.08 · −0.015em', sample: 'Delhi Public School' },
+  { name: 'Lede', cls: 'lede', token: '--text-md', spec: '19px · 1.55 · −0.01em · Inter Tight', sample: 'Deep specialisation in institutional work, with the breadth to take a township or a hospital from master plan to handover.' },
+  { name: 'Body', cls: '', token: '--text-base', spec: '17px · 1.6 · Inter Tight · measure 64ch', sample: 'K2 Architects is an architectural consultancy based in Nagpur, Maharashtra. Since 1999 it has delivered more than 450 projects in seven states.' },
+  { name: 'UI', cls: 'text-sm', token: '--text-sm', spec: '14px · 500 · Inter Tight', sample: 'Home  Works  Studio  Contact' },
+  { name: 'Label', cls: 'label', token: '--text-2xs', spec: '11px · 0.12em tracked · uppercase · tabular', sample: 'Schools · Amravati' },
+];
+const space = [
+  ['--margin-x', 'clamp(1.25rem, 6.5vw, 8rem)', 'Outer margin'],
+  ['--gutter', 'clamp(1rem, 2vw, 2rem)', 'Grid gutter, 12 columns'],
+  ['--section', 'clamp(5rem, 12vw, 11rem)', 'Between sections'],
+  ['--section-sm', 'clamp(3rem, 7vw, 6rem)', 'Inside sections'],
+  ['--measure', '64ch', 'Reading measure'],
+];
+const motion = [
+  ['--ease', 'cubic-bezier(0.22, 1, 0.36, 1)', 'The one curve'],
+  ['--dur-hover', '250ms', 'Hover, focus, underline'],
+  ['--dur-reveal', '800ms', 'Text and block reveals'],
+  ['--dur-slow', '1000ms', 'Image wipe and scale 1.06 → 1'],
+  ['parallax', '≤ 12% travel', 'Tagged figures only'],
+  ['reduced motion', 'everything lands immediately', 'prefers-reduced-motion: reduce'],
+];
+---
+
+<Base title="Style guide" noindex>
+  <section class="sg container-x">
+    <header class="grid-12 sg__head">
+      <h1 class="display-3xl sg__title">Style guide</h1>
+      <p class="sg__lede muted">Quiet monumentality. The buildings are the story; the interface is the paper they are printed on. Tokens live in <code>src/styles/tokens.css</code>.</p>
+    </header>
+
+    <SectionHead index="01" title="Colour" class="sg__section" />
+    <ul class="swatches">
+      {colours.map((c) => (
+        <li class="swatch">
+          <div class="swatch__chip" style={`background:${c.hex}`}></div>
+          <p class="swatch__name">{c.name}</p>
+          <p class="label muted">{c.hex}</p>
+          <p class="swatch__use muted">{c.use}</p>
+          <code class="swatch__token">{c.token}</code>
+        </li>
+      ))}
+    </ul>
+
+    <SectionHead index="02" title="Type" class="sg__section" />
+    <p class="sg__note muted">Instrument Serif for display, Inter Tight for text and UI. Both self-hosted, <code>font-display: swap</code>, with size-adjusted local fallbacks. Titles in the data are ALL CAPS and are converted to title case at render time.</p>
+    <ul class="specimens">
+      {type.map((t) => (
+        <li class="specimen">
+          <div class="specimen__meta">
+            <p class="specimen__name">{t.name}</p>
+            <p class="label muted">{t.spec}</p>
+            <code>{t.token}</code>
+          </div>
+          <p class:list={['specimen__sample', t.cls]}>{t.sample}</p>
+        </li>
+      ))}
+    </ul>
+
+    <SectionHead index="03" title="Space" class="sg__section" />
+    <table class="sg__table">
+      <thead><tr><th class="label muted">Token</th><th class="label muted">Value</th><th class="label muted">Use</th></tr></thead>
+      <tbody>{space.map(([t, v, u]) => <tr><td><code>{t}</code></td><td class="tnum">{v}</td><td class="muted">{u}</td></tr>)}</tbody>
+    </table>
+    <div class="grid-demo" aria-hidden="true">{Array.from({ length: 12 }).map(() => <div></div>)}</div>
+
+    <SectionHead index="04" title="Motion" class="sg__section" />
+    <table class="sg__table">
+      <thead><tr><th class="label muted">Token</th><th class="label muted">Value</th><th class="label muted">Use</th></tr></thead>
+      <tbody>{motion.map(([t, v, u]) => <tr><td><code>{t}</code></td><td class="tnum">{v}</td><td class="muted">{u}</td></tr>)}</tbody>
+    </table>
+    <div class="motion-demo">
+      <button type="button" class="btn-ghost" id="motion-replay">Replay reveals <span class="arrow">→</span></button>
+      <div class="motion-demo__row">
+        <p class="display-2xl" data-split>Masked line reveal</p>
+        <Picture src="images/jito_dps_aurangabad.jpg" alt="JITO Delhi Public School, Chh. Sambhaji Nagar" ratio="wide" sizes="40vw" />
+      </div>
+    </div>
+
+    <SectionHead index="05" title="Imagery" class="sg__section" />
+    <p class="sg__note muted">Three fixed ratios, <code>object-fit: cover</code>, one grade (contrast 1.04, saturate 0.9, sepia 0.06, 3.5% grain). No rounded corners, no shadows, no borders.</p>
+    <div class="ratios">
+      <div><Picture src="images/GONDIA SCHOOL.jpg" alt="Vivek Mandir School, Gondia — 16:9" ratio="wide" sizes="40vw" /><p class="label muted">16 : 9 wide</p></div>
+      <div><Picture src="images/GONDIA SCHOOL.jpg" alt="Vivek Mandir School, Gondia — 3:2" ratio="photo" sizes="30vw" /><p class="label muted">3 : 2 photo</p></div>
+      <div><Picture src="images/GONDIA SCHOOL.jpg" alt="Vivek Mandir School, Gondia — 4:5" ratio="portrait" sizes="20vw" /><p class="label muted">4 : 5 portrait</p></div>
+    </div>
+
+    <SectionHead index="06" title="Components" class="sg__section" />
+    <div class="components">
+      <div class="comp"><p class="label muted">Primary button (one per page)</p><a href="#" class="btn-primary">Start a conversation <span class="arrow">→</span></a></div>
+      <div class="comp"><p class="label muted">Ghost button</p><a href="#" class="btn-ghost">See the work <span class="arrow">→</span></a></div>
+      <div class="comp"><p class="label muted">Text link</p><a href="#" class="link">About the studio <span class="arrow">→</span></a></div>
+      <div class="comp"><p class="label muted">Section head</p><div class="section-head"><span class="idx">01</span><h2>Selected Works</h2></div></div>
+      <div class="comp"><p class="label muted">Focus ring</p><button type="button" class="btn-ghost sg__focus">Tab to me</button></div>
+      <div class="comp"><p class="label muted">Meta label</p><p class="label">Schools · Amravati</p></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .sg { padding-top: clamp(7rem, 16vw, 12rem); padding-bottom: var(--section); }
+  .sg__head { row-gap: 1rem; align-items: end; }
+  .sg__title { grid-column: 1 / -1; }
+  .sg__lede { grid-column: 1 / -1; font-size: var(--text-sm); max-width: 48ch; }
+  @media (min-width: 64rem) { .sg__title { grid-column: 1 / span 6; } .sg__lede { grid-column: 8 / span 5; } }
+  .sg__section { margin-top: var(--section-sm); }
+  .sg__note { font-size: var(--text-sm); max-width: 60ch; margin-top: 1.25rem; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8em; }
+
+  .swatches { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem var(--gutter); }
+  @media (min-width: 48rem) { .swatches { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  @media (min-width: 64rem) { .swatches { grid-template-columns: repeat(7, minmax(0, 1fr)); } }
+  .swatch__chip { aspect-ratio: 4 / 5; border: 1px solid var(--color-rule); }
+  .swatch__name { margin-top: 0.75rem; font-size: var(--text-sm); font-weight: 500; }
+  .swatch__use { font-size: var(--text-xs); margin-top: 0.4rem; }
+  .swatch__token { display: block; margin-top: 0.3rem; color: var(--color-ink-2); }
+
+  .specimens { list-style: none; margin: 1.5rem 0 0; padding: 0; }
+  .specimen { display: grid; gap: 0.75rem; padding: 1.5rem 0; border-top: 1px solid var(--color-rule); }
+  @media (min-width: 64rem) { .specimen { grid-template-columns: 3fr 9fr; gap: var(--gutter); align-items: baseline; } }
+  .specimen__name { font-size: var(--text-sm); font-weight: 500; }
+  .specimen__meta code { display: block; color: var(--color-ink-2); margin-top: 0.25rem; }
+  .specimen__sample { overflow-wrap: anywhere; }
+  .specimen__sample.lede, .specimen__sample:not([class*='display']) { max-width: var(--measure); }
+
+  .sg__table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; font-size: var(--text-sm); }
+  .sg__table th { text-align: left; font-weight: 500; padding: 0.6rem 1rem 0.6rem 0; border-bottom: 1px solid var(--color-rule); }
+  .sg__table td { padding: 0.8rem 1rem 0.8rem 0; border-bottom: 1px solid var(--color-rule); vertical-align: baseline; }
+  .grid-demo { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); margin-top: 1.5rem; }
+  .grid-demo div { height: 3rem; background: var(--color-paper-2); }
+
+  .motion-demo { margin-top: 1.5rem; }
+  .motion-demo__row { display: grid; grid-template-columns: 1fr; gap: 2rem var(--gutter); margin-top: 1.5rem; align-items: center; }
+  @media (min-width: 48rem) { .motion-demo__row { grid-template-columns: 1fr 1fr; } }
+
+  .ratios { display: grid; grid-template-columns: 1fr; gap: 2rem var(--gutter); margin-top: 1.5rem; align-items: end; }
+  @media (min-width: 48rem) { .ratios { grid-template-columns: 5fr 4fr 3fr; } }
+  .ratios .label { margin-top: 0.6rem; }
+
+  .components { display: grid; grid-template-columns: 1fr; gap: 2rem var(--gutter); margin-top: 1.5rem; }
+  @media (min-width: 48rem) { .components { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .comp { display: grid; gap: 0.9rem; justify-items: start; padding-top: 1rem; border-top: 1px solid var(--color-rule); }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const btn = document.getElementById('motion-replay');
+    btn?.addEventListener('click', () => { window.location.reload(); });
+  });
+</script>

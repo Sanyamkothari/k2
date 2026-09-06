@@ -1,0 +1,72 @@
+---
+import Picture from '../Picture.astro';
+import SectionHead from '../SectionHead.astro';
+import { bySlug, projectCount } from '../../lib/projects';
+import { featured } from '../../lib/site';
+
+const items = featured.map((f) => {
+  const p = bySlug.get(f.slug);
+  if (!p) throw new Error(`Featured slug not found: ${f.slug}. Run "npm run slugs" to list valid slugs.`);
+  return { ...p, cover: f.image ?? p.image };
+});
+
+// Wide / pair / wide / pair / wide …
+type Row = { kind: 'wide' | 'pair'; items: typeof items };
+const rows: Row[] = [];
+let i = 0;
+let wide = true;
+while (i < items.length) {
+  if (wide || i === items.length - 1) { rows.push({ kind: 'wide', items: [items[i]] }); i += 1; }
+  else { rows.push({ kind: 'pair', items: items.slice(i, i + 2) }); i += 2; }
+  wide = !wide;
+}
+---
+
+<section class="works container-x" id="works" aria-labelledby="works-title">
+  <SectionHead index="01" title="Selected Works" />
+  <div class="works__rows">
+    {rows.map((row) =>
+      row.kind === 'wide' ? (
+        <a href={`/works?project=${row.items[0].slug}`} class="work work--wide">
+          <Picture src={row.items[0].cover} alt={row.items[0].alt} ratio="wide" sizes="(min-width: 64rem) 84vw, 92vw" parallax={6} />
+          <div class="work__meta">
+            <h3 class="work__title display-xl">{row.items[0].title}</h3>
+            <p class="label muted">{row.items[0].sector} · {row.items[0].city}</p>
+          </div>
+        </a>
+      ) : (
+        <div class="pair">
+          {row.items.map((p, j) => (
+            <a href={`/works?project=${p.slug}`} class:list={['work', 'work--tall', { 'work--offset': j === 1 }]}>
+              <Picture src={p.cover} alt={p.alt} ratio="portrait" sizes="(min-width: 64rem) 36vw, 92vw" />
+              <div class="work__meta">
+                <h3 class="work__title display-xl">{p.title}</h3>
+                <p class="label muted">{p.sector} · {p.city}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      ),
+    )}
+  </div>
+  <p class="works__more" data-reveal>
+    <a href="/works" class="btn-ghost">See all {projectCount} works <span class="arrow">→</span></a>
+  </p>
+</section>
+
+<style>
+  .works { padding-top: var(--section-sm); }
+  .works__rows { display: grid; gap: clamp(3rem, 8vw, 7rem); margin-top: clamp(2rem, 5vw, 4rem); }
+  .work { display: block; }
+  .work__meta { display: flex; flex-direction: column; gap: 0.35rem; padding-top: 1rem; }
+  .work:hover .work__title { text-decoration: underline; text-decoration-color: var(--color-accent); text-underline-offset: 0.12em; text-decoration-thickness: 1px; }
+  .pair { display: grid; gap: 3rem var(--gutter); grid-template-columns: 1fr; }
+  @media (min-width: 64rem) {
+    .pair { grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: start; }
+    .pair .work:first-child { grid-column: 1 / span 5; }
+    .pair .work--offset { grid-column: 7 / span 5; margin-top: clamp(4rem, 12vw, 10rem); }
+    .work--wide .work__meta { display: grid; grid-template-columns: 8fr 4fr; align-items: baseline; }
+    .work--wide .work__meta .label { text-align: right; }
+  }
+  .works__more { margin-top: clamp(3rem, 6vw, 5rem); }
+</style>

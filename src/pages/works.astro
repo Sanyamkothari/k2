@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import WorksIndex from '../components/works/WorksIndex';
+import type { WorkItem, SectorOption } from '../components/works/types';
+import { projects, projectCount, sectorCount, CATEGORY_ORDER, SECTORS, hasYears } from '../lib/projects';
+import { rendition, thumb } from '../lib/images';
+import '../styles/works.css';
+
+const items: WorkItem[] = projects.map((p) => {
+  const cover = rendition(p.image, { widths: [480, 800, 1200, 1600] });
+  return {
+    slug: p.slug,
+    title: p.title,
+    sector: p.sector,
+    category: p.category,
+    city: p.city,
+    location: p.location,
+    year: p.year,
+    alt: p.alt,
+    cover: { src: cover.src, srcset: cover.srcset, width: cover.width, height: cover.height },
+    preview: thumb(p.image, 800).src,
+    gallery: p.images.map((src) => { const r = rendition(src, { widths: [800, 1200, 1600, 2000, 2400] }); return { src: r.src, srcset: r.srcset, width: r.width, height: r.height }; }),
+  };
+});
+const sectors: SectorOption[] = CATEGORY_ORDER.map((key) => ({ key, label: SECTORS[key], count: projects.filter((p) => p.category === key).length }));
+
+const collection = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Works — K2 Architects',
+  description: `${projectCount} projects across ${sectorCount} sectors by K2 Architects, Nagpur.`,
+  url: new URL('/works', Astro.site).toString(),
+  hasPart: projects.slice(0, 20).map((p) => ({ '@type': 'CreativeWork', name: p.title, locationCreated: p.location, url: new URL(`/works?project=${p.slug}`, Astro.site).toString() })),
+};
+---
+
+<Base title="Works" description={`${projectCount} schools, colleges, hospitals, hostels, townships and commercial buildings across seven Indian states. The K2 Architects portfolio.`} jsonLd={[collection]}>
+  <section class="page-head container-x">
+    <div class="grid-12 page-head__grid">
+      <h1 class="display-3xl page-head__title" data-split>Works</h1>
+      <p class="page-head__count muted" data-reveal data-delay="0.2"><span class="tnum">{projectCount}</span> projects, <span class="tnum">{sectorCount}</span> sectors. Click any project for its gallery.</p>
+    </div>
+    <WorksIndex client:load items={items} sectors={sectors} hasYears={hasYears} />
+  </section>
+</Base>
+
+<style>
+  .page-head { padding-top: clamp(7rem, 16vw, 12rem); padding-bottom: var(--section); }
+  .page-head__grid { align-items: end; row-gap: 1rem; }
+  .page-head__title { grid-column: 1 / -1; margin-left: -0.03em; }
+  .page-head__count { grid-column: 1 / -1; font-size: var(--text-sm); }
+  @media (min-width: 64rem) { .page-head__title { grid-column: 1 / span 7; } .page-head__count { grid-column: 9 / span 4; padding-bottom: 0.5rem; } }
+</style>

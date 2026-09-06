@@ -1,0 +1,9 @@
+# Art direction rationale
+
+**Quiet monumentality.** K2's clients are trusts, hospital promoters and developers weighing a multi-crore commission. They are looking for evidence, not a performance. So the buildings carry the site and the interface behaves like the paper of a monograph: warm off-white, ink, hairlines, and nothing else competing with the photographs.
+
+**One pairing, one accent, one curve.** Instrument Serif is set large and tight for every statement, from the hero to the footer wordmark, so the practice speaks in a single voice. Inter Tight does the quiet work of labels, tables and forms. The only colour is the blue already in the K2 mark, pulled slightly toward slate and rationed to hover underlines, the active filter, focus rings and one button per page. The previous gold was arguing with the logo; now the logo sets the palette. Every transition uses the same easing, and every reveal is a material gesture: a masked line rising, a clip-path wipe, a 6% settle in scale. Nothing spins, glows or floats.
+
+**Asymmetry as structure.** A 12-column grid with wide margins lets text sit off-axis from images, so the eye moves across the page rather than down a stack of cards. Section heads are indexed at the left margin, as in a catalogue. Selected Works alternates one full-width 16:9 frame with two offset 4:5 frames, which turns mixed drone photographs and renders into a deliberate sequence.
+
+**Restraint in the details.** All imagery passes through one grade and one of three ratios. Titles are converted from the data's capitals to title case at render. Motion respects reduced-motion preferences completely. The custom cursor and magnetic buttons from the brief were tried in thought and left out: they would have been the only elements on the site drawing attention to themselves.

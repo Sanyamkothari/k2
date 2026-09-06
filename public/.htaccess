@@ -1,0 +1,18 @@
+# K2 Architects — shared-host configuration
+RewriteEngine On
+RewriteRule ^projects(\.html)?$ /works [R=301,L]
+RewriteRule ^contactus(\.html)?$ /contact [R=301,L]
+RewriteRule ^about$ /studio [R=301,L]
+# Serve extensionless routes from their .html files
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [L]
+# Long cache for hashed assets and fonts
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+</IfModule>

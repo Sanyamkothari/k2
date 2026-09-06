@@ -1,0 +1,63 @@
+/*
+  K2 Architects — design tokens
+  One palette, one type pairing, one easing curve.
+  Exposed both as CSS custom properties and as Tailwind v4 theme values.
+*/
+@theme {
+  /* Colour */
+  --color-paper: #f4f2ed;
+  --color-paper-2: #ebe8e1;   /* recessed surfaces: inputs, marquee ground */
+  --color-ink: #111111;
+  --color-ink-2: #5f5c56;     /* secondary text, AA on paper */
+  --color-rule: #d6d2c8;      /* hairlines */
+  --color-rule-2: #bdb8ad;    /* hairlines that must read on photos/hover */
+  --color-accent: #1c74aa;    /* logo blue, pulled toward slate; AA on paper and under white */
+  --color-scrim: rgba(17, 17, 17, 0.55);
+
+  /* Type */
+  --font-display: 'Instrument Serif', 'Instrument Serif Fallback', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter Tight', 'Inter Tight Fallback', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+
+  --text-2xs: 0.6875rem;   /* 11px — tracked labels */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px — UI */
+  --text-base: 1.0625rem;  /* 17px — body */
+  --text-md: 1.1875rem;    /* 19px — lede */
+  --text-lg: 1.5rem;       /* 24px */
+  --text-xl: clamp(1.75rem, 2.6vw, 2.25rem);   /* 28–36 small display */
+  --text-2xl: clamp(2.25rem, 4vw, 3.5rem);     /* 36–56 section titles */
+  --text-3xl: clamp(2.75rem, 5.5vw, 5rem);     /* 44–80 statements */
+  --text-4xl: clamp(3rem, 7vw, 7rem);          /* closing */
+  --text-hero: clamp(3.5rem, 9vw, 9rem);       /* hero */
+
+  --leading-display: 0.95;
+  --leading-tight: 1.1;
+  --leading-body: 1.6;
+  --tracking-display: -0.03em;
+  --tracking-tight: -0.015em;
+  --tracking-label: 0.12em;
+
+  /* Space */
+  --spacing: 0.25rem;
+  --margin-x: clamp(1.25rem, 6.5vw, 8rem);      /* outer margin */
+  --gutter: clamp(1rem, 2vw, 2rem);             /* grid gutter */
+  --section: clamp(5rem, 12vw, 11rem);          /* vertical rhythm between sections */
+  --section-sm: clamp(3rem, 7vw, 6rem);
+  --measure: 64ch;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-hover: 250ms;
+  --dur-reveal: 800ms;
+  --dur-slow: 1000ms;
+
+  /* Image ratios */
+  --ratio-wide: 16 / 9;
+  --ratio-photo: 3 / 2;
+  --ratio-portrait: 4 / 5;
+
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 90rem;
+}

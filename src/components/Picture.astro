@@ -1,0 +1,42 @@
+---
+/**
+ * A graded photograph in one of three fixed ratios. Responsive WebP srcset,
+ * lazy by default, clip-path reveal on first view.
+ */
+import { rendition } from '../lib/images';
+interface Props {
+  src: string;
+  alt: string;
+  ratio?: 'wide' | 'photo' | 'portrait';
+  sizes?: string;
+  widths?: number[];
+  eager?: boolean;
+  reveal?: boolean;
+  parallax?: number;
+  class?: string;
+  position?: string;
+}
+const { src, alt, ratio = 'photo', sizes = '100vw', widths, eager = false, reveal = true, parallax, class: cls = '', position } = Astro.props;
+const img = rendition(src, { sizes, widths });
+---
+
+<div class:list={[cls]} data-reveal-img={reveal ? '' : undefined} data-parallax={parallax}>
+  <figure class:list={['figure', `ratio-${ratio}`]} style={parallax ? 'overflow:hidden' : undefined}>
+    <img
+      src={img.src}
+      srcset={img.srcset}
+      sizes={img.sizes}
+      width={img.width}
+      height={img.height}
+      alt={alt}
+      loading={eager ? 'eager' : 'lazy'}
+      decoding={eager ? 'sync' : 'async'}
+      fetchpriority={eager ? 'high' : undefined}
+      style={[parallax ? 'scale:1.16' : '', position ? `object-position:${position}` : ''].filter(Boolean).join(';') || undefined}
+    />
+  </figure>
+</div>
+
+<style>
+  figure { margin: 0; }
+</style>

@@ -1,0 +1,18 @@
+---
+import { site } from '../../lib/site';
+---
+
+<section class="closing container-x" aria-labelledby="closing-title">
+  <p id="closing-title" class="closing__title display-4xl" data-split>Have a project in mind?</p>
+  <div class="closing__row" data-reveal data-delay="0.3">
+    <a href="/contact" class="btn-primary">Start a conversation <span class="arrow">→</span></a>
+    <p class="muted closing__aside">Or call <a class="link" href={`tel:+91${site.phone}`}>{site.phoneDisplay}</a></p>
+  </div>
+</section>
+
+<style>
+  .closing { padding-block: var(--section); }
+  .closing__title { max-width: 9ch; margin-left: -0.03em; }
+  .closing__row { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem 2.5rem; margin-top: clamp(2rem, 4vw, 3rem); }
+  .closing__aside { font-size: var(--text-sm); }
+</style>

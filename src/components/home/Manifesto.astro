@@ -1,0 +1,55 @@
+---
+import { manifesto } from '../../lib/site';
+---
+
+<section class="manifesto container-x" aria-label="Studio manifesto">
+  <div class="grid-12">
+    <div class="manifesto__col">
+      {manifesto.map((line, i) => (
+        <p class="manifesto__line display-3xl" data-scroll-text>
+          {line.split(' ').map((w) => <span class="w">{w} </span>)}
+        </p>
+      ))}
+      <p class="manifesto__cta" data-reveal><a href="/studio" class="link">About the studio <span class="arrow">→</span></a></p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .manifesto { padding-block: var(--section); }
+  .manifesto__col { grid-column: 1 / -1; }
+  @media (min-width: 64rem) { .manifesto__col { grid-column: 2 / span 10; } }
+  .manifesto__line { margin-bottom: clamp(1.5rem, 3vw, 2.5rem); text-wrap: pretty; }
+  @media (min-width: 48rem) {
+    .manifesto__line:nth-child(2) { padding-left: 8%; }
+    .manifesto__line:nth-child(3) { padding-left: 16%; }
+  }
+  .w { color: var(--color-rule-2); transition: color 500ms var(--ease); }
+  .w.is-lit { color: var(--color-ink); }
+  html.no-js .w { color: var(--color-ink); }
+  @media (prefers-reduced-motion: reduce) { .w { color: var(--color-ink); } }
+  .manifesto__cta { margin-top: 2rem; font-size: var(--text-sm); }
+</style>
+
+<script>
+  // Words brighten as the reader scrolls through the statement.
+  function initScrollText() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const blocks = document.querySelectorAll<HTMLElement>('[data-scroll-text]');
+    if (!blocks.length) return;
+    const words = Array.from(blocks).flatMap((b) => Array.from(b.querySelectorAll<HTMLElement>('.w')));
+    const tick = () => {
+      const vh = window.innerHeight;
+      const from = vh * 0.85, to = vh * 0.35;
+      words.forEach((w) => {
+        const r = w.getBoundingClientRect();
+        const p = (from - r.top) / (from - to);
+        w.classList.toggle('is-lit', p > 0.5);
+      });
+    };
+    tick();
+    window.addEventListener('scroll', tick, { passive: true });
+    window.addEventListener('resize', tick);
+  }
+  document.addEventListener('astro:page-load', initScrollText);
+</script>

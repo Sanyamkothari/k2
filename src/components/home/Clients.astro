@@ -1,0 +1,36 @@
+---
+import SectionHead from '../SectionHead.astro';
+import { thumb } from '../../lib/images';
+import { clients } from '../../lib/site';
+const logos = clients.map((c) => ({ ...c, img: thumb(c.image, 480) }));
+---
+
+<section class="clients" aria-labelledby="clients-title">
+  <div class="container-x"><SectionHead index="04" title="Clients" /></div>
+  <div class="marquee" data-reveal>
+    <div class="marquee__track">
+      {[0, 1].map((copy) => (
+        <ul class="marquee__list" aria-hidden={copy === 1 ? 'true' : undefined}>
+          {logos.map((c) => (
+            <li class="marquee__item">
+              <img src={c.img.src} width={c.img.width} height={c.img.height} alt={copy === 0 ? c.name : ''} loading="lazy" decoding="async" />
+            </li>
+          ))}
+        </ul>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .clients { padding-top: var(--section); }
+  .marquee { overflow: hidden; margin-top: clamp(2rem, 5vw, 4rem); border-block: 1px solid var(--color-rule); mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
+  .marquee__track { display: flex; width: max-content; animation: marquee 48s linear infinite; }
+  .marquee:hover .marquee__track, .marquee:focus-within .marquee__track { animation-play-state: paused; }
+  .marquee__list { display: flex; list-style: none; margin: 0; padding: 0; }
+  .marquee__item { display: grid; place-items: center; height: 7.5rem; padding-inline: clamp(1.5rem, 3vw, 3rem); }
+  .marquee__item img { height: 3.25rem; width: auto; max-width: 9rem; object-fit: contain; filter: grayscale(1) contrast(0.9); opacity: 0.55; transition: opacity var(--dur-hover) var(--ease), filter var(--dur-hover) var(--ease); }
+  .marquee__item:hover img { opacity: 1; filter: grayscale(0); }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; flex-wrap: wrap; width: auto; } .marquee__list:last-child { display: none; } .marquee { mask-image: none; } }
+</style>
