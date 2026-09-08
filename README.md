@@ -7,7 +7,7 @@ The public site for K2 Architects, Nagpur. Astro with React islands, Tailwind to
 
 ## Adding a project (no code required)
 
-1. **Drop the photographs into `images/`.** JPG or PNG. Any size or aspect ratio; the pipeline crops and resizes. Filenames can contain spaces, but keep them exact.
+1. **Drop the photographs into `images/`.** JPG or PNG. Any aspect ratio; the pipeline crops and resizes. Keep the longest side at or under 2400 px (the pipeline never emits anything larger) so the repository and the build stay small. Filenames can contain spaces, but keep them exact.
 2. **Add an entry to `data/projects.json`** under the right category key:
 
    | key           | shown as                    |
@@ -70,6 +70,7 @@ Requires Node 22.
 ## Deploying
 
 - **Netlify**: connect the repo; `netlify.toml` sets the build command, publish directory, redirects (via `public/_redirects`) and cache headers.
+- **Search engines**: the build writes `sitemap-index.xml`, and `/robots.txt` points to it. Both use `SITE_URL`, so set it to the real domain before the first production build.
 - **Shared hosting (Apache)**: run `npm run build` and upload the contents of `dist/`. The included `.htaccess` serves extensionless URLs and the legacy redirects.
 
 ## Project layout
@@ -88,4 +89,4 @@ src/components/            Home sections, works island (React), shared pieces
 src/pages/                 index, works, studio, contact, styleguide
 ```
 
-`archive/`, `hostels/` and `gdoc_*` are legacy material and are not part of the site.
+`archive/` and `hostels/` are legacy material and are not part of the site. The hostel app's `.env` and `utils/logs/*.log` are git-ignored and must never be committed; deploy that app separately, never inside the public web root.

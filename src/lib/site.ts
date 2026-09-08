@@ -2,13 +2,15 @@
  * Site content: every fact from the original site, rewritten shorter.
  * Edit here; components only render.
  */
+import { projectCount } from './projects';
+
 export const site = {
   name: 'K2 Architects',
   tagline: 'Architecture for institutions that last.',
   city: 'Nagpur',
   since: 1999,
   description:
-    'K2 Architects is a 25-year-old architecture practice in Nagpur, Maharashtra. 450+ schools, colleges, hospitals, hostels, townships and commercial buildings across seven Indian states.',
+    'K2 Architects is an architecture practice founded in Nagpur, Maharashtra in 1999. 450+ schools, colleges, hospitals, hostels, townships and commercial buildings across seven Indian states.',
   phone: '9422101718',
   phoneDisplay: '+91 94221 01718',
   email: 'ar8880@gmail.com',
@@ -39,7 +41,7 @@ export const credentials = [
   { value: 25, suffix: '+', label: 'Years of practice' },
   { value: 450, suffix: '+', label: 'Projects delivered' },
   { value: 7, suffix: '', label: 'Indian states' },
-  { value: 69, suffix: '', label: 'Works in this portfolio' },
+  { value: projectCount, suffix: '', label: 'Works in this portfolio' },
 ];
 
 /** The five sectors from the original About page, each tied to a category and a preview image. */

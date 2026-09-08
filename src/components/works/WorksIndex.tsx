@@ -40,7 +40,9 @@ export default function WorksIndex({ items, sectors, hasYears }: Props) {
   useEffect(() => {
     const u = readUrl();
     setSector(sectors.some((s) => s.key === u.sector) ? u.sector : 'all');
-    setView(u.view === 'index' ? 'index' : 'grid');
+    let stored: string | null = null;
+    try { stored = localStorage.getItem('k2:view'); } catch {}
+    setView(u.view === 'index' || (!u.view && stored === 'index') ? 'index' : 'grid');
     setOpen(u.project && items.some((i) => i.slug === u.project) ? u.project : null);
     setHydrated(true);
     const onPop = () => { const n = readUrl(); setSector(n.sector); setView(n.view === 'index' ? 'index' : 'grid'); setOpen(n.project); };
