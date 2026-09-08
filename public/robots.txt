@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /styleguide
-Disallow: /archive/
-Disallow: /hostels/
-Disallow: /gdoc_extracted/
-
-Sitemap: https://www.k2architects.in/sitemap.xml
