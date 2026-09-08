@@ -29,3 +29,10 @@ npm-debug.log*
 # IDEs
 .vscode/
 .idea/
+
+# Secrets and runtime logs (never commit these)
+.env
+.env.*
+!.env.example
+*.log
+hostels/hostel_management_v2/utils/logs/

@@ -6,7 +6,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: "Muli", "Mulish", Arial, sans-serif;
   background-color: #f9f9f9;
   color: #333;
 }
@@ -71,9 +71,10 @@ body {
   right: auto;
 }
 
+.navbar .nav-link.active,
 .navbar .nav-link:hover,
-.navbar .navbar-brand:hover {
-  color: #ccc;
+.navbar .nav-link:focus {
+  color: #e2b646;
 }
 
 /* Main Section */
@@ -85,7 +86,9 @@ body {
 }
 
 .main h1 {
-  font-size: 36px;
+  font-family: "Muli", "Mulish", Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 300;
   margin-bottom: 10px;
 }
 
@@ -115,9 +118,15 @@ body {
 }
 
 .buttons button.active,
-.buttons button:hover {
+.buttons button:hover,
+.buttons button:focus-visible {
   background-color: #333;
   color: white;
+}
+
+.project:focus-visible {
+  outline: 3px solid #c29525;
+  outline-offset: 3px;
 }
 
 /* Project Grid */
@@ -178,7 +187,7 @@ body {
   padding: 15px;
 }
 
-.project h3 {
+.project h2 {
   font-size: 18px;
   margin-bottom: 8px;
   color: #333;
@@ -187,7 +196,7 @@ body {
 
 .project p {
   font-size: 14px;
-  color: #777;
+  color: #666;
   margin: 0;
 }
 
@@ -276,6 +285,11 @@ body {
   letter-spacing: 0.5px;
 }
 
+.modal-nav[hidden],
+.modal-counter[hidden] {
+  display: none;
+}
+
 .modal-nav {
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.25);
@@ -308,7 +322,7 @@ body {
   max-width: 800px;
 }
 
-.modal-info h3 {
+.modal-info h2 {
   font-size: 20px;
   margin: 0 0 4px;
   color: #fff;
@@ -374,8 +388,24 @@ body {
 footer {
   background-color: #333;
   color: white;
-  padding: 20px 0;
+  padding: 20px 15px;
   text-align: center;
+}
+
+footer .copyright {
+  margin: 0;
+  color: #ccc;
+  line-height: 1.7;
+}
+
+footer a {
+  color: #e2b646;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #fff;
+  text-decoration: underline;
 }
 
 footer .social-icons a {

@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | K2 Architects</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <meta name="description" content="Get in touch with K2 Architects, Nagpur. Phone, email and office address for architectural design and planning enquiries.">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700;800&family=Muli:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/contact.css">
+    <link rel="icon" type="image/png" href="images/logo1.png">
 </head>
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar" aria-label="Main Navigation">
         <div class="container-fluid">
           <a class="navbar-brand" style="margin-left:0px;" href="index.html">
-            <img src="images/logo1.png" width="70" height="70" alt="">
+            <img src="images/logo1.png" width="70" height="70" alt="K2 Architects - Home">
           </a>
           <button class="navbar-toggler" id="burger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -34,40 +37,44 @@
                 <a class="nav-link" href="projects.html">Projects</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="contactus.html">Contact Us</a>
+                <a class="nav-link active" aria-current="page" href="contactus.html">Contact Us</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
 
-    <section id="contact">
-        <h2>Contact Us</h2>
+    <main>
+      <section id="contact">
+        <h1>Contact Us</h1>
         <p>We would love to hear from you! Here’s how you can reach us:</p>
 
         <div id="contact-info">
-            <h3>Contact Information</h3>
-            <p><strong>Phone:</strong> 9422101718</p>
+            <h2>Contact Information</h2>
+            <p><strong>Phone:</strong> <a href="tel:+919422101718">9422101718</a></p>
             <p><strong>Email:</strong> <a href="mailto:ar8880@gmail.com">ar8880@gmail.com</a></p>
             <p><strong>Address:</strong> 101, Ozone Apartment, Puranik Layout, Bharat Nagar, Amravati Road, Nagpur</p>
-            <a href="mailto:ar8880@gmail.com" class="cta-button">Get in Touch</a>
+            <a href="mailto:ar8880@gmail.com?subject=Enquiry%20from%20website" class="cta-button">Get in Touch</a>
         </div>
 
-        <h3>Our Location</h3>
+        <h2>Our Location</h2>
         <iframe
             id="map"
+            title="Map showing the K2 Architects office at Ozone Apartments, Nagpur"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.0878375730654!2d79.0476678!3d21.1489024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c1c732727e2f%3A0x8d2d17482f9ef606!2sOzone%20Apartments!5e0!3m2!1sen!2sin!4v1729431073089!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
         </iframe>
-    </section>
+        <p class="map-fallback"><a href="https://www.google.com/maps/search/?api=1&query=Ozone%20Apartments%2C%20Puranik%20Layout%2C%20Bharat%20Nagar%2C%20Nagpur" target="_blank" rel="noopener">Open in Google Maps</a></p>
+      </section>
+    </main>
 
     <footer>
         <div>
-            <p>&copy; 2024 K2 Architects. All rights reserved.</p>
-            <p>9422101718 | <a href="mailto:ar8880@gmail.com">ar8880@gmail.com</a></p>
+            <p>&copy; 2026 K2 Architects. All rights reserved.</p>
+            <p><a href="tel:+919422101718">9422101718</a> | <a href="mailto:ar8880@gmail.com">ar8880@gmail.com</a></p>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

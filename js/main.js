@@ -25,14 +25,12 @@ function initMain() {
       });
     });
 
-    // Show/hide scroll button based on scroll position
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        scrollBtn.style.display = 'flex';
-      } else {
-        scrollBtn.style.display = 'none';
-      }
-    });
+    // Show/hide scroll button based on scroll position (hidden until the user scrolls)
+    const updateScrollBtn = () => {
+      scrollBtn.classList.toggle('visible', window.scrollY > 300);
+    };
+    window.addEventListener('scroll', updateScrollBtn, { passive: true });
+    updateScrollBtn();
   }
 
   // Navbar background change on scroll
@@ -46,7 +44,7 @@ function initMain() {
         navbar.classList.remove('scrolled');
       }
     };
-    window.addEventListener('scroll', updateNavbar);
+    window.addEventListener('scroll', updateNavbar, { passive: true });
     updateNavbar(); // Run once on initial load
   }
 }

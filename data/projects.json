@@ -8,7 +8,8 @@
       "images": [
         "images/DELHI PUBLIC SCHOOL RAIGARH.jpg",
         "images/dps_raigarh_elevation.png"
-      ]
+      ],
+      "thumb": "images/thumbs/DELHI PUBLIC SCHOOL RAIGARH.jpg"
     },
     {
       "id": 2,
@@ -18,7 +19,8 @@
       "images": [
         "images/indian_public_school_sambalpur_clean.jpg",
         "images/INDIAN PUBLIC SCHOOL SAMBALPUR .jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/indian_public_school_sambalpur_clean.jpg"
     },
     {
       "id": 3,
@@ -27,7 +29,8 @@
       "image": "images/kps_dunda.jpg",
       "images": [
         "images/kps_dunda.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/kps_dunda.jpg"
     },
     {
       "id": 4,
@@ -37,7 +40,8 @@
       "images": [
         "images/kps_sarona.jpg",
         "images/KRISHNA PUBLIC SCHOOL raipur.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/kps_sarona.jpg"
     },
     {
       "id": 5,
@@ -46,7 +50,8 @@
       "image": "images/KAMAL VIHAR NURSERY.jpg",
       "images": [
         "images/KAMAL VIHAR NURSERY.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/KAMAL VIHAR NURSERY.jpg"
     },
     {
       "id": 6,
@@ -55,7 +60,8 @@
       "image": "images/YUGANTAR PUBLIC SHOOL.jpg",
       "images": [
         "images/YUGANTAR PUBLIC SHOOL.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/YUGANTAR PUBLIC SHOOL.jpg"
     },
     {
       "id": 7,
@@ -66,7 +72,8 @@
         "images/dps_amravati_front.png",
         "images/dps_amravati_aerial.png",
         "images/RANA INTERNATIONAL SCHOOL AMT.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/dps_amravati_front.jpg"
     },
     {
       "id": 8,
@@ -75,7 +82,8 @@
       "image": "images/jito_dps_aurangabad.jpg",
       "images": [
         "images/jito_dps_aurangabad.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/jito_dps_aurangabad.jpg"
     },
     {
       "id": 9,
@@ -84,7 +92,8 @@
       "image": "images/DPS_WORLD_SCHOOL_-BHATAPARA-.jpg",
       "images": [
         "images/DPS_WORLD_SCHOOL_-BHATAPARA-.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/DPS_WORLD_SCHOOL_-BHATAPARA-.jpg"
     },
     {
       "id": 10,
@@ -93,7 +102,8 @@
       "image": "images/dwps_manendragarh_aerial.jpg",
       "images": [
         "images/dwps_manendragarh_aerial.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/dwps_manendragarh_aerial.jpg"
     },
     {
       "id": 11,
@@ -102,7 +112,8 @@
       "image": "images/dwps_parli_render.png",
       "images": [
         "images/dwps_parli_render.png"
-      ]
+      ],
+      "thumb": "images/thumbs/dwps_parli_render.jpg"
     },
     {
       "id": 12,
@@ -111,7 +122,8 @@
       "image": "images/sanskarbharti_warora.jpg",
       "images": [
         "images/sanskarbharti_warora.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/sanskarbharti_warora.jpg"
     },
     {
       "id": 13,
@@ -120,7 +132,8 @@
       "image": "images/neeraj_public_school_rajnandgaon.jpg",
       "images": [
         "images/neeraj_public_school_rajnandgaon.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/neeraj_public_school_rajnandgaon.jpg"
     },
     {
       "id": 14,
@@ -129,7 +142,8 @@
       "image": "images/vidyanchal_akot.png",
       "images": [
         "images/vidyanchal_akot.png"
-      ]
+      ],
+      "thumb": "images/thumbs/vidyanchal_akot.jpg"
     },
     {
       "id": 15,
@@ -138,16 +152,18 @@
       "image": "images/msm_malkapur.png",
       "images": [
         "images/msm_malkapur.png"
-      ]
+      ],
+      "thumb": "images/thumbs/msm_malkapur.jpg"
     },
     {
       "id": 16,
       "title": "PODAR LEARN SCHOOL",
       "description": "PUSAD (M.S.)",
-      "image": "images/podar_pusad.png",
+      "image": "images/podar_pusad.jpg",
       "images": [
-        "images/podar_pusad.png"
-      ]
+        "images/podar_pusad.jpg"
+      ],
+      "thumb": "images/thumbs/podar_pusad.jpg"
     },
     {
       "id": 17,
@@ -157,7 +173,8 @@
       "images": [
         "images/happy_faces_washim.jpg",
         "images/WASHIM HOSTEL.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/happy_faces_washim.jpg"
     },
     {
       "id": 18,
@@ -167,18 +184,20 @@
       "images": [
         "images/gd_goenka_render.png",
         "images/gd_goenka_photo.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/gd_goenka_render.jpg"
     },
     {
       "id": 19,
       "title": "DELHI PUBLIC SCHOOL",
       "description": "KATNI (M.P.)",
-      "image": "images/dps_katni_masterplan.png",
+      "image": "images/dps_katni_masterplan.jpg",
       "images": [
-        "images/dps_katni_masterplan.png",
+        "images/dps_katni_masterplan.jpg",
         "images/DPS KATNI aerial.jpg",
         "images/DPS KATNI HOSTEL.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/dps_katni_masterplan.jpg"
     },
     {
       "id": 20,
@@ -188,17 +207,19 @@
       "images": [
         "images/jet_kids_school_pusad_opt.jpg",
         "images/_JET_KID_SCHOOL pusad.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/jet_kids_school_pusad_opt.jpg"
     },
     {
       "id": 21,
       "title": "VIVEK MANDIR SCHOOL",
       "description": "GONDIA (M.S.)",
-      "image": "images/vivek_mandir_gondia_hires.png",
+      "image": "images/vivek_mandir_gondia_hires.jpg",
       "images": [
-        "images/vivek_mandir_gondia_hires.png",
+        "images/vivek_mandir_gondia_hires.jpg",
         "images/GONDIA SCHOOL.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/vivek_mandir_gondia_hires.jpg"
     },
     {
       "id": 22,
@@ -207,7 +228,8 @@
       "image": "images/SUNRISE_CONVENT_ARNI.JPG",
       "images": [
         "images/SUNRISE_CONVENT_ARNI.JPG"
-      ]
+      ],
+      "thumb": "images/thumbs/SUNRISE_CONVENT_ARNI.jpg"
     },
     {
       "id": 23,
@@ -216,7 +238,8 @@
       "image": "images/magrulpir_SCHOOL.jpg",
       "images": [
         "images/magrulpir_SCHOOL.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/magrulpir_SCHOOL.jpg"
     },
     {
       "id": 24,
@@ -225,7 +248,8 @@
       "image": "images/JALNA RHV SCHOOL (2).jpg",
       "images": [
         "images/JALNA RHV SCHOOL (2).jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/JALNA RHV SCHOOL (2).jpg"
     },
     {
       "id": 25,
@@ -234,7 +258,8 @@
       "image": "images/MANSAROVAR BETUL.jpg",
       "images": [
         "images/MANSAROVAR BETUL.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/MANSAROVAR BETUL.jpg"
     }
   ],
   "residential": [
@@ -245,7 +270,8 @@
       "image": "images/durg shraman sangh sthanak & residential complex .jpg",
       "images": [
         "images/durg shraman sangh sthanak & residential complex .jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/durg shraman sangh sthanak & residential complex .jpg"
     },
     {
       "id": 2,
@@ -254,7 +280,8 @@
       "image": "images/KHAMGAON ( RAGHAV SANKUL TRIANGULAR PLOT).jpg",
       "images": [
         "images/KHAMGAON ( RAGHAV SANKUL TRIANGULAR PLOT).jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/KHAMGAON ( RAGHAV SANKUL TRIANGULAR PLOT).jpg"
     },
     {
       "id": 3,
@@ -263,7 +290,8 @@
       "image": "images/leo galaxy 4.jpg",
       "images": [
         "images/leo galaxy 4.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/leo galaxy 4.jpg"
     },
     {
       "id": 4,
@@ -272,7 +300,8 @@
       "image": "images/KHAMGAON SHREERAM PLAZA .jpg",
       "images": [
         "images/KHAMGAON SHREERAM PLAZA .jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/KHAMGAON SHREERAM PLAZA .jpg"
     },
     {
       "id": 5,
@@ -281,7 +310,8 @@
       "image": "images/heda_shopping_res.jpg",
       "images": [
         "images/heda_shopping_res.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/heda_shopping_res.jpg"
     },
     {
       "id": 6,
@@ -290,7 +320,8 @@
       "image": "images/khamgaon dinesh agrawal.jpg",
       "images": [
         "images/khamgaon dinesh agrawal.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/khamgaon dinesh agrawal.jpg"
     },
     {
       "id": 8,
@@ -299,7 +330,8 @@
       "image": "images/dhantoli tranquil apartment.jpg",
       "images": [
         "images/dhantoli tranquil apartment.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/dhantoli tranquil apartment.jpg"
     }
   ],
   "hostel": [
@@ -310,7 +342,8 @@
       "image": "images/WASHIM HOSTEL.jpg",
       "images": [
         "images/WASHIM HOSTEL.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/WASHIM HOSTEL.jpg"
     },
     {
       "id": 3,
@@ -319,7 +352,8 @@
       "image": "images/bhilai shankracharya hostel.jpg",
       "images": [
         "images/bhilai shankracharya hostel.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/bhilai shankracharya hostel.jpg"
     },
     {
       "id": 5,
@@ -328,7 +362,8 @@
       "image": "images/JALNA ATITHI BHAWAN.jpg",
       "images": [
         "images/JALNA ATITHI BHAWAN.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/JALNA ATITHI BHAWAN.jpg"
     },
     {
       "id": 6,
@@ -337,7 +372,8 @@
       "image": "images/gaushala Aerial view.jpg",
       "images": [
         "images/gaushala Aerial view.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/gaushala Aerial view.jpg"
     },
     {
       "id": 7,
@@ -346,7 +382,8 @@
       "image": "images/RUNGHTA ARIEL VIEW HOS.jpg",
       "images": [
         "images/RUNGHTA ARIEL VIEW HOS.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/RUNGHTA ARIEL VIEW HOS.jpg"
     },
     {
       "id": 8,
@@ -355,7 +392,8 @@
       "image": "images/MANOJ JAIN HOSTEL BUILDING .jpg",
       "images": [
         "images/MANOJ JAIN HOSTEL BUILDING .jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/MANOJ JAIN HOSTEL BUILDING .jpg"
     },
     {
       "id": 9,
@@ -364,7 +402,8 @@
       "image": "images/DPS KATNI HOSTEL.jpg",
       "images": [
         "images/DPS KATNI HOSTEL.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/DPS KATNI HOSTEL.jpg"
     }
   ],
   "bungalow": [
@@ -375,7 +414,8 @@
       "image": "images/tyagi_ji_residence.jpg",
       "images": [
         "images/tyagi_ji_residence.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/tyagi_ji_residence.jpg"
     },
     {
       "id": 2,
@@ -384,7 +424,8 @@
       "image": "images/LONAR BUNGALOW.jpg",
       "images": [
         "images/LONAR BUNGALOW.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/LONAR BUNGALOW.jpg"
     },
     {
       "id": 3,
@@ -393,7 +434,8 @@
       "image": "images/pakal residence aurangabad.jpg",
       "images": [
         "images/pakal residence aurangabad.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/pakal residence aurangabad.jpg"
     },
     {
       "id": 4,
@@ -402,7 +444,8 @@
       "image": "images/malkapur yogesh residence.jpg",
       "images": [
         "images/malkapur yogesh residence.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/malkapur yogesh residence.jpg"
     },
     {
       "id": 5,
@@ -411,7 +454,8 @@
       "image": "images/MANDLA VEERANInight .jpg",
       "images": [
         "images/MANDLA VEERANInight .jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/MANDLA VEERANInight .jpg"
     },
     {
       "id": 6,
@@ -420,7 +464,8 @@
       "image": "images/green city.jpg",
       "images": [
         "images/green city.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/green city.jpg"
     },
     {
       "id": 7,
@@ -429,7 +474,8 @@
       "image": "images/bagmar jabalpur.jpg",
       "images": [
         "images/bagmar jabalpur.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/bagmar jabalpur.jpg"
     },
     {
       "id": 8,
@@ -438,7 +484,8 @@
       "image": "images/suhas_jhelehwar_residence.jpg",
       "images": [
         "images/suhas_jhelehwar_residence.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/suhas_jhelehwar_residence.jpg"
     },
     {
       "id": 9,
@@ -447,7 +494,8 @@
       "image": "images/JANGIR TOWNSHIP.jpg",
       "images": [
         "images/JANGIR TOWNSHIP.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/JANGIR TOWNSHIP.jpg"
     }
   ],
   "banquets": [
@@ -458,7 +506,8 @@
       "image": "images/hingoli tirupati nagar mangal karyalay.jpg",
       "images": [
         "images/hingoli tirupati nagar mangal karyalay.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/hingoli tirupati nagar mangal karyalay.jpg"
     },
     {
       "id": 2,
@@ -467,7 +516,8 @@
       "image": "images/jalna vardhman sthanak & hotel.jpg",
       "images": [
         "images/jalna vardhman sthanak & hotel.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/jalna vardhman sthanak & hotel.jpg"
     },
     {
       "id": 3,
@@ -476,7 +526,8 @@
       "image": "images/COMPLEX & HOTEL HINGOLI.jpg",
       "images": [
         "images/COMPLEX & HOTEL HINGOLI.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/COMPLEX & HOTEL HINGOLI.jpg"
     },
     {
       "id": 4,
@@ -485,7 +536,8 @@
       "image": "images/jalna SHOPPING CENTER.jpg",
       "images": [
         "images/jalna SHOPPING CENTER.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/jalna SHOPPING CENTER.jpg"
     }
   ],
   "medi": [
@@ -496,7 +548,8 @@
       "image": "images/PARBHANI_MULTISPECIALITY HOSPITAL.jpg",
       "images": [
         "images/PARBHANI_MULTISPECIALITY HOSPITAL.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/PARBHANI_MULTISPECIALITY HOSPITAL.jpg"
     },
     {
       "id": 2,
@@ -505,7 +558,8 @@
       "image": "images/BILASPUR HOSPITAL-1.jpg",
       "images": [
         "images/BILASPUR HOSPITAL-1.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/BILASPUR HOSPITAL-1.jpg"
     },
     {
       "id": 3,
@@ -514,7 +568,8 @@
       "image": "images/BAITUL_POLY.jpg",
       "images": [
         "images/BAITUL_POLY.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/BAITUL_POLY.jpg"
     },
     {
       "id": 4,
@@ -523,7 +578,8 @@
       "image": "images/MEDISHINE HEALTH CARE MULTISPECIALITY HOSP.jpg",
       "images": [
         "images/MEDISHINE HEALTH CARE MULTISPECIALITY HOSP.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/MEDISHINE HEALTH CARE MULTISPECIALITY HOSP.jpg"
     },
     {
       "id": 5,
@@ -532,7 +588,8 @@
       "image": "images/latur_hospital_new-1.jpg",
       "images": [
         "images/latur_hospital_new-1.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/latur_hospital_new-1.jpg"
     },
     {
       "id": 6,
@@ -541,7 +598,8 @@
       "image": "images/kawardha_hospital(1).jpg",
       "images": [
         "images/kawardha_hospital(1).jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/kawardha_hospital(1).jpg"
     },
     {
       "id": 7,
@@ -550,7 +608,8 @@
       "image": "images/CHANDRAYAN_MULTY_HOSPITAL-KAWARDHA.jpg",
       "images": [
         "images/CHANDRAYAN_MULTY_HOSPITAL-KAWARDHA.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/CHANDRAYAN_MULTY_HOSPITAL-KAWARDHA.jpg"
     },
     {
       "id": 8,
@@ -559,7 +618,8 @@
       "image": "images/nandura hospital.jpg",
       "images": [
         "images/nandura hospital.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/nandura hospital.jpg"
     },
     {
       "id": 9,
@@ -568,7 +628,8 @@
       "image": "images/DR SANJAY SINGH GAUTAM hospital.jpeg",
       "images": [
         "images/DR SANJAY SINGH GAUTAM hospital.jpeg"
-      ]
+      ],
+      "thumb": "images/thumbs/DR SANJAY SINGH GAUTAM hospital.jpg"
     }
   ],
   "college": [
@@ -579,7 +640,8 @@
       "image": "images/SHANKARACHARYA MEDICAL COLLEGE BHILAI.jpg",
       "images": [
         "images/SHANKARACHARYA MEDICAL COLLEGE BHILAI.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/SHANKARACHARYA MEDICAL COLLEGE BHILAI.jpg"
     },
     {
       "id": 2,
@@ -588,7 +650,8 @@
       "image": "images/AYURVEDIC_COLLEGE_RAIGARH.jpg",
       "images": [
         "images/AYURVEDIC_COLLEGE_RAIGARH.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/AYURVEDIC_COLLEGE_RAIGARH.jpg"
     },
     {
       "id": 3,
@@ -597,7 +660,8 @@
       "image": "images/KRISHNA ENG. COLLEGE BHILAI.jpg",
       "images": [
         "images/KRISHNA ENG. COLLEGE BHILAI.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/KRISHNA ENG. COLLEGE BHILAI.jpg"
     },
     {
       "id": 4,
@@ -606,7 +670,8 @@
       "image": "images/KOLTE ENG. COLLEGE MALKAPUR.jpg",
       "images": [
         "images/KOLTE ENG. COLLEGE MALKAPUR.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/KOLTE ENG. COLLEGE MALKAPUR.jpg"
     },
     {
       "id": 5,
@@ -615,7 +680,8 @@
       "image": "images/PRAGATI ENG. COLLEGE RAIPUR.jpg",
       "images": [
         "images/PRAGATI ENG. COLLEGE RAIPUR.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/PRAGATI ENG. COLLEGE RAIPUR.jpg"
     },
     {
       "id": 6,
@@ -624,7 +690,8 @@
       "image": "images/CITM BHILAI.jpg",
       "images": [
         "images/CITM BHILAI.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/CITM BHILAI.jpg"
     },
     {
       "id": 7,
@@ -633,7 +700,8 @@
       "image": "images/rajnandgaon ayurvedic_college.jpg",
       "images": [
         "images/rajnandgaon ayurvedic_college.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/rajnandgaon ayurvedic_college.jpg"
     },
     {
       "id": 8,
@@ -642,7 +710,8 @@
       "image": "images/nursing college bhilai.jpg",
       "images": [
         "images/nursing college bhilai.jpg"
-      ]
+      ],
+      "thumb": "images/thumbs/nursing college bhilai.jpg"
     }
   ]
 }

@@ -15,7 +15,7 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif; /* Fallback or base font */
+  font-family: "Muli", "Mulish", Arial, sans-serif;
   background: #f5f5f5; 
   color: #333;
 }
@@ -136,7 +136,10 @@ body {
   animation: moveBanner 1s 0.7s forwards;
 }
 
-.banner button {
+.banner .discover-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   width: 25rem;
   height: 7rem;
   background-color: #c29525;
@@ -144,6 +147,7 @@ body {
   font-family: "Muli", serif;
   font-size: 2rem;
   text-transform: uppercase;
+  text-decoration: none;
   color: #fff;
   text-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
   box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.4);
@@ -164,18 +168,15 @@ body {
 
 /* Discover Button Hover */
 .discover-button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #333;
-  color: white;
-  border: none;
   border-radius: 5px;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.discover-button:hover {
-  transform: scale(1.1);
-  background-color: #555;
+.discover-button:hover,
+.discover-button:focus-visible {
+  transform: scale(1.06);
+  background-color: #a97f1c;
+  color: #fff;
 }
 
 /* Navbar */
@@ -242,6 +243,12 @@ body {
   width: 100%;
   left: 0;
   right: auto;
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  color: #e2b646;
 }
 
 /* ABOUT US */
@@ -416,8 +423,18 @@ body {
 
 .card-info h2,
 .card-info h3,
-.card-info h4 {
+.card-info .role {
   margin: 8px 0;
+}
+
+.card-info h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.card-info .role {
+  font-size: 1.5rem;
+  color: #555;
 }
 
 /* CLIENTS */
@@ -485,6 +502,15 @@ body {
   color: #a7a7a7;
 }
 
+.copyright a {
+  color: #e2b646;
+}
+
+.copyright a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
 .social-list a {
   margin: 0 2rem;
 }
@@ -502,7 +528,7 @@ body {
   width: 4.5rem;
   height: 4.5rem;
   background-color: #e2b646;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
@@ -510,6 +536,11 @@ body {
   box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.2);
   border-radius: 0.3rem;
   cursor: pointer;
+  z-index: 900;
+}
+
+.scroll-btn.visible {
+  display: flex;
 }
 
 /* ==================================
@@ -523,18 +554,25 @@ body {
     font-size: 45%;
   }
 
+  .banner {
+    left: 8%;
+    right: 8%;
+  }
+
   .banner h1 {
-    font-size: 4rem;
-    line-height: 5rem;
+    font-size: 4.4rem;
+    line-height: 5.2rem;
+    width: 100%;
   }
 
   .banner p {
-    font-size: 2rem;
+    font-size: 2.2rem;
+    width: 100%;
   }
 
-  .banner button {
+  .banner .discover-button {
     width: 18rem;
-    height: 4rem;
+    height: 4.5rem;
     font-size: 1.5rem;
   }
 
@@ -586,10 +624,15 @@ body {
     font-size: 2.5rem;
   }
 
-  .banner button {
+  .banner .discover-button {
     width: 20rem;
     height: 5rem;
     font-size: 1.8rem;
+  }
+
+  .banner h1,
+  .banner p {
+    width: 85%;
   }
 
   .cards-wrapper {
@@ -631,7 +674,7 @@ body {
     font-size: 3rem;
   }
 
-  .banner button {
+  .banner .discover-button {
     width: 20rem;
     height: 5rem;
     font-size: 1.6rem;
@@ -653,7 +696,7 @@ body {
     font-size: 3rem;
   }
 
-  .banner button {
+  .banner .discover-button {
     width: 20rem;
     height: 5rem;
     font-size: 1.6rem;
