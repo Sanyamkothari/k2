@@ -1,9 +1,0 @@
-/* Dashboard styles */
-.progress-large {
-    height: 25px;
-}
-
-.occupancy-bar {
-    width: 0;
-    transition: width 1s ease-in-out;
-}

@@ -89,4 +89,4 @@ src/components/            Home sections, works island (React), shared pieces
 src/pages/                 index, works, studio, contact, styleguide
 ```
 
-`archive/` and `hostels/` are legacy material and are not part of the site. The hostel app's `.env` and `utils/logs/*.log` are git-ignored and must never be committed; deploy that app separately, never inside the public web root.
+`archive/` holds legacy material from the previous site and is not part of the build.
