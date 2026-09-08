@@ -1,0 +1,527 @@
+---
+import Base from '../../layouts/Base.astro';
+import Picture from '../../components/Picture.astro';
+import { REGION_HUBS, REGION_ORDER, getRegionProjects, type RegionHub } from '../../lib/regions';
+import { site } from '../../lib/site';
+
+export function getStaticPaths() {
+  return REGION_ORDER.map((slug) => {
+    const hub = REGION_HUBS[slug];
+    const hubProjects = getRegionProjects(hub);
+    return {
+      params: { region: slug },
+      props: { hub, hubProjects },
+    };
+  });
+}
+
+interface Props {
+  hub: RegionHub;
+  hubProjects: ReturnType<typeof getRegionProjects>;
+}
+
+const { hub, hubProjects } = Astro.props;
+
+const canonical = new URL(`/regions/${hub.slug}`, Astro.site).toString();
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${canonical}#service`,
+  name: hub.title,
+  description: hub.description,
+  url: canonical,
+  provider: {
+    '@type': 'ArchitectureFirm',
+    name: site.name,
+    telephone: `+91${site.phone}`,
+    email: site.email,
+    url: Astro.site?.toString(),
+  },
+  areaServed:
+    hub.slug === 'pan-india'
+      ? { '@type': 'Country', name: 'India' }
+      : { '@type': 'AdministrativeArea', name: hub.name },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: `${hub.name} Architectural Focus Areas`,
+    itemListElement: hub.focusAreas.map((f) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: f.title,
+        description: f.desc,
+      },
+    })),
+  },
+};
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': `${canonical}#portfolio`,
+  name: `${hub.name} Architectural Works — ${site.name}`,
+  description: hub.description,
+  url: canonical,
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: hubProjects.length,
+    itemListElement: hubProjects.map((p, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      item: {
+        '@type': 'CreativeWork',
+        name: p.title,
+        url: new URL(`/works/${p.slug}`, Astro.site).toString(),
+        image: new URL(`/${encodeURI(p.image)}`, Astro.site).toString(),
+      },
+    })),
+  },
+};
+
+const breadcrumbs = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: Astro.site?.toString(),
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Works',
+      item: new URL('/works', Astro.site).toString(),
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: hub.name,
+      item: canonical,
+    },
+  ],
+};
+---
+
+<Base
+  title={hub.title}
+  description={hub.description}
+  jsonLd={[serviceSchema, collectionSchema, breadcrumbs]}
+>
+  <div class="region-page container-x">
+    <!-- Breadcrumb Nav -->
+    <nav class="region-nav" aria-label="Breadcrumb">
+      <a href="/works" class="link label">
+        <span class="arrow" aria-hidden="true">←</span>
+        <span>Back to all works</span>
+      </a>
+      <span class="muted label region-breadcrumb-sep">/</span>
+      <span class="label muted">{hub.name}</span>
+    </nav>
+
+    <!-- Region Header -->
+    <header class="region-head grid-12">
+      <div class="region-head__main">
+        <p class="label muted region-badge" data-reveal>
+          {hub.badge}
+        </p>
+        <h1 class="display-3xl region-title" data-split>{hub.headline}</h1>
+        <p class="lede region-lede" data-reveal data-delay="0.15">{hub.description}</p>
+        <p class="region-editorial measure" data-reveal data-delay="0.25">{hub.editorial}</p>
+
+        <!-- Transit & Strategic Advantage -->
+        <aside class="region-advantage" data-reveal data-delay="0.3">
+          <p class="label region-advantage__lbl">National Reach & Agility</p>
+          <p class="region-advantage__txt">{hub.strategicAdvantage}</p>
+        </aside>
+
+        <!-- Geographic Reach / Cities -->
+        <div class="region-cities" data-reveal data-delay="0.35">
+          <p class="label muted region-cities__lbl">Key Cities & Districts Served</p>
+          <div class="region-cities__tags">
+            {hub.keyCities.map((city) => (
+              <span class="city-tag">{city}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="region-head__meta" data-reveal data-delay="0.2">
+        <div class="region-stat">
+          <span class="display-2xl tnum">450+</span>
+          <span class="label muted">Projects delivered across India</span>
+        </div>
+        <div class="region-stat">
+          <span class="display-2xl tnum">25+</span>
+          <span class="label muted">Years of professional practice</span>
+        </div>
+        <div class="region-stat">
+          <span class="display-2xl tnum">{hubProjects.length}</span>
+          <span class="label muted">Showcase works for this region</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Core Focus Areas -->
+    <section class="region-focus" aria-labelledby="focus-heading">
+      <div class="region-focus__head" data-reveal>
+        <p class="label muted">Architectural Expertise</p>
+        <h2 id="focus-heading" class="display-xl">Specialized Typologies for {hub.name}</h2>
+      </div>
+      <div class="region-focus__grid">
+        {hub.focusAreas.map((f, i) => (
+          <article class="focus-card" data-reveal data-delay={String(0.1 * (i + 1))}>
+            <span class="focus-card__index tnum">0{i + 1}</span>
+            <h3 class="focus-card__title">{f.title}</h3>
+            <p class="focus-card__desc">{f.desc}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Representative Projects Grid -->
+    <section class="region-works" aria-labelledby="projects-heading">
+      <div class="region-works__head" data-reveal>
+        <p class="label muted">Portfolio Showcase</p>
+        <h2 id="projects-heading" class="display-xl">Representative Architectural Works</h2>
+        <p class="muted measure">Institutional, healthcare, and educational landmarks exemplifying our planning standards.</p>
+      </div>
+
+      <div class="region-works__grid">
+        {hubProjects.map((p, idx) => (
+          <article class="region-card" data-reveal>
+            <a href={`/works/${p.slug}`} class="region-card__link">
+              <Picture
+                src={p.image}
+                alt={`${p.title} — ${p.sector} architecture in ${p.location}`}
+                ratio="photo"
+                sizes="(min-width: 64rem) 30vw, (min-width: 48rem) 45vw, 92vw"
+                reveal={idx > 2}
+              />
+              <div class="region-card__meta">
+                <div class="region-card__loc">
+                  <span class="label muted">{p.location}</span>
+                  {p.year && <span class="label muted tnum">{p.year}</span>}
+                </div>
+                <h3 class="region-card__title">{p.title}</h3>
+                <span class="link region-card__cue">
+                  <span>View project & gallery</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </span>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Region CTA -->
+    <footer class="region-cta" data-reveal>
+      <p class="label muted">Nationwide Practice & Inquiries</p>
+      <h2 class="display-2xl region-cta__h">Master plan your institutional project anywhere in India.</h2>
+      <p class="region-cta__sub measure">
+        Our studio partners with school boards, university foundations, hospital trusts, and private groups across all Indian states. Discuss your site, feasibility, and architectural vision with our partners.
+      </p>
+      <div class="region-cta__actions">
+        <a href="/contact" class="btn-primary">Initiate national consultation <span class="arrow" aria-hidden="true">→</span></a>
+        <p class="muted">Or call directly at <a class="link" href={`tel:+91${site.phone}`}>{site.phoneDisplay}</a></p>
+      </div>
+    </footer>
+  </div>
+</Base>
+
+<style>
+  .region-page {
+    padding-top: clamp(6.5rem, 14vw, 10rem);
+    padding-bottom: var(--section);
+  }
+
+  .region-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .region-breadcrumb-sep {
+    user-select: none;
+  }
+
+  .region-head {
+    row-gap: 2.5rem;
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+    border-bottom: 1px solid var(--color-rule);
+  }
+
+  .region-head__main {
+    grid-column: 1 / -1;
+  }
+
+  @media (min-width: 48rem) {
+    .region-head__main {
+      grid-column: 1 / 9;
+    }
+    .region-head__meta {
+      grid-column: 10 / 13;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      padding-left: 1.5rem;
+      border-left: 1px solid var(--color-rule);
+      justify-content: flex-start;
+      margin-top: 1rem;
+    }
+  }
+
+  .region-badge {
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .region-title {
+    margin-bottom: 1.25rem;
+    line-height: 1.05;
+  }
+
+  .region-lede {
+    margin-bottom: 1.5rem;
+    font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+    color: var(--color-ink);
+    line-height: 1.45;
+  }
+
+  .region-editorial {
+    font-size: var(--text-base);
+    line-height: 1.7;
+    color: var(--color-muted);
+    margin-bottom: 2.5rem;
+  }
+
+  .region-advantage {
+    padding: 1.5rem 1.75rem;
+    background: rgba(28, 27, 24, 0.03);
+    border-left: 2px solid var(--color-ink);
+    margin-bottom: 2.5rem;
+  }
+
+  .region-advantage__lbl {
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  .region-advantage__txt {
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    color: var(--color-ink);
+    margin: 0;
+  }
+
+  .region-cities {
+    margin-bottom: 1rem;
+  }
+
+  .region-cities__lbl {
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    font-size: var(--text-xs);
+    letter-spacing: 0.06em;
+  }
+
+  .region-cities__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .city-tag {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    font-size: var(--text-xs);
+    font-family: var(--font-sans);
+    background: rgba(28, 27, 24, 0.04);
+    border: 1px solid var(--color-rule);
+    border-radius: 9999px;
+    color: var(--color-ink);
+  }
+
+  .region-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  /* Focus Typologies */
+  .region-focus {
+    padding-top: clamp(3rem, 6vw, 5rem);
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+    border-bottom: 1px solid var(--color-rule);
+  }
+
+  .region-focus__head {
+    margin-bottom: 2.5rem;
+  }
+
+  .region-focus__head h2 {
+    margin-top: 0.5rem;
+  }
+
+  .region-focus__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 40rem) {
+    .region-focus__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .region-focus__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .focus-card {
+    padding: 2rem;
+    background: var(--color-paper);
+    border: 1px solid var(--color-rule);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .focus-card__index {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    color: var(--color-muted);
+    margin-bottom: 1rem;
+  }
+
+  .focus-card__title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+  }
+
+  .focus-card__desc {
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    color: var(--color-muted);
+    margin: 0;
+  }
+
+  /* Projects Showcase */
+  .region-works {
+    padding-top: clamp(3rem, 6vw, 5rem);
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+    border-bottom: 1px solid var(--color-rule);
+  }
+
+  .region-works__head {
+    margin-bottom: 3rem;
+  }
+
+  .region-works__head h2 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .region-works__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem 1.5rem;
+  }
+
+  @media (min-width: 40rem) {
+    .region-works__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .region-works__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .region-card__link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .region-card__link:hover .region-card__cue .arrow {
+    transform: translateX(4px);
+  }
+
+  .region-card__meta {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .region-card__loc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .region-card__title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    line-height: 1.2;
+    margin: 0.2rem 0;
+    font-weight: 400;
+  }
+
+  .region-card__cue {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: var(--text-xs);
+    margin-top: 0.5rem;
+  }
+
+  .region-card__cue .arrow {
+    transition: transform var(--dur-normal) var(--ease-out);
+  }
+
+  /* CTA */
+  .region-cta {
+    padding-top: clamp(4rem, 8vw, 7rem);
+    padding-bottom: clamp(2rem, 4vw, 4rem);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .region-cta__h {
+    margin-top: 0.75rem;
+    margin-bottom: 1rem;
+    max-width: 32ch;
+  }
+
+  .region-cta__sub {
+    font-size: var(--text-base);
+    line-height: 1.65;
+    color: var(--color-muted);
+    margin-bottom: 2.5rem;
+  }
+
+  .region-cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+  }
+</style>

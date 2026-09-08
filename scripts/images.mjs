@@ -16,7 +16,8 @@ const OUT = path.join(ROOT, 'public', 'img');
 const MANIFEST = path.join(ROOT, 'src', 'generated', 'images.json');
 const WIDTHS = [480, 800, 1200, 1600, 2000];
 const MAX = 2400;
-const QUALITY = 78;
+const QUALITY_WEBP = 78;
+const QUALITY_AVIF = 65;
 const EXT = /\.(jpe?g|png|webp)$/i;
 
 const slug = (s) => s.replace(/\.[^.]+$/, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60);
@@ -40,11 +41,22 @@ async function main() {
     const meta = await image.metadata();
     const w = meta.width, h = meta.height;
     const widths = Array.from(new Set([...WIDTHS.filter((x) => x < w), Math.min(w, MAX)])).sort((a, b) => a - b);
-    const outputs = widths.map((x) => ({ w: x, file: path.join(OUT, `${name}-${x}.webp`) }));
+    const outputs = widths.flatMap((x) => [
+      { w: x, format: 'webp', file: path.join(OUT, `${name}-${x}.webp`) },
+      { w: x, format: 'avif', file: path.join(OUT, `${name}-${x}.avif`) },
+    ]);
     const missing = [];
     for (const o of outputs) if (!(await exists(o.file))) missing.push(o);
     if (missing.length) {
-      await Promise.all(missing.map((o) => image.clone().resize({ width: o.w, withoutEnlargement: true }).webp({ quality: QUALITY, effort: 4 }).toFile(o.file)));
+      await Promise.all(
+        missing.map((o) => {
+          const resized = image.clone().resize({ width: o.w, withoutEnlargement: true });
+          if (o.format === 'avif') {
+            return resized.avif({ quality: QUALITY_AVIF, effort: 4 }).toFile(o.file);
+          }
+          return resized.webp({ quality: QUALITY_WEBP, effort: 4 }).toFile(o.file);
+        })
+      );
       made += missing.length;
     } else skipped += 1;
     const largest = widths[widths.length - 1];
@@ -52,7 +64,11 @@ async function main() {
   }
 
   // Remove renditions whose source is gone or changed.
-  const keep = new Set(Object.values(manifest).flatMap((m) => m.widths.map((x) => `${m.name}-${x}.webp`)));
+  const keep = new Set(
+    Object.values(manifest).flatMap((m) =>
+      m.widths.flatMap((x) => [`${m.name}-${x}.webp`, `${m.name}-${x}.avif`])
+    )
+  );
   let removed = 0;
   for (const f of await fs.readdir(OUT)) if (!keep.has(f)) { await fs.unlink(path.join(OUT, f)); removed += 1; }
 

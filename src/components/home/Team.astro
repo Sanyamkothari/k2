@@ -2,7 +2,11 @@
 import SectionHead from '../SectionHead.astro';
 import { rendition } from '../../lib/images';
 import { team } from '../../lib/site';
-const people = team.map((m) => ({ ...m, img: rendition(m.image, { widths: [480, 800], sizes: '(min-width: 48rem) 22vw, 45vw' }) }));
+
+const people = team.map((m) => ({
+  ...m,
+  img: rendition(m.image, { widths: [480, 800], sizes: '(min-width: 48rem) 22vw, 45vw' }),
+}));
 ---
 
 <section class="team container-x" aria-labelledby="team-title">
@@ -10,11 +14,27 @@ const people = team.map((m) => ({ ...m, img: rendition(m.image, { widths: [480, 
   <ul class="team__grid" data-reveal-group>
     {people.map((m) => (
       <li class="person">
+        <div class="person__datum">
+          <span class="tnum label muted">{m.index}</span>
+          <span class="label muted person__discipline">{m.role.includes('Landscape') ? 'Landscape' : m.role.includes('Engineer') ? 'Engineering' : 'Architecture'}</span>
+        </div>
         <figure class="figure ratio-portrait person__fig">
-          <img src={m.img.src} srcset={m.img.srcset} sizes={m.img.sizes} width={m.img.width} height={m.img.height} alt={`${m.name}, ${m.role}`} loading="lazy" decoding="async" />
+          <img
+            src={m.img.src}
+            srcset={m.img.srcset}
+            sizes={m.img.sizes}
+            width={m.img.width}
+            height={m.img.height}
+            alt={`${m.name}, ${m.role}`}
+            loading="lazy"
+            decoding="async"
+          />
         </figure>
-        <p class="person__name">{m.name}</p>
-        <p class="label muted">{m.role}</p>
+        <div class="person__meta">
+          <h3 class="person__name">{m.name}</h3>
+          <p class="label muted person__role">{m.role}</p>
+          {m.credentials && <p class="person__cred tnum">{m.credentials}</p>}
+        </div>
       </li>
     ))}
   </ul>
@@ -22,10 +42,76 @@ const people = team.map((m) => ({ ...m, img: rendition(m.image, { widths: [480, 
 
 <style>
   .team { padding-top: var(--section); }
-  .team__grid { list-style: none; margin: clamp(2rem, 5vw, 4rem) 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem var(--gutter); }
-  @media (min-width: 48rem) { .team__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } .person:nth-child(even) { margin-top: 3rem; } }
-  .person__fig img { object-position: center top; filter: grayscale(1) contrast(1.04) sepia(0.06); transition: filter 500ms var(--ease), transform var(--dur-slow) var(--ease); }
-  .person:hover .person__fig img { filter: grayscale(0) contrast(1.04) saturate(0.9) sepia(0.06); }
-  .person__name { margin-top: 0.9rem; font-size: var(--text-base); }
-  .person .label { margin-top: 0.2rem; }
+  .team__grid {
+    list-style: none;
+    margin: clamp(2.5rem, 5vw, 4rem) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem var(--gutter);
+  }
+  @media (min-width: 48rem) {
+    .team__grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 3rem var(--gutter);
+    }
+  }
+  .person {
+    display: flex;
+    flex-direction: column;
+  }
+  .person__datum {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid var(--color-rule);
+    margin-bottom: 0.85rem;
+  }
+  .person__discipline {
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    font-size: var(--text-2xs);
+  }
+  .person__fig {
+    position: relative;
+    border-radius: 1px;
+    background: var(--color-paper-2);
+  }
+  .person__fig img {
+    object-position: center 25%;
+    filter: grayscale(1) contrast(1.06) brightness(0.98) sepia(0.04);
+    transition: filter 500ms var(--ease), transform var(--dur-slow) var(--ease);
+  }
+  .person:hover .person__fig img {
+    filter: grayscale(0) contrast(1.04) saturate(0.95);
+    transform: scale(1.025);
+  }
+  .person__meta {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .person__name {
+    font-size: var(--text-base);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--color-ink);
+    margin: 0;
+  }
+  .person__role {
+    margin: 0;
+    font-size: var(--text-xs);
+    color: var(--color-ink-2);
+  }
+  .person__cred {
+    margin: 0.15rem 0 0;
+    font-size: var(--text-2xs);
+    color: var(--color-ink-2);
+    opacity: 0.75;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+  }
 </style>
+

@@ -7,12 +7,16 @@ const action = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '';
 const contactPoint = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
-  name: 'Contact K2 Architects',
+  name: 'Contact Studio & Consultations — K2 Architects',
+  description: 'Initiate an architectural dialogue or consultation with K2 Architects in Nagpur, Maharashtra for campus master planning, hospital design, and townships.',
   url: new URL('/contact', Astro.site).toString(),
+  mainEntity: {
+    '@id': new URL('/#organization', Astro.site).toString(),
+  },
 };
 ---
 
-<Base title="Contact" description="Talk to K2 Architects about a school, hospital, campus or township. Phone, email and studio address in Nagpur, Maharashtra." jsonLd={[contactPoint]}>
+<Base title="Contact & Consultations" description="Consult with K2 Architects in Nagpur for educational campuses, hospital architecture, townships, and landscape ecology across Central India." jsonLd={[contactPoint]}>
   <section class="contact container-x">
     <div class="contact__grid">
       <div class="contact__left">

@@ -3,7 +3,7 @@ import '../styles/global.css';
 import { ClientRouter } from 'astro:transitions';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import { site } from '../lib/site';
+import { site, services } from '../lib/site';
 
 interface Props {
   title: string;
@@ -17,9 +17,10 @@ interface Props {
 }
 
 const { title, description = site.description, ogImage = '/og.jpg', transparentNav = false, jsonLd = [], noindex = false } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site);
+const cleanPath = Astro.url.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '') || '/';
+const canonical = new URL(cleanPath, Astro.site);
 const ogUrl = new URL(ogImage, Astro.site);
-const fullTitle = title === site.name ? `${site.name} — Architecture for institutions that last` : `${title} — ${site.name}`;
+const fullTitle = title === site.name ? `${site.name} — Architecture & Campus Master Planning, Nagpur` : `${title} — ${site.name}`;
 
 const business = {
   '@context': 'https://schema.org',
@@ -33,20 +34,119 @@ const business = {
   image: ogUrl.toString(),
   telephone: `+91${site.phone}`,
   email: site.email,
+  priceRange: '$$$',
   foundingDate: String(site.since),
-  founder: { '@type': 'Person', name: 'Ar. Sachin Kothari', jobTitle: 'Principal Architect' },
+  hasCredential: 'Council of Architecture (COA) Registered Architects',
+  knowsLanguage: ['English', 'Hindi', 'Marathi'],
+  serviceType: [
+    'Pan-India Architectural Consultancy',
+    'Campus Master Planning',
+    'CBSE & ICSE School Architecture',
+    'Hospital & Healthcare Architecture (NABH Compliant)',
+    'Colleges & University Campuses',
+    'Townships & High-Density Residential',
+    'Landscape Ecology & Biophilic Design',
+  ],
+  founders: [
+    {
+      '@type': 'Person',
+      name: 'Ar. Sachin Kothari',
+      jobTitle: 'Principal Architect & Founder',
+      hasCredential: {
+        '@type': 'EducationalOccupationalCredential',
+        credentialCategory: 'degree',
+        name: 'Bachelor of Architecture (B.Arch)',
+      },
+      memberOf: {
+        '@type': 'Organization',
+        name: 'Council of Architecture (India)',
+        url: 'https://www.coa.gov.in',
+      },
+      knowsAbout: [
+        'Campus Master Planning',
+        'Institutional Architecture',
+        'Hospital & Healthcare Design',
+        'Township Master Planning',
+      ],
+    },
+    {
+      '@type': 'Person',
+      name: 'Ar. Riya Kothari',
+      jobTitle: 'Landscape Architect & Partner',
+      hasCredential: {
+        '@type': 'EducationalOccupationalCredential',
+        credentialCategory: 'degree',
+        name: 'B.Arch, Landscape Architecture',
+      },
+      memberOf: {
+        '@type': 'Organization',
+        name: 'Council of Architecture (India)',
+        url: 'https://www.coa.gov.in',
+      },
+      knowsAbout: [
+        'Landscape Ecology',
+        'Biophilic Design',
+        'Microclimate Planning',
+        'Campus Greens',
+      ],
+    },
+  ],
   address: {
     '@type': 'PostalAddress',
     streetAddress: `${site.address.line1}, ${site.address.line2}, ${site.address.line3.replace(', Nagpur', '')}`,
     addressLocality: site.address.locality,
     addressRegion: site.address.region,
+    postalCode: site.address.postalCode,
     addressCountry: site.address.country,
   },
   geo: { '@type': 'GeoCoordinates', latitude: site.geo.lat, longitude: site.geo.lng },
-  areaServed: site.states.map((s) => ({ '@type': 'State', name: s })),
+  areaServed: [
+    { '@type': 'Country', name: 'India' },
+    ...site.states.map((s) => ({ '@type': 'State', name: s })),
+  ],
   openingHours: 'Mo-Sa 10:00-18:00',
-  knowsAbout: ['Institutional architecture', 'School design', 'Hospital design', 'Campus master planning', 'Township planning'],
+  knowsAbout: [
+    'Institutional architecture',
+    'School design',
+    'Hospital design',
+    'Campus master planning',
+    'Township planning',
+    'Landscape ecology',
+    'Biophilic design',
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Architectural & Master Planning Services',
+    itemListElement: services.map((s) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: s.name,
+        description: s.description,
+      },
+    })),
+  },
 };
+
+const hasBreadcrumb = jsonLd.some((obj) => obj['@type'] === 'BreadcrumbList');
+const breadcrumb = (cleanPath !== '/' && !hasBreadcrumb) ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: Astro.site?.toString(),
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: title,
+      item: canonical.toString(),
+    },
+  ],
+} : null;
 ---
 
 <!doctype html>
@@ -60,19 +160,28 @@ const business = {
     {noindex && <meta name="robots" content="noindex" />}
     <meta name="theme-color" content="#f4f2ed" />
 
+    <!-- Geo-Targeting & Local SEO -->
+    <meta name="geo.region" content="IN-MH" />
+    <meta name="geo.placename" content="Nagpur" />
+    <meta name="geo.position" content={`${site.geo.lat};${site.geo.lng}`} />
+    <meta name="ICBM" content={`${site.geo.lat}, ${site.geo.lng}`} />
+
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogUrl} />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1600" />
     <meta property="og:image:height" content="900" />
+    <meta property="og:image:alt" content={`${site.name} — Architecture & Campus Master Planning`} />
     <meta property="og:locale" content="en_IN" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogUrl} />
+    <meta name="twitter:image:alt" content={`${site.name} — Architecture & Campus Master Planning`} />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon-64.png" type="image/png" sizes="64x64" />
@@ -82,8 +191,9 @@ const business = {
     <link rel="preload" href="/fonts/inter-tight-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
 
     <script is:inline>document.documentElement.classList.replace('no-js', 'js');</script>
-    <script type="application/ld+json" set:html={JSON.stringify(business)} />
-    {jsonLd.map((obj) => <script type="application/ld+json" set:html={JSON.stringify(obj)} />)}
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(business)} />
+    {breadcrumb && <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />}
+    {jsonLd.map((obj) => <script is:inline type="application/ld+json" set:html={JSON.stringify(obj)} />)}
     <ClientRouter />
   </head>
   <body>

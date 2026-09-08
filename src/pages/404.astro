@@ -1,0 +1,107 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Page not found" description="The page you were looking for could not be found. Explore K2 Architects portfolio or return home." noindex={true}>
+  <section class="not-found container-x">
+    <div class="grid-12 not-found__grid">
+      <div class="not-found__content">
+        <p class="label muted not-found__tag" data-reveal>404 — Page Not Found</p>
+        <h1 class="display-3xl not-found__title" data-split>This space is uncharted.</h1>
+        <p class="lede not-found__lede" data-reveal data-delay="0.2">
+          The link you followed may have moved or no longer exists. Explore our works or return to the main studio pages below.
+        </p>
+
+        <nav class="not-found__nav" aria-label="Quick links" data-reveal data-delay="0.3">
+          <ul class="not-found__list">
+            <li>
+              <a href="/" class="link not-found__link">
+                <span class="label">01</span>
+                <span>Return to Home</span>
+                <span class="arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="/works" class="link not-found__link">
+                <span class="label">02</span>
+                <span>Explore Works (69 Projects)</span>
+                <span class="arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="/studio" class="link not-found__link">
+                <span class="label">03</span>
+                <span>The Studio & Leadership</span>
+                <span class="arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="/contact" class="link not-found__link">
+                <span class="label">04</span>
+                <span>Contact & Consultations</span>
+                <span class="arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .not-found {
+    padding-top: clamp(8rem, 18vw, 14rem);
+    padding-bottom: var(--section);
+    min-height: 75vh;
+  }
+  .not-found__grid {
+    row-gap: 2rem;
+  }
+  .not-found__content {
+    grid-column: 1 / -1;
+  }
+  @media (min-width: 48rem) {
+    .not-found__content {
+      grid-column: 1 / span 10;
+    }
+  }
+  @media (min-width: 64rem) {
+    .not-found__content {
+      grid-column: 2 / span 8;
+    }
+  }
+  .not-found__tag {
+    margin-bottom: 1.5rem;
+  }
+  .not-found__title {
+    margin-left: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+  .not-found__lede {
+    max-width: 48ch;
+    margin-bottom: 3rem;
+  }
+  .not-found__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid var(--color-rule);
+  }
+  .not-found__link {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-block: 1.25rem;
+    border-bottom: 1px solid var(--color-rule);
+    font-size: var(--text-base);
+    transition: color 0.2s var(--ease);
+  }
+  .not-found__link .arrow {
+    margin-left: auto;
+    transition: transform 0.2s var(--ease);
+  }
+  .not-found__link:hover .arrow {
+    transform: translateX(4px);
+  }
+</style>

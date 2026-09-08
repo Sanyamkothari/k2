@@ -22,18 +22,21 @@ const img = rendition(src, { sizes, widths });
 
 <div class:list={[cls]} data-reveal-img={reveal ? '' : undefined} data-parallax={parallax}>
   <figure class:list={['figure', `ratio-${ratio}`]} style={parallax ? 'overflow:hidden' : undefined}>
-    <img
-      src={img.src}
-      srcset={img.srcset}
-      sizes={img.sizes}
-      width={img.width}
-      height={img.height}
-      alt={alt}
-      loading={eager ? 'eager' : 'lazy'}
-      decoding={eager ? 'sync' : 'async'}
-      fetchpriority={eager ? 'high' : undefined}
-      style={[parallax ? 'scale:1.16' : '', position ? `object-position:${position}` : ''].filter(Boolean).join(';') || undefined}
-    />
+    <picture>
+      {img.avifSrcset && <source type="image/avif" srcset={img.avifSrcset} sizes={img.sizes} />}
+      <source type="image/webp" srcset={img.srcset} sizes={img.sizes} />
+      <img
+        src={img.src}
+        sizes={img.sizes}
+        width={img.width}
+        height={img.height}
+        alt={alt}
+        loading={eager ? 'eager' : 'lazy'}
+        decoding={eager ? 'sync' : 'async'}
+        fetchpriority={eager ? 'high' : undefined}
+        style={[parallax ? 'scale:1.16' : '', position ? `object-position:${position}` : ''].filter(Boolean).join(';') || undefined}
+      />
+    </picture>
   </figure>
 </div>
 

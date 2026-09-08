@@ -1,0 +1,323 @@
+---
+import Base from '../../layouts/Base.astro';
+import Picture from '../../components/Picture.astro';
+import { projects, type Project } from '../../lib/projects';
+import { site } from '../../lib/site';
+
+export function getStaticPaths() {
+  return projects.map((p, idx) => ({
+    params: { slug: p.slug },
+    props: {
+      project: p,
+      prev: idx > 0 ? projects[idx - 1] : null,
+      next: idx < projects.length - 1 ? projects[idx + 1] : null,
+    },
+  }));
+}
+
+interface Props {
+  project: Project;
+  prev: Project | null;
+  next: Project | null;
+}
+
+const { project, prev, next } = Astro.props;
+
+const pageTitle = `${project.title} (${project.city})`;
+const pageDesc = `${project.sector} architectural project in ${project.location}, designed and executed by K2 Architects Nagpur.`;
+const canonical = new URL(`/works/${project.slug}`, Astro.site).toString();
+const imageUrl = new URL(`/${encodeURI(project.image)}`, Astro.site).toString();
+
+const creativeWork = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  '@id': `${canonical}#project`,
+  name: project.title,
+  headline: `${project.title} — ${project.sector} in ${project.location}`,
+  description: pageDesc,
+  url: canonical,
+  image: imageUrl,
+  genre: project.sector,
+  ...(project.year ? { dateCreated: project.year } : {}),
+  locationCreated: {
+    '@type': 'Place',
+    name: project.location,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: project.city,
+      addressRegion: project.state,
+      addressCountry: 'IN',
+    },
+  },
+  author: {
+    '@id': new URL('/#organization', Astro.site).toString(),
+  },
+  provider: {
+    '@id': new URL('/#organization', Astro.site).toString(),
+  },
+};
+
+const breadcrumbs = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: Astro.site?.toString(),
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Works',
+      item: new URL('/works', Astro.site).toString(),
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: project.title,
+      item: canonical,
+    },
+  ],
+};
+---
+
+<Base
+  title={pageTitle}
+  description={pageDesc}
+  ogImage={`/${project.image}`}
+  jsonLd={[creativeWork, breadcrumbs]}
+>
+  <article class="project-view container-x">
+    <!-- Breadcrumb and Back Bar -->
+    <nav class="project-nav" aria-label="Breadcrumb">
+      <a href="/works" class="link project-back label">
+        <span class="arrow" aria-hidden="true">←</span>
+        <span>Back to all works</span>
+      </a>
+      <span class="muted label project-breadcrumb-sep">/</span>
+      <a href={`/works?sector=${project.category}`} class="link label muted">{project.sector}</a>
+    </nav>
+
+    <!-- Project Header -->
+    <header class="project-head grid-12">
+      <div class="project-head__left">
+        <p class="label muted project-datum" data-reveal>
+          <span class="tnum">{project.category.toUpperCase()}</span> · {project.location}
+        </p>
+        <h1 class="display-3xl project-title" data-split>{project.title}</h1>
+      </div>
+
+      <div class="project-head__right" data-reveal data-delay="0.2">
+        <dl class="project-details-grid">
+          <div>
+            <dt class="label muted">Location</dt>
+            <dd>{project.location}</dd>
+          </div>
+          <div>
+            <dt class="label muted">Typology</dt>
+            <dd>{project.sector}</dd>
+          </div>
+          {project.year && (
+            <div>
+              <dt class="label muted">Year</dt>
+              <dd class="tnum">{project.year}</dd>
+            </div>
+          )}
+          <div>
+            <dt class="label muted">Practice</dt>
+            <dd>K2 Architects, Nagpur</dd>
+          </div>
+        </dl>
+      </div>
+    </header>
+
+    <!-- Visual Gallery Stack -->
+    <section class="project-gallery" aria-label="Project Photography and Renders">
+      {project.images.map((src, i) => (
+        <figure class="project-gallery__figure" data-reveal-img>
+          <Picture
+            src={src}
+            alt={`${project.title} in ${project.city} — photograph ${i + 1} by K2 Architects`}
+            ratio={i === 0 ? "wide" : "photo"}
+            sizes="(min-width: 64rem) 88vw, 92vw"
+            eager={i === 0}
+            reveal={i !== 0}
+          />
+          <figcaption class="project-gallery__cap label muted">
+            <span class="tnum">0{i + 1}</span> / 0{project.images.length} · {project.title}, {project.city}
+          </figcaption>
+        </figure>
+      ))}
+    </section>
+
+    <!-- Bottom Navigation & Consultation CTA -->
+    <footer class="project-foot">
+      <nav class="project-pagination grid-12" aria-label="Project pagination">
+        <div class="pagination-col pagination-col--prev">
+          {prev && (
+            <a href={`/works/${prev.slug}`} class="link pagination-link">
+              <span class="label muted">← Previous project</span>
+              <span class="pagination-title">{prev.title}</span>
+              <span class="label muted">{prev.city}</span>
+            </a>
+          )}
+        </div>
+        <div class="pagination-col pagination-col--next">
+          {next && (
+            <a href={`/works/${next.slug}`} class="link pagination-link">
+              <span class="label muted">Next project →</span>
+              <span class="pagination-title">{next.title}</span>
+              <span class="label muted">{next.city}</span>
+            </a>
+          )}
+        </div>
+      </nav>
+
+      <div class="project-cta" data-reveal>
+        <p class="label muted">Let's talk</p>
+        <h2 class="display-2xl project-cta__h">Have a project of similar scope?</h2>
+        <div class="project-cta__actions">
+          <a href="/contact" class="btn-primary">Initiate consultation <span class="arrow" aria-hidden="true">→</span></a>
+          <p class="muted">Direct line: <a class="link" href={`tel:+91${site.phone}`}>{site.phoneDisplay}</a></p>
+        </div>
+      </div>
+    </footer>
+  </article>
+</Base>
+
+<style>
+  .project-view {
+    padding-top: clamp(6.5rem, 14vw, 10rem);
+    padding-bottom: var(--section);
+  }
+  .project-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+  .project-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .project-breadcrumb-sep {
+    user-select: none;
+  }
+  .project-head {
+    row-gap: 2rem;
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+    border-bottom: 1px solid var(--color-rule);
+    align-items: end;
+  }
+  .project-head__left {
+    grid-column: 1 / -1;
+  }
+  @media (min-width: 64rem) {
+    .project-head__left {
+      grid-column: 1 / span 8;
+    }
+  }
+  .project-datum {
+    margin-bottom: 1rem;
+    letter-spacing: var(--tracking-label);
+  }
+  .project-title {
+    margin-left: -0.03em;
+    line-height: 0.96;
+  }
+  .project-head__right {
+    grid-column: 1 / -1;
+  }
+  @media (min-width: 64rem) {
+    .project-head__right {
+      grid-column: 9 / span 4;
+      padding-bottom: 0.5rem;
+    }
+  }
+  .project-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem 1rem;
+    margin: 0;
+  }
+  .project-details-grid dt {
+    margin-bottom: 0.25rem;
+  }
+  .project-details-grid dd {
+    font-size: var(--text-sm);
+    margin: 0;
+    color: var(--color-ink);
+  }
+
+  /* Gallery */
+  .project-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3rem, 6vw, 5rem);
+    margin-block: clamp(3rem, 6vw, 5rem);
+  }
+  .project-gallery__figure {
+    margin: 0;
+  }
+  .project-gallery__cap {
+    margin-top: 0.75rem;
+    font-size: var(--text-2xs);
+    letter-spacing: var(--tracking-label);
+  }
+
+  /* Footer & Pagination */
+  .project-foot {
+    border-top: 1px solid var(--color-rule);
+    padding-top: clamp(2rem, 4vw, 3rem);
+  }
+  .project-pagination {
+    row-gap: 2rem;
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .pagination-col--prev {
+    grid-column: 1 / -1;
+  }
+  .pagination-col--next {
+    grid-column: 1 / -1;
+  }
+  @media (min-width: 48rem) {
+    .pagination-col--prev {
+      grid-column: 1 / span 6;
+    }
+    .pagination-col--next {
+      grid-column: 7 / span 6;
+      text-align: right;
+    }
+  }
+  .pagination-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .pagination-title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-lg), 2vw, var(--text-xl));
+    color: var(--color-ink);
+  }
+
+  /* CTA */
+  .project-cta {
+    padding-top: clamp(3rem, 6vw, 5rem);
+  }
+  .project-cta__h {
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    max-width: 18ch;
+    margin-left: -0.02em;
+  }
+  .project-cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem 2.5rem;
+  }
+</style>

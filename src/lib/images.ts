@@ -8,7 +8,14 @@ import manifest from '../generated/images.json';
 interface Entry { name: string; width: number; height: number; widths: number[]; largest: number; ratio: number }
 const entries = manifest as Record<string, Entry>;
 
-export interface Rendition { src: string; srcset: string; width: number; height: number; sizes: string }
+export interface Rendition {
+  src: string;
+  srcset: string;
+  avifSrcset: string;
+  width: number;
+  height: number;
+  sizes: string;
+}
 
 export function entry(path: string): Entry {
   const e = entries[path];
@@ -16,16 +23,17 @@ export function entry(path: string): Entry {
   return e;
 }
 
-const url = (e: Entry, w: number) => `/img/${e.name}-${w}.webp`;
+const url = (e: Entry, w: number, ext: 'webp' | 'avif' = 'webp') => `/img/${e.name}-${w}.${ext}`;
 
-/** Responsive WebP rendition. Only widths the source can supply without upscaling. */
+/** Responsive WebP and AVIF rendition. Only widths the source can supply without upscaling. */
 export function rendition(path: string, opts: { widths?: number[]; sizes?: string } = {}): Rendition {
   const e = entry(path);
   const wanted = opts.widths ? e.widths.filter((w) => opts.widths!.some((x) => Math.abs(x - w) < 1) || w === e.largest) : e.widths;
   const widths = wanted.length ? wanted : e.widths;
   return {
-    src: url(e, widths[widths.length - 1]),
-    srcset: widths.map((w) => `${url(e, w)} ${w}w`).join(', '),
+    src: url(e, widths[widths.length - 1], 'webp'),
+    srcset: widths.map((w) => `${url(e, w, 'webp')} ${w}w`).join(', '),
+    avifSrcset: widths.map((w) => `${url(e, w, 'avif')} ${w}w`).join(', '),
     width: widths[widths.length - 1],
     height: Math.round(widths[widths.length - 1] / e.ratio),
     sizes: opts.sizes ?? '100vw',

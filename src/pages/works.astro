@@ -27,14 +27,37 @@ const sectors: SectorOption[] = CATEGORY_ORDER.map((key) => ({ key, label: SECTO
 const collection = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: 'Works — K2 Architects',
-  description: `${projectCount} projects across ${sectorCount} sectors by K2 Architects, Nagpur.`,
+  name: 'Works & Architectural Master Plans — K2 Architects',
+  description: `${projectCount} landmark projects across ${sectorCount} architectural sectors by K2 Architects Nagpur.`,
   url: new URL('/works', Astro.site).toString(),
-  hasPart: projects.slice(0, 20).map((p) => ({ '@type': 'CreativeWork', name: p.title, locationCreated: p.location, url: new URL(`/works?project=${p.slug}`, Astro.site).toString() })),
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: projectCount,
+    itemListElement: projects.map((p, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      item: {
+        '@type': 'CreativeWork',
+        name: p.title,
+        headline: `${p.title} — ${p.sector} in ${p.location}`,
+        locationCreated: {
+          '@type': 'Place',
+          name: p.location,
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: p.city,
+            addressCountry: 'IN',
+          },
+        },
+        image: new URL(`/${encodeURI(p.image)}`, Astro.site).toString(),
+        url: new URL(`/works?project=${p.slug}`, Astro.site).toString(),
+      },
+    })),
+  },
 };
 ---
 
-<Base title="Works" description={`${projectCount} schools, colleges, hospitals, hostels, townships and commercial buildings across seven Indian states. The K2 Architects portfolio.`} jsonLd={[collection]}>
+<Base title="Works & Architectural Master Plans" description={`Explore ${projectCount} landmark architectural projects across 7 states by K2 Architects Nagpur—educational campuses, multi-specialty hospitals, townships, and residences.`} jsonLd={[collection]}>
   <section class="page-head container-x">
     <div class="grid-12 page-head__grid">
       <h1 class="display-3xl page-head__title" data-split>Works</h1>

@@ -7,8 +7,9 @@ import SectorIndex from '../components/home/SectorIndex.astro';
 import Manifesto from '../components/home/Manifesto.astro';
 import Team from '../components/home/Team.astro';
 import Clients from '../components/home/Clients.astro';
+import Faq from '../components/home/Faq.astro';
 import Closing from '../components/home/Closing.astro';
-import { site } from '../lib/site';
+import { site, faqs } from '../lib/site';
 
 const webSite = {
   '@context': 'https://schema.org',
@@ -16,9 +17,22 @@ const webSite = {
   name: site.name,
   url: Astro.site?.toString(),
 };
+
+const faqPage = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.answer,
+    },
+  })),
+};
 ---
 
-<Base title={site.name} transparentNav jsonLd={[webSite]}>
+<Base title={site.name} transparentNav jsonLd={[webSite, faqPage]}>
   <Hero />
   <Credentials />
   <SelectedWorks />
@@ -26,5 +40,6 @@ const webSite = {
   <Manifesto />
   <Team />
   <Clients />
+  <Faq />
   <Closing />
 </Base>

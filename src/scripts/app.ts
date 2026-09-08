@@ -147,8 +147,10 @@ function initParallax() {
       if (r.bottom < 0 || r.top > vh) return;
       const p = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2); // -1..1
       const travel = Number(el.dataset.parallax || 10);
-      const img = el.querySelector('img');
-      if (img) img.style.translate = `0 ${(-p * travel).toFixed(2)}%`;
+      const imgs = el.querySelectorAll('img');
+      imgs.forEach((img) => {
+        img.style.translate = `0 ${(-p * travel).toFixed(2)}%`;
+      });
     });
   };
   tick();

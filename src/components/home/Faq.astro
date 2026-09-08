@@ -1,0 +1,103 @@
+---
+import { faqs } from '../../lib/site';
+---
+
+<section class="faq container-x" aria-labelledby="faq-title">
+  <div class="grid-12 faq__grid">
+    <div class="faq__head">
+      <p class="label muted" data-reveal>Frequently Asked Questions</p>
+      <h2 id="faq-title" class="display-2xl faq__title" data-split>Questions & Consultation</h2>
+    </div>
+
+    <div class="faq__list" data-reveal data-delay="0.2">
+      {faqs.map((item, idx) => (
+        <details class="faq__item">
+          <summary class="faq__summary">
+            <span class="faq__index label muted">0{idx + 1}</span>
+            <span class="faq__q">{item.question}</span>
+            <span class="faq__icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq__content">
+            <p>{item.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq {
+    padding-block: var(--section);
+    border-top: 1px solid var(--color-rule);
+  }
+  .faq__grid {
+    row-gap: 3rem;
+  }
+  .faq__head {
+    grid-column: 1 / -1;
+  }
+  @media (min-width: 64rem) {
+    .faq__head {
+      grid-column: 1 / span 4;
+    }
+  }
+  .faq__title {
+    margin-top: 1rem;
+    margin-left: -0.02em;
+  }
+  .faq__list {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--color-rule);
+  }
+  @media (min-width: 64rem) {
+    .faq__list {
+      grid-column: 5 / -1;
+    }
+  }
+  .faq__item {
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .faq__summary {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    padding-block: 1.5rem;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    transition: color 0.2s var(--ease);
+  }
+  .faq__summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq__summary:hover {
+    color: var(--color-ink);
+  }
+  .faq__index {
+    font-variant-numeric: tabular-nums;
+  }
+  .faq__q {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-lg), 2vw, var(--text-xl));
+    line-height: 1.25;
+    flex: 1;
+  }
+  .faq__icon {
+    font-size: 1.25rem;
+    line-height: 1;
+    font-weight: 300;
+    transition: transform 0.2s var(--ease);
+  }
+  .faq__item[open] .faq__icon {
+    transform: rotate(45deg);
+  }
+  .faq__content {
+    padding-bottom: 1.5rem;
+    padding-left: clamp(1.5rem, 3vw, 3.5rem);
+    max-width: 58ch;
+    font-size: var(--text-base);
+    line-height: 1.6;
+    color: var(--color-muted);
+  }
+</style>

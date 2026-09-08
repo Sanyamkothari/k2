@@ -127,3 +127,48 @@ export const projectCount = projects.length;
 export const sectorCount = CATEGORY_ORDER.length;
 export const bySlug = new Map(projects.map((p) => [p.slug, p]));
 export const hasYears = projects.some((p) => p.year);
+
+export const SECTOR_DATA: Record<Category, { title: string; headline: string; description: string; longDesc: string }> = {
+  engineering: {
+    title: 'School & Educational Campus Architecture',
+    headline: 'Campuses designed for learning, community, and generational longevity.',
+    description: 'Master planning and architectural design for CBSE, ICSE, and international school campuses across India by K2 Architects.',
+    longDesc: 'For over 25 years, K2 Architects has planned and delivered landmark educational campuses for premier national networks including Delhi Public School (DPS), Sanskar International, and Jindal World School. From academic clusters and high-efficiency circulation spines to integrated athletic fields and biophilic outdoor courtyards, each campus is designed for safety, operational economy, and inspiring pedagogy.',
+  },
+  college: {
+    title: 'Colleges, Universities & Technical Campuses',
+    headline: 'High-capacity academic environments engineered for higher education.',
+    description: 'Engineering colleges, polytechnic institutes, and university master planning across Central India.',
+    longDesc: 'Our studio combines large-scale spatial organization with climatic responsiveness to design university campuses, engineering faculties, and polytechnic institutes. We integrate lecture halls, research laboratories, administrative headquarters, and student housing into cohesive, walkable campus master plans.',
+  },
+  medi: {
+    title: 'Hospital & Healthcare Architecture',
+    headline: 'NABH-compliant multi-specialty healthcare and medical complexes.',
+    description: 'Multi-specialty hospitals, trauma centers, and medical colleges engineered for sterile flow and patient care.',
+    longDesc: 'Healthcare architecture demands structural precision and rigorous clinical zoning. K2 Architects designs NABH-compliant multi-specialty hospitals, diagnostic centers, and medical colleges that prioritize sterile and non-sterile circulation, rapid emergency ingress, patient dignity, and therapeutic natural daylighting.',
+  },
+  hostel: {
+    title: 'Hostels & Public Buildings',
+    headline: 'High-density institutional residential living and civic structures.',
+    description: 'Student hostel complexes, civic community centers, and institutional residential infrastructure.',
+    longDesc: 'Designing high-density residential facilities for universities and institutes requires balancing security, operational management, natural ventilation, and vibrant communal interaction. Our hostel master plans create dignified, enduring student living environments.',
+  },
+  residential: {
+    title: 'Residential Towers & Commercial Plazas',
+    headline: 'High-density urban living and vibrant commercial hubs.',
+    description: 'Multi-storied residential apartments, commercial plazas, and mixed-use commercial developments.',
+    longDesc: 'From high-density apartment complexes to regional retail hubs and commercial towers, K2 Architects balances vehicular accessibility, pedestrian engagement, structural economy, and distinctive street presence across Central India.',
+  },
+  bungalow: {
+    title: 'Bungalows, Townships & Private Estates',
+    headline: 'Bespoke residences, country farmhouses, and master-planned townships.',
+    description: 'Luxury private villas, farmhouses, and integrated residential townships in Maharashtra and Central India.',
+    longDesc: 'Our residential practice ranges from multi-acre integrated townships to bespoke private family estates. We celebrate indoor-outdoor connectivity, natural materials, private courtyards, and deep shade tailored to the hot-composite climate of Central India.',
+  },
+  banquets: {
+    title: 'Banquets, Hospitality & Gathering Venues',
+    headline: 'Civic celebration venues and grand hospitality infrastructure.',
+    description: 'Banquets, celebratory marriage complexes, and hospitality architecture designed for major gatherings.',
+    longDesc: 'Grand celebratory venues require seamless logistics, high-capacity banquet halls, commercial kitchens, ample parking circulation, and dramatic architectural presence. Our venues are engineered to host thousands with effortless operational flow.',
+  },
+};

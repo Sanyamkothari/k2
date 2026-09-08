@@ -1,0 +1,299 @@
+---
+import Base from '../../layouts/Base.astro';
+import Picture from '../../components/Picture.astro';
+import { projects, CATEGORY_ORDER, SECTORS, SECTOR_DATA, type Category, type Project } from '../../lib/projects';
+import { site } from '../../lib/site';
+
+export function getStaticPaths() {
+  return CATEGORY_ORDER.map((category) => ({
+    params: { sector: category },
+    props: {
+      category,
+      info: SECTOR_DATA[category],
+      sectorProjects: projects.filter((p) => p.category === category),
+    },
+  }));
+}
+
+interface Props {
+  category: Category;
+  info: (typeof SECTOR_DATA)[Category];
+  sectorProjects: Project[];
+}
+
+const { category, info, sectorProjects } = Astro.props;
+
+const canonical = new URL(`/sectors/${category}`, Astro.site).toString();
+const pageDesc = info.description;
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': `${canonical}#collection`,
+  name: info.title,
+  description: info.description,
+  url: canonical,
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: sectorProjects.length,
+    itemListElement: sectorProjects.map((p, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      item: {
+        '@type': 'CreativeWork',
+        name: p.title,
+        url: new URL(`/works/${p.slug}`, Astro.site).toString(),
+        image: new URL(`/${encodeURI(p.image)}`, Astro.site).toString(),
+      },
+    })),
+  },
+};
+
+const breadcrumbs = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: Astro.site?.toString(),
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Sectors',
+      item: new URL('/#sectors', Astro.site).toString(),
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: SECTORS[category],
+      item: canonical,
+    },
+  ],
+};
+---
+
+<Base
+  title={info.title}
+  description={pageDesc}
+  jsonLd={[collectionSchema, breadcrumbs]}
+>
+  <div class="sector-page container-x">
+    <!-- Breadcrumb -->
+    <nav class="sector-nav" aria-label="Breadcrumb">
+      <a href="/works" class="link label">
+        <span class="arrow" aria-hidden="true">←</span>
+        <span>Back to all works</span>
+      </a>
+      <span class="muted label project-breadcrumb-sep">/</span>
+      <span class="label muted">{SECTORS[category]}</span>
+    </nav>
+
+    <!-- Sector Hero Header -->
+    <header class="sector-head grid-12">
+      <div class="sector-head__main">
+        <p class="label muted sector-datum" data-reveal>
+          Architectural Discipline · {SECTORS[category]}
+        </p>
+        <h1 class="display-3xl sector-title" data-split>{info.title}</h1>
+        <p class="lede sector-lede" data-reveal data-delay="0.2">{info.headline}</p>
+        <p class="sector-desc measure" data-reveal data-delay="0.3">{info.longDesc}</p>
+      </div>
+      <div class="sector-head__meta" data-reveal data-delay="0.2">
+        <div class="sector-stat">
+          <span class="display-2xl tnum">{sectorProjects.length}</span>
+          <span class="label muted">Executed works in this sector</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Sector Projects Grid -->
+    <section class="sector-works" aria-label={`Projects in ${SECTORS[category]}`}>
+      <div class="sector-works__grid">
+        {sectorProjects.map((p, idx) => (
+          <article class="sector-card" data-reveal>
+            <a href={`/works/${p.slug}`} class="sector-card__link">
+              <Picture
+                src={p.image}
+                alt={`${p.title} — ${p.sector} architecture in ${p.location}`}
+                ratio="photo"
+                sizes="(min-width: 64rem) 30vw, (min-width: 48rem) 45vw, 92vw"
+                reveal={idx > 2}
+              />
+              <div class="sector-card__meta">
+                <div class="sector-card__loc">
+                  <span class="label muted">{p.location}</span>
+                  {p.year && <span class="label muted tnum">{p.year}</span>}
+                </div>
+                <h2 class="sector-card__title">{p.title}</h2>
+                <span class="link sector-card__cue">
+                  <span>View project & gallery</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </span>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Sector Consultation CTA -->
+    <footer class="sector-cta" data-reveal>
+      <p class="label muted">Consultation & Practice</p>
+      <h2 class="display-2xl sector-cta__h">Discuss your {SECTORS[category].toLowerCase()} project with our partners.</h2>
+      <div class="sector-cta__actions">
+        <a href="/contact" class="btn-primary">Initiate consultation <span class="arrow" aria-hidden="true">→</span></a>
+        <p class="muted">Or call <a class="link" href={`tel:+91${site.phone}`}>{site.phoneDisplay}</a></p>
+      </div>
+    </footer>
+  </div>
+</Base>
+
+<style>
+  .sector-page {
+    padding-top: clamp(6.5rem, 14vw, 10rem);
+    padding-bottom: var(--section);
+  }
+  .sector-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+  .project-breadcrumb-sep {
+    user-select: none;
+  }
+  .sector-head {
+    row-gap: 2rem;
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+    border-bottom: 1px solid var(--color-rule);
+    align-items: end;
+  }
+  .sector-head__main {
+    grid-column: 1 / -1;
+  }
+  @media (min-width: 64rem) {
+    .sector-head__main {
+      grid-column: 1 / span 8;
+    }
+  }
+  .sector-datum {
+    margin-bottom: 1rem;
+    letter-spacing: var(--tracking-label);
+  }
+  .sector-title {
+    margin-left: -0.03em;
+    line-height: 0.98;
+    margin-bottom: 1.5rem;
+  }
+  .sector-lede {
+    margin-bottom: 1.5rem;
+    max-width: 44ch;
+  }
+  .sector-desc {
+    font-size: var(--text-base);
+    line-height: 1.6;
+    color: var(--color-muted);
+  }
+  .sector-head__meta {
+    grid-column: 1 / -1;
+  }
+  @media (min-width: 64rem) {
+    .sector-head__meta {
+      grid-column: 9 / span 4;
+      text-align: right;
+      padding-bottom: 0.5rem;
+    }
+  }
+  .sector-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .sector-stat .display-2xl {
+    line-height: 1;
+    color: var(--color-ink);
+  }
+
+  /* Grid of Projects */
+  .sector-works {
+    margin-block: clamp(3rem, 6vw, 5rem);
+  }
+  .sector-works__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem var(--gutter);
+  }
+  @media (min-width: 48rem) {
+    .sector-works__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 64rem) {
+    .sector-works__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      row-gap: 4rem;
+    }
+  }
+  .sector-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .sector-card__link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: inherit;
+  }
+  .sector-card__meta {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 0.5rem;
+  }
+  .sector-card__loc {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .sector-card__title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-lg), 2vw, var(--text-xl));
+    line-height: 1.2;
+    margin: 0;
+    color: var(--color-ink);
+    transition: color 0.2s var(--ease);
+  }
+  .sector-card:hover .sector-card__title {
+    color: var(--color-accent);
+  }
+  .sector-card__cue {
+    margin-top: auto;
+    padding-top: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--text-sm);
+  }
+
+  /* CTA */
+  .sector-cta {
+    border-top: 1px solid var(--color-rule);
+    padding-top: clamp(3rem, 6vw, 5rem);
+  }
+  .sector-cta__h {
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    max-width: 22ch;
+    margin-left: -0.02em;
+  }
+  .sector-cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem 2.5rem;
+  }
+</style>
