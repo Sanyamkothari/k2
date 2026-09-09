@@ -35,36 +35,18 @@ function showProjects(category) {
     const projectsContainer = document.getElementById('projects-container');
     projectsContainer.innerHTML = '';
 
-    projects[category].forEach(project => {
-      const hasImage = Boolean(project.image);
+    // Projects we hold a photograph of are shown as cards in the grid.
+    const photographed = projects[category].filter(project => project.image);
 
+    photographed.forEach(project => {
       const projectCard = document.createElement('div');
-      projectCard.className = hasImage ? 'project' : 'project no-image';
+      projectCard.className = 'project';
+      projectCard.addEventListener('click', () => openModal(project.image, project.title));
 
-      // Projects we have a photograph for open the full-screen preview.
-      // Projects still awaiting a photograph show a placeholder card instead.
-      let media;
-      if (hasImage) {
-        projectCard.addEventListener('click', () => openModal(project.image, project.title));
-
-        media = document.createElement('img');
-        media.src = project.image;
-        media.alt = project.title;
-        media.loading = 'lazy';
-      } else {
-        media = document.createElement('div');
-        media.className = 'project-placeholder';
-
-        const icon = document.createElement('i');
-        icon.className = 'fas fa-drafting-compass';
-        icon.setAttribute('aria-hidden', 'true');
-
-        const label = document.createElement('span');
-        label.textContent = 'Photograph coming soon';
-
-        media.appendChild(icon);
-        media.appendChild(label);
-      }
+      const img = document.createElement('img');
+      img.src = project.image;
+      img.alt = project.title;
+      img.loading = 'lazy';
 
       const content = document.createElement('div');
       content.className = 'content';
@@ -77,11 +59,17 @@ function showProjects(category) {
 
       content.appendChild(title);
       content.appendChild(desc);
-      projectCard.appendChild(media);
+      projectCard.appendChild(img);
       projectCard.appendChild(content);
 
       projectsContainer.appendChild(projectCard);
     });
+
+    // The rest are listed by name below the grid rather than as empty cards.
+    renderMoreProjects(
+      projects[category].filter(project => !project.image),
+      photographed.length
+    );
 
     // Update active button state
     document.querySelectorAll('.buttons button').forEach(btn => {
@@ -91,6 +79,40 @@ function showProjects(category) {
     if (activeBtn) {
       activeBtn.classList.add('active');
     }
+  });
+}
+
+// List the projects in a sector that have no photograph yet
+function renderMoreProjects(projects, photographedCount) {
+  const section = document.getElementById('more-projects');
+  const list = document.getElementById('more-projects-list');
+  const heading = document.getElementById('more-projects-title');
+  if (!section || !list) return;
+
+  list.innerHTML = '';
+  section.hidden = projects.length === 0;
+  if (projects.length === 0) return;
+
+  // Without a grid above it, this list is the sector, not an addition to it.
+  heading.textContent = photographedCount
+    ? 'More Projects in This Sector'
+    : 'Projects in This Sector';
+
+  projects.forEach(project => {
+    const item = document.createElement('li');
+    item.className = 'more-project';
+
+    const name = document.createElement('span');
+    name.className = 'more-project-name';
+    name.textContent = project.title;
+
+    const city = document.createElement('span');
+    city.className = 'more-project-city';
+    city.textContent = project.description;
+
+    item.appendChild(name);
+    item.appendChild(city);
+    list.appendChild(item);
   });
 }
 
