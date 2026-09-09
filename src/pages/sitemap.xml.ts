@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { projects, CATEGORY_ORDER } from '../lib/projects';
+import { photographedProjects, CATEGORY_ORDER } from '../lib/projects';
 import { REGION_HUBS, REGION_ORDER, getRegionProjects } from '../lib/regions';
 import { SITE_URL } from '../lib/site.config.js';
 
@@ -36,8 +36,8 @@ export const GET: APIRoute = () => {
       lastmod: today,
       changefreq: 'weekly',
       priority: '0.9',
-      images: projects.slice(0, 30).map((p) => ({
-        loc: `${baseUrl}/${encodeURI(p.image)}`,
+      images: photographedProjects.slice(0, 30).map((p) => ({
+        loc: `${baseUrl}/${encodeURI(p.image!)}`,
         title: `${p.title}, ${p.city} — K2 Architects`,
         caption: `${p.sector} architecture in ${p.location} designed by K2 Architects Nagpur.`,
       })),
@@ -78,11 +78,11 @@ export const GET: APIRoute = () => {
       lastmod: today,
       changefreq: 'weekly',
       priority: '0.85',
-      images: projects
+      images: photographedProjects
         .filter((p) => p.category === cat)
         .slice(0, 5)
         .map((p) => ({
-          loc: `${baseUrl}/${encodeURI(p.image)}`,
+          loc: `${baseUrl}/${encodeURI(p.image!)}`,
           title: `${p.title}, ${p.city} — K2 Architects`,
           caption: `${p.sector} architecture in ${p.location}`,
         })),
@@ -97,14 +97,14 @@ export const GET: APIRoute = () => {
         changefreq: 'weekly',
         priority: '0.88',
         images: hubProjs.map((p) => ({
-          loc: `${baseUrl}/${encodeURI(p.image)}`,
+          loc: `${baseUrl}/${encodeURI(p.image!)}`,
           title: `${p.title}, ${p.city} — ${hub.name}`,
           caption: `${p.sector} architecture in ${p.location} by K2 Architects.`,
         })),
       };
     }),
     // Individual Project Pages (Task 1)
-    ...projects.map((p) => ({
+    ...photographedProjects.map((p) => ({
       loc: `${baseUrl}/works/${p.slug}`,
       lastmod: today,
       changefreq: 'monthly',

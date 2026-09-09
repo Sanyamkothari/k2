@@ -3,7 +3,7 @@
  * Defines national and regional landing pages with search-optimized copy,
  * geographical targeting, transit advantages, and curated project showcases.
  */
-import { projects, type Project } from './projects';
+import { photographedProjects, type PhotographedProject } from './projects';
 
 export interface RegionHub {
   slug: string;
@@ -440,13 +440,13 @@ export const REGION_ORDER = Object.keys(REGION_HUBS);
  * First priority: projects located in matching states (if matchStates is provided).
  * Second priority: flagship national projects explicitly declared for this hub.
  */
-export function getRegionProjects(hub: RegionHub): Project[] {
-  const projectMap = new Map(projects.map((p) => [p.slug, p]));
-  const list: Project[] = [];
+export function getRegionProjects(hub: RegionHub): PhotographedProject[] {
+  const projectMap = new Map(photographedProjects.map((p) => [p.slug, p]));
+  const list: PhotographedProject[] = [];
   const seen = new Set<string>();
 
   if (hub.matchStates && hub.matchStates.length > 0) {
-    for (const p of projects) {
+    for (const p of photographedProjects) {
       if (hub.matchStates.includes(p.state) && !seen.has(p.slug)) {
         list.push(p);
         seen.add(p.slug);
@@ -466,7 +466,7 @@ export function getRegionProjects(hub: RegionHub): Project[] {
 
   // Always ensure at least 6 projects for visual density
   if (list.length < 6) {
-    for (const p of projects) {
+    for (const p of photographedProjects) {
       if (!seen.has(p.slug)) {
         list.push(p);
         seen.add(p.slug);

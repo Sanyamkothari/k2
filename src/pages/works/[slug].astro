@@ -1,24 +1,24 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Picture from '../../components/Picture.astro';
-import { projects, type Project } from '../../lib/projects';
+import { photographedProjects, type PhotographedProject } from '../../lib/projects';
 import { site } from '../../lib/site';
 
 export function getStaticPaths() {
-  return projects.map((p, idx) => ({
+  return photographedProjects.map((p, idx) => ({
     params: { slug: p.slug },
     props: {
       project: p,
-      prev: idx > 0 ? projects[idx - 1] : null,
-      next: idx < projects.length - 1 ? projects[idx + 1] : null,
+      prev: idx > 0 ? photographedProjects[idx - 1] : null,
+      next: idx < photographedProjects.length - 1 ? photographedProjects[idx + 1] : null,
     },
   }));
 }
 
 interface Props {
-  project: Project;
-  prev: Project | null;
-  next: Project | null;
+  project: PhotographedProject;
+  prev: PhotographedProject | null;
+  next: PhotographedProject | null;
 }
 
 const { project, prev, next } = Astro.props;

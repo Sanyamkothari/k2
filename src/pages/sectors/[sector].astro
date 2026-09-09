@@ -23,6 +23,9 @@ interface Props {
 
 const { category, info, sectorProjects } = Astro.props;
 
+const photographed = sectorProjects.filter((p) => p.hasPhoto);
+const unphotographed = sectorProjects.filter((p) => !p.hasPhoto);
+
 const canonical = new URL(`/sectors/${category}`, Astro.site).toString();
 const pageDesc = info.description;
 
@@ -42,8 +45,10 @@ const collectionSchema = {
       item: {
         '@type': 'CreativeWork',
         name: p.title,
-        url: new URL(`/works/${p.slug}`, Astro.site).toString(),
-        image: new URL(`/${encodeURI(p.image)}`, Astro.site).toString(),
+        ...(p.hasPhoto ? {
+          url: new URL(`/works/${p.slug}`, Astro.site).toString(),
+          image: new URL(`/${encodeURI(p.image!)}`, Astro.site).toString(),
+        } : {}),
       },
     })),
   },
@@ -109,35 +114,58 @@ const breadcrumbs = {
       </div>
     </header>
 
-    <!-- Sector Projects Grid -->
-    <section class="sector-works" aria-label={`Projects in ${SECTORS[category]}`}>
-      <div class="sector-works__grid">
-        {sectorProjects.map((p, idx) => (
-          <article class="sector-card" data-reveal>
-            <a href={`/works/${p.slug}`} class="sector-card__link">
-              <Picture
-                src={p.image}
-                alt={`${p.title} — ${p.sector} architecture in ${p.location}`}
-                ratio="photo"
-                sizes="(min-width: 64rem) 30vw, (min-width: 48rem) 45vw, 92vw"
-                reveal={idx > 2}
-              />
-              <div class="sector-card__meta">
-                <div class="sector-card__loc">
-                  <span class="label muted">{p.location}</span>
-                  {p.year && <span class="label muted tnum">{p.year}</span>}
+    <!-- Sector Projects Grid (Photographed Works) -->
+    {photographed.length > 0 && (
+      <section class="sector-works" aria-label={`Photographed Projects in ${SECTORS[category]}`}>
+        <div class="sector-works__grid">
+          {photographed.map((p, idx) => (
+            <article class="sector-card" data-reveal>
+              <a href={`/works/${p.slug}`} class="sector-card__link">
+                <Picture
+                  src={p.image!}
+                  alt={`${p.title} — ${p.sector} architecture in ${p.location}`}
+                  ratio="photo"
+                  sizes="(min-width: 64rem) 30vw, (min-width: 48rem) 45vw, 92vw"
+                  reveal={idx > 2}
+                />
+                <div class="sector-card__meta">
+                  <div class="sector-card__loc">
+                    <span class="label muted">{p.location}</span>
+                    {p.year && <span class="label muted tnum">{p.year}</span>}
+                  </div>
+                  <h2 class="sector-card__title">{p.title}</h2>
+                  <span class="link sector-card__cue">
+                    <span>View project & gallery</span>
+                    <span class="arrow" aria-hidden="true">→</span>
+                  </span>
                 </div>
-                <h2 class="sector-card__title">{p.title}</h2>
-                <span class="link sector-card__cue">
-                  <span>View project & gallery</span>
-                  <span class="arrow" aria-hidden="true">→</span>
-                </span>
-              </div>
-            </a>
-          </article>
-        ))}
-      </div>
-    </section>
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Additional Documented Sector Commissions -->
+    {unphotographed.length > 0 && (
+      <section class="sector-register" aria-label={`Additional ${SECTORS[category]} Commissions`}>
+        <div class="sector-register__head">
+          <div>
+            <p class="label muted">Practice Archive · Documented Commissions</p>
+            <h3 class="display-lg">{photographed.length > 0 ? `More Projects in ${SECTORS[category]}` : `Projects in ${SECTORS[category]}`}</h3>
+          </div>
+          <p class="label muted tnum">{unphotographed.length} practice record{unphotographed.length === 1 ? '' : 's'}</p>
+        </div>
+        <div class="sector-register__grid">
+          {unphotographed.map((p) => (
+            <div class="sector-register__item">
+              <span class="sector-register__title">{p.title}</span>
+              <span class="sector-register__loc muted">{p.location}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
 
     <!-- Sector Consultation CTA -->
     <footer class="sector-cta" data-reveal>
@@ -277,6 +305,63 @@ const breadcrumbs = {
     align-items: center;
     gap: 0.5rem;
     font-size: var(--text-sm);
+  }
+
+  /* Sector Practice Register */
+  .sector-register {
+    margin-top: clamp(3.5rem, 7vw, 6rem);
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+    padding-top: clamp(2rem, 4vw, 3rem);
+    border-top: 1px solid var(--color-rule);
+  }
+  .sector-register__head {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  @media (min-width: 48rem) {
+    .sector-register__head {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+  }
+  .sector-register__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+  }
+  @media (min-width: 40rem) {
+    .sector-register__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 64rem) {
+    .sector-register__grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  }
+  @media (min-width: 80rem) {
+    .sector-register__grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  .sector-register__item {
+    padding: 1rem 1.25rem;
+    background: var(--color-paper-2);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 4.75rem;
+    border: 1px solid transparent;
+  }
+  .sector-register__item:hover { border-color: var(--color-rule-2); }
+  .sector-register__title {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1.35;
+  }
+  .sector-register__loc {
+    font-size: var(--text-xs);
+    margin-top: 0.5rem;
   }
 
   /* CTA */

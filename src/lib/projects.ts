@@ -4,13 +4,13 @@
  */
 import raw from '../../data/projects.json';
 
-export type Category = 'engineering' | 'residential' | 'hostel' | 'bungalow' | 'banquets' | 'medi' | 'college';
+export type Category = 'engineering' | 'residential' | 'hostel' | 'bungalow' | 'banquets' | 'medi' | 'college' | 'industrial';
 
 export interface RawProject {
   id: number;
   title: string;
   description: string;
-  image: string;
+  image?: string;
   images?: string[];
   year?: number | string;
 }
@@ -25,10 +25,15 @@ export interface Project {
   state: string;
   stateCode: string;
   location: string;
-  image: string;
+  image?: string;
   images: string[];
   year?: string;
   alt: string;
+  hasPhoto: boolean;
+}
+
+export interface PhotographedProject extends Project {
+  image: string;
 }
 
 /** Category keys in the JSON -> labels shown in the UI. Order is the filter order. */
@@ -40,6 +45,7 @@ export const SECTORS: Record<Category, string> = {
   residential: 'Residential & Commercial',
   bungalow: 'Bungalows & Townships',
   banquets: 'Banquets & Hospitality',
+  industrial: 'Industrial',
 };
 export const CATEGORY_ORDER = Object.keys(SECTORS) as Category[];
 
@@ -132,7 +138,10 @@ function build(): Project[] {
       const n = seen.get(slug) ?? 0;
       seen.set(slug, n + 1);
       if (n > 0) slug = `${slug}-${n + 1}`;
-      const images = Array.from(new Set([p.image, ...(p.images ?? [])]));
+      const hasPhoto = Boolean(p.image);
+      const images = p.image
+        ? Array.from(new Set([p.image, ...(p.images ?? [])]))
+        : [];
       out.push({
         slug,
         category,
@@ -147,6 +156,7 @@ function build(): Project[] {
         images,
         year: p.year ? String(p.year) : undefined,
         alt: `${title}, ${city} — ${SECTORS[category]} by K2 Architects`,
+        hasPhoto,
       });
     }
   }
@@ -154,7 +164,10 @@ function build(): Project[] {
 }
 
 export const projects: Project[] = build();
+export const photographedProjects: PhotographedProject[] = projects.filter((p): p is PhotographedProject => p.hasPhoto && Boolean(p.image));
+export const unphotographedProjects = projects.filter((p) => !p.hasPhoto);
 export const projectCount = projects.length;
+export const photographedCount = photographedProjects.length;
 export const sectorCount = CATEGORY_ORDER.length;
 export const bySlug = new Map(projects.map((p) => [p.slug, p]));
 export const hasYears = projects.some((p) => p.year);
@@ -201,5 +214,11 @@ export const SECTOR_DATA: Record<Category, { title: string; headline: string; de
     headline: 'Civic celebration venues and grand hospitality infrastructure.',
     description: 'Banquets, celebratory marriage complexes, and hospitality architecture designed for major gatherings.',
     longDesc: 'Grand celebratory venues require seamless logistics, high-capacity banquet halls, commercial kitchens, ample parking circulation, and dramatic architectural presence. Our venues are engineered to host thousands with effortless operational flow.',
+  },
+  industrial: {
+    title: 'Industrial Architecture & Warehousing',
+    headline: 'High-efficiency industrial manufacturing plants, processing units, and logistics infrastructure.',
+    description: 'Manufacturing plants, pressing units, and high-capacity warehousing complexes designed for heavy logistical operations.',
+    longDesc: 'Industrial architecture prioritizes structural economy, logistical vehicular circulation, high-span roofing, and worker welfare. Our practice plans industrial processing facilities, manufacturing plants, and warehousing hubs engineered for operational durability and seamless material transit.',
   },
 };

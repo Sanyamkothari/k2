@@ -7,7 +7,7 @@ import { featured } from '../../lib/site';
 const items = featured.map((f) => {
   const p = bySlug.get(f.slug);
   if (!p) throw new Error(`Featured slug not found: ${f.slug}. Run "npm run slugs" to list valid slugs.`);
-  return { ...p, cover: f.image ?? p.image };
+  return { ...p, cover: (f.image ?? p.image)! };
 });
 
 // Wide / pair / wide / pair / wide …
