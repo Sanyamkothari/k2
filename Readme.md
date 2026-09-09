@@ -26,7 +26,7 @@ public_html_FULL_SITE/
 │       └── tilt.js         # 3D parallax tilt effect for cards
 │
 ├── data/
-│   └── projects.json       # Structured project database (164 projects across 8 categories)
+│   └── projects.json       # Structured project database (171 projects across 8 categories)
 │
 ├── images/                 # Image assets (hero backgrounds, team photos, project photos)
 │

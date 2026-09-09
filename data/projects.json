@@ -238,266 +238,293 @@
     },
     {
       "id": 26,
+      "title": "NURSERY SCHOOL BUILDING",
+      "description": "PUSAD (M.S.)",
+      "image": "images/nursery_school_pusad.jpg",
+      "images": [
+        "images/nursery_school_pusad.jpg"
+      ]
+    },
+    {
+      "id": 27,
+      "title": "GYAN PRABHA SCHOOL",
+      "description": "KOLKATA (W.B.)",
+      "image": "images/kolkata SCHOOL BUILDING ARIEL VIEW.jpg",
+      "images": [
+        "images/kolkata SCHOOL BUILDING ARIEL VIEW.jpg"
+      ]
+    },
+    {
+      "id": 28,
+      "title": "DESARDA EDUCATIONAL & COMMERCIAL BUILDING",
+      "description": "CHH. SAMBHAJI NAGAR (M.S.)",
+      "image": "images/AURANGABAD DESARDA SCHOOL    12 X 18.jpg",
+      "images": [
+        "images/AURANGABAD DESARDA SCHOOL    12 X 18.jpg"
+      ]
+    },
+    {
+      "id": 29,
       "title": "JAIN INTERNATIONAL SCHOOL",
       "description": "NAGPUR (M.S.)"
     },
     {
-      "id": 27,
+      "id": 30,
       "title": "INDIAN PUBLIC SCHOOL",
       "description": "RAJNANDGAON (C.G.)"
     },
     {
-      "id": 28,
+      "id": 31,
       "title": "NEERAJ BAJPAI INTERNATIONAL SCHOOL",
       "description": "RAJNANDGAON (C.G.)"
     },
     {
-      "id": 29,
+      "id": 32,
       "title": "NEERAJ PUBLIC SCHOOL",
       "description": "DONGARGAON (C.G.)"
     },
     {
-      "id": 30,
+      "id": 33,
       "title": "NEERAJ PARENTS PRIDE SCHOOL",
       "description": "RAJNANDGAON (C.G.)"
     },
     {
-      "id": 31,
+      "id": 34,
       "title": "VIDYA NIKETAN ENGLISH SCHOOL",
       "description": "DIGRAS (M.S.)"
     },
     {
-      "id": 32,
+      "id": 35,
       "title": "PODAR LEARN SCHOOL",
       "description": "HINGANGHAT (M.S.)"
     },
     {
-      "id": 33,
+      "id": 36,
       "title": "SUSANSKAR VIDHYA MANDIR",
       "description": "YAVATMAL (M.S.)"
     },
     {
-      "id": 34,
+      "id": 37,
       "title": "JAIN GURUKUL ENGLISH SCHOOL",
       "description": "KAWARDHA (C.G.)"
     },
     {
-      "id": 35,
+      "id": 38,
       "title": "KRISHNA PUBLIC SCHOOL (TULSI)",
       "description": "RAIPUR (C.G.)"
     },
     {
-      "id": 36,
+      "id": 39,
       "title": "KRISHNA PUBLIC SCHOOL (BORIYAKHURD)",
       "description": "RAIPUR (C.G.)"
     },
     {
-      "id": 37,
+      "id": 40,
       "title": "KRISHNA PUBLIC SCHOOL (PULGAON)",
       "description": "DURG (C.G.)"
     },
     {
-      "id": 38,
+      "id": 41,
       "title": "DELHI PUBLIC SCHOOL",
       "description": "RAJNANDGAON (C.G.)"
     },
     {
-      "id": 39,
+      "id": 42,
       "title": "DELHI WORLD PUBLIC SCHOOL",
       "description": "RAIPUR (C.G.)"
     },
     {
-      "id": 40,
+      "id": 43,
       "title": "MOUNT LITERA ZEE SCHOOL (HINGNA)",
       "description": "NAGPUR (M.S.)"
     },
     {
-      "id": 41,
+      "id": 44,
       "title": "MOUNT LITERA ZEE SCHOOL (MOHGAON)",
       "description": "NAGPUR (M.S.)"
     },
     {
-      "id": 42,
+      "id": 45,
       "title": "SAINT PAULS PUBLIC SCHOOL",
       "description": "AKOLA (M.S.)"
     },
     {
-      "id": 43,
+      "id": 46,
       "title": "NEW VISION ENGLISH SCHOOL",
       "description": "BALAPUR (M.S.)"
     },
     {
-      "id": 44,
+      "id": 47,
       "title": "NUTAN PUBLIC SCHOOL",
       "description": "MALKAPUR (M.S.)"
     },
     {
-      "id": 45,
+      "id": 48,
       "title": "PRATHIBHASTHALI GYANODAYA VIDYAPEETH",
       "description": "JABALPUR (M.P.)"
     },
     {
-      "id": 46,
+      "id": 49,
       "title": "PRATHIBHASTHALI GYANODAYA VIDYAPEETH",
       "description": "LALITPUR (U.P.)"
     },
     {
-      "id": 47,
+      "id": 50,
       "title": "VIDYA PRAMAN GURUKULAM",
       "description": "BHOPAL (M.P.)"
     },
     {
-      "id": 48,
+      "id": 51,
       "title": "ROYAL ECOLE",
       "description": "SEONI (M.P.)"
     },
     {
-      "id": 49,
+      "id": 52,
       "title": "GREEN VALLEY PUBLIC SCHOOL",
       "description": "BALAGHAT (M.P.)"
     },
     {
-      "id": 50,
+      "id": 53,
       "title": "DB PUBLIC SCHOOL",
       "description": "LATUR (M.S.)"
     },
     {
-      "id": 51,
+      "id": 54,
       "title": "ADVAIT PUBLIC SCHOOL",
       "description": "PARBHANI (M.S.)"
     },
     {
-      "id": 52,
+      "id": 55,
       "title": "LADDHA ENGLISH SCHOOL",
       "description": "MANVATH (M.S.)"
     },
     {
-      "id": 53,
+      "id": 56,
       "title": "DHYANPEETH ENGLISH SCHOOL",
       "description": "AJANGAON SURJI (M.S.)"
     },
     {
-      "id": 54,
+      "id": 57,
       "title": "SANSKAR PUBLIC SCHOOL",
       "description": "PARATWADA (M.S.)"
     },
     {
-      "id": 55,
+      "id": 58,
       "title": "SKY INTERNATIONAL SCHOOL",
       "description": "DHAMDA (C.G.)"
     },
     {
-      "id": 56,
+      "id": 59,
       "title": "JINDAL PUBLIC SCHOOL",
       "description": "SAKTI (C.G.)"
     },
     {
-      "id": 57,
+      "id": 60,
       "title": "AGRAWAL PUBLIC SCHOOL",
       "description": "AMBIKAPUR (C.G.)"
     },
     {
-      "id": 58,
+      "id": 61,
       "title": "DESHLAHRA PUBLIC SCHOOL",
       "description": "BALOD (C.G.)"
     },
     {
-      "id": 59,
+      "id": 62,
       "title": "SANT NANDLAL SMRITI VIDYA MANDIR",
       "description": "MALSISAR (RAJASTHAN)"
     },
     {
-      "id": 60,
+      "id": 63,
       "title": "KRISHNA INTERNATIONAL SCHOOL",
       "description": "NEW RAIPUR (C.G.)"
     },
     {
-      "id": 61,
+      "id": 64,
       "title": "ADARSH PUBLIC SCHOOL",
       "description": "NEW RAIPUR (C.G.)"
     },
     {
-      "id": 62,
+      "id": 65,
       "title": "MAHESHWARI ENGLISH CONVENT SCHOOL",
       "description": "ILKAL (KARNATAKA)"
     },
     {
-      "id": 63,
+      "id": 66,
       "title": "PRABHA PRATHIBA INTERNATIONAL SCHOOL",
       "description": "BADNAPUR (M.S.)"
     },
     {
-      "id": 64,
+      "id": 67,
       "title": "KAVERI DEVI AGRAWAL SCHOOL",
       "description": "MALKAPUR (M.S.)"
     },
     {
-      "id": 65,
+      "id": 68,
       "title": "KAMLADEVI KAYANI SCHOOL",
       "description": "MALKAPUR (M.S.)"
     },
     {
-      "id": 66,
+      "id": 69,
       "title": "ADARSH BHARAT PUBLIC SCHOOL",
       "description": "GONDIA (M.S.)"
     },
     {
-      "id": 67,
+      "id": 70,
       "title": "CHANDRAHASINI PUBLIC SCHOOL",
       "description": "CHANDRAPUR (C.G.)"
     },
     {
-      "id": 68,
+      "id": 71,
       "title": "AGARWAL PUBLIC SCHOOL",
       "description": "DHARAMJAIGARH (C.G.)"
     },
     {
-      "id": 69,
+      "id": 72,
       "title": "GURUKUL INTERNATIONAL SCHOOL",
       "description": "JANJGIR (C.G.)"
     },
     {
-      "id": 70,
+      "id": 73,
       "title": "YUGCHETNA PUBLIC SCHOOL",
       "description": "BHILAI (C.G.)"
     },
     {
-      "id": 71,
+      "id": 74,
       "title": "SAU SHANTABAI TAPDIA PUBLIC SCHOOL",
       "description": "KAIJ (M.S.)"
     },
     {
-      "id": 72,
+      "id": 75,
       "title": "GOLDEN TULIP INTERNATIONAL SCHOOL",
       "description": "KATANGI (M.P.)"
     },
     {
-      "id": 73,
+      "id": 76,
       "title": "SHRI SHANKARACHARYA VIDYALAYA (HUDCO)",
       "description": "BHILAI (C.G.)"
     },
     {
-      "id": 74,
+      "id": 77,
       "title": "RAISONI PUBLIC SCHOOL (SUKLI)",
       "description": "NAGPUR (M.S.)"
     },
     {
-      "id": 75,
+      "id": 78,
       "title": "JAIN PUBLIC SCHOOL",
       "description": "RATNAGIRI (M.S.)"
     },
     {
-      "id": 76,
+      "id": 79,
       "title": "SCOTTISH SCHOOL",
       "description": "PARBHANI (M.S.)"
     },
     {
-      "id": 77,
+      "id": 80,
       "title": "HAPPY FACES SCHOOL",
       "description": "MALEGAON (M.S.)"
     },
     {
-      "id": 78,
+      "id": 81,
       "title": "LT. M.L. MANKAR GURUKUL ENGLISH SCHOOL",
       "description": "NAGPUR (M.S.)"
     }
@@ -568,36 +595,54 @@
     },
     {
       "id": 8,
+      "title": "JAIN BAGICHA COMMERCIAL COMPLEX",
+      "description": "RAJNANDGAON (C.G.)",
+      "image": "images/JAIN_BAGICHA RAJNANDGAON.JPG",
+      "images": [
+        "images/JAIN_BAGICHA RAJNANDGAON.JPG"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "SHOPPING COMPLEX",
+      "description": "MAREGAON (M.S.)",
+      "image": "images/SHOPPING CENTER MAREGAON.jpg",
+      "images": [
+        "images/SHOPPING CENTER MAREGAON.jpg"
+      ]
+    },
+    {
+      "id": 10,
       "title": "MULTIPLEX & STAR HOTEL",
       "description": "RAJNANDGAON (C.G.)"
     },
     {
-      "id": 9,
+      "id": 11,
       "title": "RIDDHI SIDDHI APARTMENT",
       "description": "NAGPUR (M.S.)"
     },
     {
-      "id": 10,
+      "id": 12,
       "title": "GREEN HEIGHTS FLAT SCHEME",
       "description": "RAJNANDGAON (C.G.)"
     },
     {
-      "id": 11,
+      "id": 13,
       "title": "FLAT SCHEME",
       "description": "NAGPUR (M.S.)"
     },
     {
-      "id": 12,
+      "id": 14,
       "title": "PADMASHREE APARTMENT",
       "description": "BALAGHAT (M.P.)"
     },
     {
-      "id": 13,
+      "id": 15,
       "title": "SWAMI KRUPA APARTMENT",
       "description": "NAGPUR (M.S.)"
     },
     {
-      "id": 14,
+      "id": 16,
       "title": "BIYANI FLAT SCHEME",
       "description": "PUSAD (M.S.)"
     }
@@ -909,20 +954,25 @@
     },
     {
       "id": 9,
-      "title": "ORTHOPEDIC HOSPITAL",
-      "description": "PUSAD (M.S.)",
-      "image": "images/DR SANJAY SINGH GAUTAM hospital.jpeg",
+      "title": "SANATORIUM",
+      "description": "NAGPURA, DURG (C.G.)",
+      "image": "images/nagpura sanatorium .jpg",
       "images": [
-        "images/DR SANJAY SINGH GAUTAM hospital.jpeg"
+        "images/nagpura sanatorium .jpg"
       ]
     },
     {
       "id": 10,
+      "title": "ORTHOPEDIC & GYNAECOLOGY HOSPITAL",
+      "description": "PUSAD (M.S.)"
+    },
+    {
+      "id": 11,
       "title": "200 DENTAL CHAIRED DENTAL HOSPITAL",
       "description": "RAJNANDGAON (C.G.)"
     },
     {
-      "id": 11,
+      "id": 12,
       "title": "HOSPITAL",
       "description": "ARNI (M.S.)"
     }
@@ -1002,106 +1052,115 @@
     },
     {
       "id": 9,
+      "title": "DESHMUKH COLLEGE",
+      "description": "KHAMGAON (M.S.)",
+      "image": "images/Deshmukh College khamgaon.jpg",
+      "images": [
+        "images/Deshmukh College khamgaon.jpg"
+      ]
+    },
+    {
+      "id": 10,
       "title": "HALDIRAM KNOWLEDGE CITY",
       "description": "NAGPUR (M.S.)"
     },
     {
-      "id": 10,
+      "id": 11,
       "title": "YUGANTAR ENGINEERING COLLEGE",
       "description": "RAJNANDGAON (C.G.)"
     },
     {
-      "id": 11,
+      "id": 12,
       "title": "SIR S.B. JAIN INSTITUTE OF TECHNOLOGY & MANAGEMENT",
       "description": "NAGPUR (M.S.)"
     },
     {
-      "id": 12,
+      "id": 13,
       "title": "CENTRAL COLLEGE OF ENGINEERING",
       "description": "RAIPUR (C.G.)"
     },
     {
-      "id": 13,
+      "id": 14,
       "title": "SHANKARACHARYA ENGINEERING COLLEGE",
       "description": "BHILAI (C.G.)"
     },
     {
-      "id": 14,
+      "id": 15,
       "title": "RUNGTA ENGINEERING COLLEGE",
       "description": "BHILAI (C.G.)"
     },
     {
-      "id": 15,
+      "id": 16,
       "title": "ASHOKA INSTITUTE OF TECHNOLOGY & MANAGEMENT",
       "description": "RAJNANDGAON (C.G.)"
     },
     {
-      "id": 16,
+      "id": 17,
       "title": "CHHATTISGARH ENGINEERING COLLEGE",
       "description": "DURG (C.G.)"
     },
     {
-      "id": 17,
+      "id": 18,
       "title": "AXIS INSTITUTE OF TECHNOLOGY & MANAGEMENT",
       "description": "DURG (C.G.)"
     },
     {
-      "id": 18,
+      "id": 19,
       "title": "ALMURI RATANMAL INSTITUTE OF TECHNOLOGY",
       "description": "THANE (M.S.)"
     },
     {
-      "id": 19,
+      "id": 20,
       "title": "SAJJAD HUSSAIN HAJI INSTITUTE OF TECHNOLOGY",
       "description": "AMRAVATI (M.S.)"
     },
     {
-      "id": 20,
+      "id": 21,
       "title": "SOUTH GUJARAT INSTITUTE OF ENGINEERING",
       "description": "SURAT (GUJARAT)"
     },
     {
-      "id": 21,
+      "id": 22,
       "title": "CHHATTISGARH INSTITUTE OF TECHNOLOGY",
       "description": "RAJNANDGAON (C.G.)"
     },
     {
-      "id": 22,
+      "id": 23,
       "title": "DESARDA INSTITUTE OF TECHNOLOGY & MANAGEMENT",
       "description": "CHH. SAMBHAJI NAGAR (M.S.)"
     },
     {
-      "id": 23,
+      "id": 24,
       "title": "CHHATTISGARH DENTAL COLLEGE",
       "description": "RAJNANDGAON (C.G.)"
     },
     {
-      "id": 24,
+      "id": 25,
       "title": "DENTAL COLLEGE AND RESEARCH CENTRE",
       "description": "BILASPUR (C.G.)"
     },
     {
-      "id": 25,
+      "id": 26,
       "title": "SARSVATI DHANVANTARI DENTAL COLLEGE",
       "description": "PARBHANI (M.S.)"
     },
     {
-      "id": 26,
+      "id": 27,
       "title": "HALDIRAM COLLEGE (BBA, MBA, MCA)",
       "description": "NAGPUR (M.S.)"
     },
     {
-      "id": 27,
+      "id": 28,
       "title": "HALDIRAM HOTEL MANAGEMENT COLLEGE",
       "description": "NAGPUR (M.S.)"
     },
     {
-      "id": 28,
+      "id": 29,
       "title": "G.H. RAISONI COLLEGE OF PHARMACY",
       "description": "HINGNA (M.S.)"
     },
     {
-      "id": 29,
+      "id": 30,
       "title": "G.H. RAISONI COLLEGE OF MANAGEMENT",
       "description": "NAGPUR (M.S.)"
     }
