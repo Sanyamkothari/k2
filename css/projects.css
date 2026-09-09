@@ -299,6 +299,9 @@ body {
   width: 100%;
   max-width: 1100px;
   max-height: 75vh;
+  /* A steady stage, so paging between a panorama and a small elevation
+     does not make the frame and the caption below it jump. */
+  min-height: 55vh;
 }
 
 .modal-image-container {
@@ -350,6 +353,17 @@ body {
   margin: 0 15px;
   flex-shrink: 0;
   z-index: 2005;
+}
+
+/* [hidden] has to beat the display rules above for single-image projects */
+.modal-nav[hidden],
+.modal-dots[hidden] {
+  display: none;
+}
+
+/* Stop the page behind the gallery from scrolling */
+body.modal-open {
+  overflow: hidden;
 }
 
 .modal-nav:hover {
@@ -411,15 +425,34 @@ body {
 @media (max-width: 768px) {
   .modal-content-wrapper {
     max-height: 60vh;
+    min-height: 45vh;
   }
   #modal-image {
     max-height: 60vh;
   }
+  /* Overlay the arrows on the photo: beside it they ate a third of the width */
   .modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     width: 38px;
     height: 38px;
     font-size: 14px;
-    margin: 0 4px;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 2006;
+  }
+  .modal-prev {
+    left: 6px;
+  }
+  .modal-next {
+    right: 6px;
+  }
+  .modal-nav:hover {
+    transform: translateY(-50%) scale(1.08);
+  }
+  .modal-image-container {
+    max-width: 100%;
   }
   .modal-close {
     top: 12px;
