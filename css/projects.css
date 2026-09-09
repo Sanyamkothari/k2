@@ -174,6 +174,45 @@ body {
   transform: scale(1.03);
 }
 
+/* Cards for projects we do not have a photograph of yet */
+.project.no-image {
+  cursor: default;
+}
+
+.project-placeholder {
+  width: 100%;
+  height: 200px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #8c8c8c;
+  background-color: #f1f1f1;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(51, 51, 51, 0.05) 0,
+    rgba(51, 51, 51, 0.05) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.project-placeholder i {
+  font-size: 30px;
+  color: #c29525;
+  opacity: 0.8;
+}
+
+.project-placeholder span {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
 .project .content {
   padding: 15px;
 }

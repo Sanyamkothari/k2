@@ -36,14 +36,35 @@ function showProjects(category) {
     projectsContainer.innerHTML = '';
 
     projects[category].forEach(project => {
-      const projectCard = document.createElement('div');
-      projectCard.className = 'project';
-      projectCard.addEventListener('click', () => openModal(project.image, project.title));
+      const hasImage = Boolean(project.image);
 
-      const img = document.createElement('img');
-      img.src = project.image;
-      img.alt = project.title;
-      img.loading = 'lazy';
+      const projectCard = document.createElement('div');
+      projectCard.className = hasImage ? 'project' : 'project no-image';
+
+      // Projects we have a photograph for open the full-screen preview.
+      // Projects still awaiting a photograph show a placeholder card instead.
+      let media;
+      if (hasImage) {
+        projectCard.addEventListener('click', () => openModal(project.image, project.title));
+
+        media = document.createElement('img');
+        media.src = project.image;
+        media.alt = project.title;
+        media.loading = 'lazy';
+      } else {
+        media = document.createElement('div');
+        media.className = 'project-placeholder';
+
+        const icon = document.createElement('i');
+        icon.className = 'fas fa-drafting-compass';
+        icon.setAttribute('aria-hidden', 'true');
+
+        const label = document.createElement('span');
+        label.textContent = 'Photograph coming soon';
+
+        media.appendChild(icon);
+        media.appendChild(label);
+      }
 
       const content = document.createElement('div');
       content.className = 'content';
@@ -56,7 +77,7 @@ function showProjects(category) {
 
       content.appendChild(title);
       content.appendChild(desc);
-      projectCard.appendChild(img);
+      projectCard.appendChild(media);
       projectCard.appendChild(content);
 
       projectsContainer.appendChild(projectCard);

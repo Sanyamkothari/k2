@@ -49,7 +49,12 @@ public_html_FULL_SITE/
 - **Dynamic Project Filtering**: Fast clientside rendering and filtering for 7 categories (Schools, Residential, Hostels, Bungalows, Banquets, Hospitals, Colleges).
 - **Responsive Navigation**: Synchronized navbar across pages with smooth transitions and mobile hamburger menu support.
 - **Full-Screen Project Preview**: Interactive modal with keyboard (`Escape`) and backdrop click support.
-- **Consistent Data Standards**: Uniform `CITY (STATE)` notation across all 57 projects.
+- **Consistent Data Standards**: Uniform `CITY (STATE)` notation across all projects.
+- **Projects Without Photographs**: A project entry in `data/projects.json` may omit the `image` field. It is still listed in its category, rendered as a "Photograph coming soon" placeholder card instead of being hidden:
+
+```json
+{ "id": 26, "title": "PROJECT NAME", "description": "CITY (STATE)" }
+```
 
 ---
 
