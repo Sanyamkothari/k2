@@ -5,7 +5,7 @@ import { manifesto } from '../../lib/site';
 <section class="manifesto container-x" aria-label="Studio manifesto">
   <div class="grid-12">
     <div class="manifesto__col">
-      {manifesto.map((line, i) => (
+      {manifesto.map((line) => (
         <p class="manifesto__line display-3xl" data-scroll-text>
           {line.split(' ').map((w) => <span class="w">{w} </span>)}
         </p>

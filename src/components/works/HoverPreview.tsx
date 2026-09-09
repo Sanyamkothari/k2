@@ -1,8 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, type RefObject } from 'react';
 import type { WorkItem } from './types';
 
 /** Floating preview that follows the cursor over the index table. Pointer devices only. */
-export function HoverPreview({ item, pos }: { item: WorkItem | null; pos: React.MutableRefObject<{ x: number; y: number }> }) {
+export function HoverPreview({ item, pos }: { item: WorkItem | null; pos: RefObject<{ x: number; y: number }> }) {
   const ref = useRef<HTMLDivElement>(null);
   const cur = useRef({ x: 0, y: 0, init: false });
 
