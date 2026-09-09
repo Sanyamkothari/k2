@@ -23,7 +23,7 @@ interface Props {
 
 const { project, prev, next } = Astro.props;
 
-const pageTitle = `${project.title} (${project.city})`;
+const pageTitle = `${project.title}, ${project.city}`;
 const pageDesc = `${project.sector} architectural project in ${project.location}, designed and executed by K2 Architects Nagpur.`;
 const canonical = new URL(`/works/${project.slug}`, Astro.site).toString();
 const imageUrl = new URL(`/${encodeURI(project.image)}`, Astro.site).toString();
@@ -44,7 +44,7 @@ const creativeWork = {
     name: project.location,
     address: {
       '@type': 'PostalAddress',
-      addressLocality: project.city,
+      addressLocality: project.rawCity,
       addressRegion: project.state,
       addressCountry: 'IN',
     },

@@ -35,14 +35,14 @@ export const REGION_HUBS: Record<string, RegionHub> = {
     keyCities: [
       'All Indian States',
       'Delhi NCR',
-      'Mumbai & Pune',
-      'Bengaluru',
-      'Hyderabad',
-      'Kolkata',
-      'Ahmedabad',
-      'Raipur',
-      'Bhopal & Indore',
-      'Bhubaneswar',
+      'Mumbai & Pune (M.S.)',
+      'Bengaluru (Karnataka)',
+      'Hyderabad (Telangana)',
+      'Kolkata (W.B.)',
+      'Ahmedabad (Gujarat)',
+      'Raipur (C.G.)',
+      'Bhopal & Indore (M.P.)',
+      'Bhubaneswar (Odisha)',
       'Chandigarh',
     ],
     focusAreas: [
@@ -83,7 +83,16 @@ export const REGION_HUBS: Record<string, RegionHub> = {
       "Delhi NCR is India's epicentre for forward-thinking educational networks and institutional trusts. K2 Architects brings 25+ years of campus planning experience to the National Capital Region, combining deep familiarity with CBSE/ICSE board mandates, micro-climatic thermal comfort, and high-density spatial efficiency. With delivered projects across North India—including the landmark Tyagi Residence in Ghaziabad—our studio partners with trusts to craft visionary, enduring institutional environments.",
     strategicAdvantage:
       'Direct Transit Link: Fast, regular daily flights from Nagpur to New Delhi (1 hr 35 min) enable our principal architects to conduct weekly site inspections and board meetings across Delhi NCR.',
-    keyCities: ['New Delhi', 'Noida & Greater Noida', 'Gurugram', 'Ghaziabad', 'Faridabad', 'Sonipat', 'Meerut', 'Panipat'],
+    keyCities: [
+      'New Delhi',
+      'Noida & Greater Noida (U.P.)',
+      'Gurugram (Haryana)',
+      'Ghaziabad (U.P.)',
+      'Faridabad (Haryana)',
+      'Sonipat (Haryana)',
+      'Meerut (U.P.)',
+      'Panipat (Haryana)',
+    ],
     focusAreas: [
       {
         title: 'CBSE & International School Master Planning',
@@ -103,7 +112,7 @@ export const REGION_HUBS: Record<string, RegionHub> = {
       'delhi-public-school-amravati',
       'jito-delhi-public-school-chh-sambhaji-nagar',
       'delhi-public-school-katni',
-      'g-d-goenka-international-school-campus-development',
+      'g-d-goenka-international-school-raipur',
       'shankaracharya-medical-college-bhilai',
     ],
   },
@@ -119,17 +128,17 @@ export const REGION_HUBS: Record<string, RegionHub> = {
     strategicAdvantage:
       'Statewide Presence: Comprehensive familiarity with Maharashtra Town Planning regulations, Unified Development Control and Promotion Regulations (UDCPR), and municipal compliance.',
     keyCities: [
-      'Nagpur',
-      'Mumbai',
-      'Pune',
-      'Amravati',
-      'Chhatrapati Sambhaji Nagar',
-      'Chandrapur',
-      'Akola',
-      'Gondia',
-      'Washim',
-      'Parbhani',
-      'Wardha',
+      'Nagpur (M.S.)',
+      'Mumbai (M.S.)',
+      'Pune (M.S.)',
+      'Amravati (M.S.)',
+      'Chhatrapati Sambhaji Nagar (M.S.)',
+      'Chandrapur (M.S.)',
+      'Akola (M.S.)',
+      'Gondia (M.S.)',
+      'Washim (M.S.)',
+      'Parbhani (M.S.)',
+      'Wardha (M.S.)',
     ],
     matchStates: ['Maharashtra'],
     focusAreas: [
@@ -166,7 +175,17 @@ export const REGION_HUBS: Record<string, RegionHub> = {
       'Positioned directly adjacent to Madhya Pradesh, K2 Architects is a trusted master planner for institutional foundations throughout the state. From the comprehensive campus master plan of Delhi Public School in Katni to regional colleges in Betul and healthcare infrastructure, our firm understands the regulatory requirements of MP statutory boards and town planning directorates, delivering robust, climate-resilient architecture that endures.',
     strategicAdvantage:
       'Immediate Regional Proximity: Daily road, rail, and air access to key MP cities ensures prompt site review, milestone handovers, and close collaboration with local district administrations.',
-    keyCities: ['Bhopal', 'Indore', 'Jabalpur', 'Katni', 'Gwalior', 'Ujjain', 'Chhindwara', 'Seoni', 'Betul'],
+    keyCities: [
+      'Bhopal (M.P.)',
+      'Indore (M.P.)',
+      'Jabalpur (M.P.)',
+      'Katni (M.P.)',
+      'Gwalior (M.P.)',
+      'Ujjain (M.P.)',
+      'Chhindwara (M.P.)',
+      'Seoni (M.P.)',
+      'Betul (M.P.)',
+    ],
     matchStates: ['Madhya Pradesh'],
     focusAreas: [
       {
@@ -202,7 +221,16 @@ export const REGION_HUBS: Record<string, RegionHub> = {
       "Chhattisgarh represents one of K2 Architects' most extensive portfolios of delivered masterworks. Our studio designed the sprawling Shri Shankaracharya Technical Campus & Medical College in Bhilai, Triveni Multispeciality Hospital in Bilaspur, Ayurvedic College & Hospital in Raigarh, DPS Raigarh, Krishna Public Schools in Raipur, and the multi-acre Green City Township in Rajnandgaon. We provide comprehensive architectural, structural coordination, and landscape master planning tailored to Chhattisgarh's industrial and educational growth.",
     strategicAdvantage:
       'Unmatched Portfolio in CG: Decades of successful execution across Raipur, Bhilai, Bilaspur, and Raigarh with proven local authority approvals and turnkey contractor coordination.',
-    keyCities: ['Raipur', 'Bhilai', 'Bilaspur', 'Rajnandgaon', 'Raigarh', 'Durg', 'Korba', 'Bhatapara'],
+    keyCities: [
+      'Raipur (C.G.)',
+      'Bhilai (C.G.)',
+      'Bilaspur (C.G.)',
+      'Rajnandgaon (C.G.)',
+      'Raigarh (C.G.)',
+      'Durg (C.G.)',
+      'Korba (C.G.)',
+      'Bhatapara (C.G.)',
+    ],
     matchStates: ['Chhattisgarh'],
     focusAreas: [
       {
@@ -238,7 +266,16 @@ export const REGION_HUBS: Record<string, RegionHub> = {
       'As Eastern India undergoes rapid industrial and educational expansion, K2 Architects brings decades of technical expertise in large-scale campus master planning. Our work at Indian Public School in Sambalpur showcases our capability to integrate cyclone-resistant structural design, high-capacity drainage systems, and shaded academic spines that withstand Eastern India’s humid subtropical climate.',
     strategicAdvantage:
       'Direct East-West Transit Corridor: Direct rail and highway connectivity from Nagpur along the national corridor directly into Sambalpur, Jharsuguda, Rourkela, and Bhubaneswar.',
-    keyCities: ['Bhubaneswar', 'Cuttack', 'Sambalpur', 'Rourkela', 'Jharsuguda', 'Bargarh', 'Balasore', 'Puri'],
+    keyCities: [
+      'Bhubaneswar (Odisha)',
+      'Cuttack (Odisha)',
+      'Sambalpur (Odisha)',
+      'Rourkela (Odisha)',
+      'Jharsuguda (Odisha)',
+      'Bargarh (Odisha)',
+      'Balasore (Odisha)',
+      'Puri (Odisha)',
+    ],
     matchStates: ['Odisha'],
     focusAreas: [
       {
@@ -274,7 +311,16 @@ export const REGION_HUBS: Record<string, RegionHub> = {
       "Gujarat's entrepreneurial growth requires architecture that maximizes floor plate efficiency, achieves rapid project delivery, and delivers exceptional financial value. K2 Architects brings 25+ years of multi-sector capability—from heavy industrial plants and logistics facilities to international educational campuses and luxury townships—serving forward-looking trusts and industrial groups across Western India.",
     strategicAdvantage:
       'Direct Transit & Industry Expertise: Regular daily flights and trunk express rail lines from Nagpur to Ahmedabad and Surat ensure seamless project leadership and design review.',
-    keyCities: ['Ahmedabad', 'Surat', 'Vadodara', 'Rajkot', 'Gandhinagar', 'Bhavnagar', 'Vapi', 'Anand'],
+    keyCities: [
+      'Ahmedabad (Gujarat)',
+      'Surat (Gujarat)',
+      'Vadodara (Gujarat)',
+      'Rajkot (Gujarat)',
+      'Gandhinagar (Gujarat)',
+      'Bhavnagar (Gujarat)',
+      'Vapi (Gujarat)',
+      'Anand (Gujarat)',
+    ],
     focusAreas: [
       {
         title: 'CBSE & International Schools',
@@ -295,7 +341,7 @@ export const REGION_HUBS: Record<string, RegionHub> = {
       'shankaracharya-medical-college-bhilai',
       'green-city-township-rajnandgaon',
       'triveni-multispeciality-hospital-bilaspur',
-      'g-d-goenka-international-school-campus-development',
+      'g-d-goenka-international-school-raipur',
     ],
   },
   'south-india': {
@@ -309,7 +355,16 @@ export const REGION_HUBS: Record<string, RegionHub> = {
       'Southern India is a national leader in educational excellence and medical innovation. K2 Architects partners with higher education groups, medical foundations, and CBSE/ICSE educational trusts across Telangana, Andhra Pradesh, and Karnataka. Led by Landscape Architect Ar. Riya Kothari, our studio integrates biophilic campus green networks, passive solar orientation, and water harvesting into high-capacity academic and healthcare facilities.',
     strategicAdvantage:
       'Rapid North-South Connectivity: 1-hour direct flights from Nagpur to Hyderabad and Bengaluru allow rapid mobilization and collaborative reviews with southern clients.',
-    keyCities: ['Hyderabad', 'Bengaluru', 'Visakhapatnam', 'Vijayawada', 'Warangal', 'Amaravati', 'Mysuru', 'Tirupati'],
+    keyCities: [
+      'Hyderabad (Telangana)',
+      'Bengaluru (Karnataka)',
+      'Visakhapatnam (A.P.)',
+      'Vijayawada (A.P.)',
+      'Warangal (Telangana)',
+      'Amaravati (A.P.)',
+      'Mysuru (Karnataka)',
+      'Tirupati (A.P.)',
+    ],
     focusAreas: [
       {
         title: 'Biophilic Campus Master Planning',
@@ -344,7 +399,15 @@ export const REGION_HUBS: Record<string, RegionHub> = {
       "Northern India's educational heritage demands campuses that integrate expansive sports infrastructure, robust winter and summer climatic design, and dignified public presence. K2 Architects provides turnkey architectural master planning for schools, boarding institutions, and colleges throughout Punjab and Haryana, ensuring strict adherence to national safety codes and educational excellence.",
     strategicAdvantage:
       'Turnkey Consortiums: Strong alliances with national structural and MEP engineering consortiums for seamless on-ground project execution in Northern India.',
-    keyCities: ['Chandigarh Tricity', 'Ludhiana', 'Amritsar', 'Jalandhar', 'Patiala', 'Mohali', 'Bathinda'],
+    keyCities: [
+      'Chandigarh (U.T.)',
+      'Ludhiana (Punjab)',
+      'Amritsar (Punjab)',
+      'Jalandhar (Punjab)',
+      'Patiala (Punjab)',
+      'Mohali (Punjab)',
+      'Bathinda (Punjab)',
+    ],
     focusAreas: [
       {
         title: 'Comprehensive Sports & Academic Campuses',

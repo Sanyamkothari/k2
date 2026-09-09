@@ -45,7 +45,8 @@ const collection = {
           name: p.location,
           address: {
             '@type': 'PostalAddress',
-            addressLocality: p.city,
+            addressLocality: p.rawCity,
+            addressRegion: p.state,
             addressCountry: 'IN',
           },
         },

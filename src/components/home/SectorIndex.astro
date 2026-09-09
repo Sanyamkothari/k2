@@ -11,9 +11,14 @@ const rows = sectors.map((s) => ({ ...s, preview: thumb(s.image, 800) }));
     <p class="lede measure" data-reveal>Deep specialisation in institutional work, with the breadth to take a township or a hospital from master plan to handover.</p>
   </div>
   <ol class="hover-list" id="sector-list" data-reveal-group>
-    {rows.map((s) => (
+    {rows.map((s, idx) => (
       <li>
-        <a href={`/works?sector=${s.category}`} class="hover-row" data-preview={s.preview.src} data-preview-w={s.preview.width} data-preview-h={s.preview.height}>
+        <a
+          href={`/works?sector=${s.category}`}
+          class="hover-row"
+          data-preview-id={`sector-img-${idx}`}
+          data-category={s.category}
+        >
           <span class="hover-row__idx tnum">{s.index}</span>
           <span class="hover-row__name display-2xl">{s.name}</span>
           <span class="hover-row__line muted">{s.line}</span>
@@ -22,7 +27,22 @@ const rows = sectors.map((s) => ({ ...s, preview: thumb(s.image, 800) }));
       </li>
     ))}
   </ol>
-  <div class="hover-preview figure" id="sector-preview" aria-hidden="true"><img alt="" width="360" height="270" /></div>
+  <div class="hover-preview" id="sector-preview" aria-hidden="true">
+    <div class="hover-preview__inner figure">
+      {rows.map((s, idx) => (
+        <img
+          id={`sector-img-${idx}`}
+          class="hover-preview__img"
+          src={s.preview.src}
+          width={s.preview.width}
+          height={s.preview.height}
+          alt=""
+          loading="eager"
+          decoding="async"
+        />
+      ))}
+    </div>
+  </div>
 </section>
 
 <style>
@@ -39,33 +59,85 @@ const rows = sectors.map((s) => ({ ...s, preview: thumb(s.image, 800) }));
     align-items: baseline;
     column-gap: 1rem;
     padding: 1.4rem 0;
-    transition: padding-left var(--dur-hover) var(--ease);
+    transition: color var(--dur-hover) var(--ease);
   }
   @media (min-width: 64rem) {
-    .hover-row { grid-template-columns: 4rem 6fr 5fr 2rem; grid-template-areas: 'idx name line arrow'; padding: 1.75rem 0; }
-    .hover-row:hover { padding-left: 0.5rem; }
+    .hover-row {
+      grid-template-columns: 4rem 6fr 5fr 2rem;
+      grid-template-areas: 'idx name line arrow';
+      padding: 1.75rem 0;
+    }
   }
   .hover-row__idx { grid-area: idx; font-size: var(--text-2xs); letter-spacing: var(--tracking-label); color: var(--color-ink-2); }
-  .hover-row__name { grid-area: name; }
+  .hover-row__name {
+    grid-area: name;
+    transition: color var(--dur-hover) var(--ease);
+  }
   .hover-row__line { grid-area: line; font-size: var(--text-sm); margin-top: 0.4rem; max-width: 34ch; }
   @media (min-width: 64rem) { .hover-row__line { margin-top: 0; } }
-  .hover-row__arrow { grid-area: arrow; font-size: var(--text-lg); align-self: center; }
-  .hover-row:hover .hover-row__name { text-decoration: underline; text-decoration-color: var(--color-accent); text-underline-offset: 0.1em; text-decoration-thickness: 1px; }
+  .hover-row__arrow {
+    grid-area: arrow;
+    font-size: var(--text-lg);
+    align-self: center;
+    transition: transform var(--dur-hover) var(--ease), color var(--dur-hover) var(--ease);
+  }
+  .hover-row:hover .hover-row__name {
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-underline-offset: 0.12em;
+    text-decoration-thickness: 1px;
+  }
+  .hover-row:hover .hover-row__arrow {
+    transform: translateX(6px);
+    color: var(--color-ink);
+  }
 
   .hover-preview {
     position: fixed;
-    left: 0; top: 0;
-    width: clamp(14rem, 22vw, 22rem);
+    left: 0;
+    top: 0;
+    width: clamp(16rem, 24vw, 24rem);
     aspect-ratio: 4 / 3;
     pointer-events: none;
     z-index: 40;
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0.96);
-    transition: opacity var(--dur-hover) var(--ease);
+    visibility: hidden;
+    transition: opacity var(--dur-hover) var(--ease), visibility var(--dur-hover);
+    will-change: transform;
   }
-  .hover-preview.is-on { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-  .hover-preview img { width: 100%; height: 100%; object-fit: cover; }
-  @media (hover: none), (max-width: 63.99rem) { .hover-preview { display: none; } }
+  .hover-preview.is-on {
+    opacity: 1;
+    visibility: visible;
+  }
+  .hover-preview__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 16px 36px -6px rgba(17, 17, 17, 0.16), 0 4px 12px -2px rgba(17, 17, 17, 0.08);
+    background-color: var(--color-paper-2);
+    transform: scale(0.96);
+    transition: transform var(--dur-hover) var(--ease);
+  }
+  .hover-preview.is-on .hover-preview__inner {
+    transform: scale(1);
+  }
+  .hover-preview__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 300ms var(--ease);
+  }
+  .hover-preview__img.is-active {
+    opacity: 1;
+  }
+  @media (hover: none), (max-width: 63.99rem) {
+    .hover-preview { display: none; }
+  }
 </style>
 
 <script>

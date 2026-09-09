@@ -38,7 +38,7 @@ export const GET: APIRoute = () => {
       priority: '0.9',
       images: projects.slice(0, 30).map((p) => ({
         loc: `${baseUrl}/${encodeURI(p.image)}`,
-        title: `${p.title} (${p.city}) — K2 Architects`,
+        title: `${p.title}, ${p.city} — K2 Architects`,
         caption: `${p.sector} architecture in ${p.location} designed by K2 Architects Nagpur.`,
       })),
     },
@@ -83,7 +83,7 @@ export const GET: APIRoute = () => {
         .slice(0, 5)
         .map((p) => ({
           loc: `${baseUrl}/${encodeURI(p.image)}`,
-          title: `${p.title} (${p.city}) — K2 Architects`,
+          title: `${p.title}, ${p.city} — K2 Architects`,
           caption: `${p.sector} architecture in ${p.location}`,
         })),
     })),
@@ -98,7 +98,7 @@ export const GET: APIRoute = () => {
         priority: '0.88',
         images: hubProjs.map((p) => ({
           loc: `${baseUrl}/${encodeURI(p.image)}`,
-          title: `${p.title} (${p.city}) — ${hub.name}`,
+          title: `${p.title}, ${p.city} — ${hub.name}`,
           caption: `${p.sector} architecture in ${p.location} by K2 Architects.`,
         })),
       };

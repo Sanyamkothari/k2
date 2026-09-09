@@ -197,8 +197,9 @@ const cloneNext = slides[0];
     inset: 0;
     pointer-events: none;
     background:
-      linear-gradient(to top, rgba(17,17,17,0.78) 0%, rgba(17,17,17,0.38) 32%, rgba(17,17,17,0) 62%),
-      linear-gradient(to bottom, rgba(17,17,17,0.3) 0%, rgba(17,17,17,0) 22%);
+      radial-gradient(ellipse 95% 85% at 0% 100%, rgba(14, 14, 14, 0.88) 0%, rgba(14, 14, 14, 0.52) 48%, rgba(14, 14, 14, 0) 82%),
+      linear-gradient(to top, rgba(14, 14, 14, 0.72) 0%, rgba(14, 14, 14, 0.35) 28%, rgba(14, 14, 14, 0) 62%),
+      linear-gradient(to bottom, rgba(14, 14, 14, 0.35) 0%, rgba(14, 14, 14, 0) 22%);
   }
   .hero__content {
     position: absolute;
@@ -217,6 +218,7 @@ const cloneNext = slides[0];
   .hero__title {
     max-width: 11ch;
     margin-left: -0.04em;
+    text-shadow: 0 2px 28px rgba(0, 0, 0, 0.55), 0 1px 3px rgba(0, 0, 0, 0.75);
   }
   .hero__aside {
     display: flex;
@@ -262,6 +264,7 @@ const cloneNext = slides[0];
     pointer-events: none;
     transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
     color: #fff;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6);
   }
   @media (min-width: 64rem) {
     .hero__slide-caption {
@@ -332,7 +335,7 @@ const cloneNext = slides[0];
     from { transform: scaleX(0); }
     to { transform: scaleX(1); }
   }
-  .hero:hover .hero__indicator.is-active .hero__indicator-fill {
+  .hero__controls:hover .hero__indicator.is-active .hero__indicator-fill {
     animation-play-state: paused;
   }
 
@@ -372,6 +375,7 @@ const cloneNext = slides[0];
     width: 100%;
     gap: 1.5rem;
     opacity: 0.92;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.55);
   }
   @media (min-width: 64rem) {
     .hero__footer-meta {
@@ -430,6 +434,7 @@ const cloneNext = slides[0];
     let currentIndex = 1; // Track index 1 corresponds to real slide 0
     let isTransitioning = false;
     let timer: ReturnType<typeof setInterval> | null = null;
+    let transitionSafetyTimer: ReturnType<typeof setTimeout> | null = null;
     const slideDuration = 6000;
     const transitionDuration = 1000;
 
@@ -437,6 +442,13 @@ const cloneNext = slides[0];
     const indicators = hero.querySelectorAll<HTMLElement>('[data-indicator-index]');
     const prevBtn = document.getElementById('hero-prev');
     const nextBtn = document.getElementById('hero-next');
+
+    function clearSafetyTimer() {
+      if (transitionSafetyTimer) {
+        clearTimeout(transitionSafetyTimer);
+        transitionSafetyTimer = null;
+      }
+    }
 
     // Initial setup: align track to slide 0 (track index 1)
     trackEl.style.transition = 'none';
@@ -473,9 +485,16 @@ const cloneNext = slides[0];
     }
 
     function goToTrackIndex(targetTrackIdx: number, animated = true) {
+      clearSafetyTimer();
       if (animated) {
         isTransitioning = true;
         trackEl.style.transition = `transform ${transitionDuration}ms cubic-bezier(0.25, 1, 0.35, 1)`;
+        // Safety timeout in case transitionend event is missed (e.g. tab switch, resize)
+        transitionSafetyTimer = setTimeout(() => {
+          if (isTransitioning) {
+            handleTransitionEnd();
+          }
+        }, transitionDuration + 60);
       } else {
         trackEl.style.transition = 'none';
       }
@@ -485,6 +504,7 @@ const cloneNext = slides[0];
     }
 
     function handleTransitionEnd() {
+      clearSafetyTimer();
       isTransitioning = false;
       // Seamless infinite loop snap
       if (currentIndex === totalRealSlides + 1) {
@@ -551,9 +571,10 @@ const cloneNext = slides[0];
       });
     });
 
-    // Pause auto-sliding on hover
-    hero.addEventListener('mouseenter', stopTimer);
-    hero.addEventListener('mouseleave', startTimer);
+    // Pause auto-sliding on hover over controls
+    const controls = hero.querySelector('.hero__controls');
+    controls?.addEventListener('mouseenter', stopTimer);
+    controls?.addEventListener('mouseleave', startTimer);
 
     // Pause when tab is inactive
     const handleVisibility = () => {
@@ -597,6 +618,7 @@ const cloneNext = slides[0];
     // Clean up when leaving page
     document.addEventListener('astro:before-swap', () => {
       stopTimer();
+      clearSafetyTimer();
       document.removeEventListener('visibilitychange', handleVisibility);
     }, { once: true });
 

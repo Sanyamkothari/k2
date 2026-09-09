@@ -20,8 +20,10 @@ export interface Project {
   category: Category;
   sector: string;
   title: string;
+  rawCity: string;
   city: string;
   state: string;
+  stateCode: string;
   location: string;
   image: string;
   images: string[];
@@ -41,13 +43,34 @@ export const SECTORS: Record<Category, string> = {
 };
 export const CATEGORY_ORDER = Object.keys(SECTORS) as Category[];
 
-const STATE_NAMES: Record<string, string> = {
+export const STATE_NAMES: Record<string, string> = {
   'M.S.': 'Maharashtra',
   'C.G.': 'Chhattisgarh',
   'M.P.': 'Madhya Pradesh',
   'U.P.': 'Uttar Pradesh',
   'A.P.': 'Andhra Pradesh',
   ODISHA: 'Odisha',
+};
+
+export const STATE_CODES: Record<string, string> = {
+  'M.S.': 'M.S.',
+  'MS': 'M.S.',
+  'C.G.': 'C.G.',
+  'CG': 'C.G.',
+  'M.P.': 'M.P.',
+  'MP': 'M.P.',
+  'U.P.': 'U.P.',
+  'UP': 'U.P.',
+  'A.P.': 'A.P.',
+  'AP': 'A.P.',
+  'ODISHA': 'Odisha',
+  'OD': 'Odisha',
+  Maharashtra: 'M.S.',
+  Chhattisgarh: 'C.G.',
+  'Madhya Pradesh': 'M.P.',
+  'Uttar Pradesh': 'U.P.',
+  'Andhra Pradesh': 'A.P.',
+  Odisha: 'Odisha',
 };
 
 const SMALL_WORDS = new Set(['of', 'for', 'and', 'the', 'at', 'in']);
@@ -75,12 +98,18 @@ export function titleCase(input: string): string {
     .replace(/Mr\.([A-Z])/g, 'Mr. $1');
 }
 
-function parseLocation(desc: string): { city: string; state: string } {
+function parseLocation(desc: string): { rawCity: string; city: string; state: string; stateCode: string } {
   const m = desc.match(/^(.*?)\s*\(([^)]+)\)\s*$/);
-  if (!m) return { city: titleCase(desc), state: '' };
-  const city = titleCase(m[1]).replace(/Chh\. Sambhaji Nagar/i, 'Chh. Sambhaji Nagar');
-  const state = STATE_NAMES[m[2].trim().toUpperCase()] ?? titleCase(m[2]);
-  return { city, state };
+  if (!m) {
+    const rawCity = titleCase(desc);
+    return { rawCity, city: rawCity, state: '', stateCode: '' };
+  }
+  const rawCity = titleCase(m[1]).replace(/Chh\. Sambhaji Nagar/i, 'Chh. Sambhaji Nagar');
+  const codeRaw = m[2].trim().toUpperCase();
+  const state = STATE_NAMES[codeRaw] ?? titleCase(m[2]);
+  const stateCode = STATE_CODES[codeRaw] ?? STATE_CODES[state] ?? m[2].trim();
+  const city = stateCode ? `${rawCity} (${stateCode})` : rawCity;
+  return { rawCity, city, state, stateCode };
 }
 
 export function slugify(s: string): string {
@@ -98,8 +127,8 @@ function build(): Project[] {
   for (const category of CATEGORY_ORDER) {
     for (const p of data[category] ?? []) {
       const title = titleCase(p.title);
-      const { city, state } = parseLocation(p.description);
-      let slug = slugify(`${title} ${city}`);
+      const { rawCity, city, state, stateCode } = parseLocation(p.description);
+      let slug = slugify(`${title} ${rawCity}`);
       const n = seen.get(slug) ?? 0;
       seen.set(slug, n + 1);
       if (n > 0) slug = `${slug}-${n + 1}`;
@@ -109,13 +138,15 @@ function build(): Project[] {
         category,
         sector: SECTORS[category],
         title,
+        rawCity,
         city,
         state,
-        location: state ? `${city}, ${state}` : city,
+        stateCode,
+        location: city,
         image: p.image,
         images,
         year: p.year ? String(p.year) : undefined,
-        alt: `${title}, ${city}${state ? ', ' + state : ''} — ${SECTORS[category]} by K2 Architects`,
+        alt: `${title}, ${city} — ${SECTORS[category]} by K2 Architects`,
       });
     }
   }
