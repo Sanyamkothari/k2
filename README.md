@@ -7,28 +7,28 @@ The public site for K2 Architects, Nagpur. Astro with React islands, Tailwind to
 
 ## Adding a project (no code required)
 
-1. **Drop the photographs into `images/`.** JPG or PNG. Any aspect ratio; the pipeline crops and resizes. Keep the longest side at or under 2400 px (the pipeline never emits anything larger) so the repository and the build stay small. Filenames can contain spaces, but keep them exact.
+1. **Drop the photographs into the appropriate category under `images/`** (e.g. `images/schools/`, `images/colleges/`, `images/healthcare/`, `images/hostels/`, `images/residential/`, `images/bungalows/`, `images/hospitality/`). Use clean lowercase kebab-case filenames (e.g. `new-public-school-cover.jpg`). JPG or PNG. Any aspect ratio; the pipeline crops and resizes. Keep the longest side at or under 2400 px (the pipeline never emits anything larger) so the repository and the build stay small.
 2. **Add an entry to `data/projects.json`** under the right category key:
 
-   | key           | shown as                    |
-   |---------------|-----------------------------|
-   | `engineering` | Schools                     |
-   | `college`     | Colleges & Campuses         |
-   | `medi`        | Hospitals & Healthcare      |
-   | `hostel`      | Hostels & Public Buildings  |
-   | `residential` | Residential & Commercial    |
-   | `bungalow`    | Bungalows & Townships       |
-   | `banquets`    | Banquets & Hospitality      |
+   | key           | shown as                    | directory               |
+   |---------------|-----------------------------|-------------------------|
+   | `engineering` | Schools                     | `images/schools/`       |
+   | `college`     | Colleges & Campuses         | `images/colleges/`      |
+   | `medi`        | Hospitals & Healthcare      | `images/healthcare/`    |
+   | `hostel`      | Hostels & Public Buildings  | `images/hostels/`       |
+   | `residential` | Residential & Commercial    | `images/residential/`   |
+   | `bungalow`    | Bungalows & Townships       | `images/bungalows/`     |
+   | `banquets`    | Banquets & Hospitality      | `images/hospitality/`   |
 
    ```json
    {
      "id": 26,
      "title": "NEW PUBLIC SCHOOL",
      "description": "NAGPUR (M.S.)",
-     "image": "images/new_public_school_cover.jpg",
+     "image": "images/schools/new-public-school-cover.jpg",
      "images": [
-       "images/new_public_school_cover.jpg",
-       "images/new_public_school_aerial.jpg"
+       "images/schools/new-public-school-cover.jpg",
+       "images/schools/new-public-school-aerial.jpg"
      ],
      "year": 2024
    }
@@ -77,7 +77,7 @@ Requires Node 22.
 
 ```
 data/projects.json         The single source of truth for the portfolio
-images/                    Original photographs and renders
+images/                    Original photographs, organised by category (schools/, colleges/, healthcare/, hostels/, residential/, bungalows/, hospitality/, team/, clients/)
 public/                    Static files: fonts, brand marks, robots, redirects
 scripts/images.mjs         Image pipeline
 src/lib/site.ts            Copy, team, sectors, clients, featured works

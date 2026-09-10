@@ -96,35 +96,35 @@ export const sectors = [
     name: 'Education & Institutions',
     line: 'Campus design, institutional facilities, university master planning.',
     category: 'engineering',
-    image: 'images/dps_amravati_aerial.png',
+    image: 'images/schools/dps-amravati-aerial.png',
   },
   {
     index: '02',
     name: 'Health & Public Places',
     line: 'Multi-speciality hospitals, healthcare institutions, teerth master planning.',
     category: 'medi',
-    image: 'images/BILASPUR HOSPITAL-1.jpg',
+    image: 'images/healthcare/bilaspur-hospital-1.jpg',
   },
   {
     index: '03',
     name: 'Townships & Farmhouses',
     line: 'Multi-storied apartments, mini and major townships, independent bungalows.',
     category: 'bungalow',
-    image: 'images/green city.jpg',
+    image: 'images/bungalows/green-city.jpg',
   },
   {
     index: '04',
     name: 'Industrial',
     line: 'Industrial plants, factory buildings, a wire-drawing plant.',
     category: 'residential',
-    image: 'images/gaushala Aerial view.jpg',
+    image: 'images/hostels/gaushala-aerial-view.jpg',
   },
   {
     index: '05',
     name: 'Urban Development',
     line: 'Development planning, land use, land development.',
     category: 'bungalow',
-    image: 'images/JANGIR TOWNSHIP.jpg',
+    image: 'images/bungalows/janjgir-township.jpg',
   },
 ];
 
@@ -140,41 +140,41 @@ export const team = [
     role: 'Principal Architect',
     index: '01',
     credentials: 'COA Registered · Founder',
-    image: 'images/team-sachin.jpg',
+    image: 'images/team/sachin-kothari.jpg',
   },
   {
     name: 'Ar. Riya Kothari',
     role: 'Landscape Architect',
     index: '02',
     credentials: 'B.Arch · Landscape Architecture',
-    image: 'images/team-riya.jpg',
+    image: 'images/team/riya-kothari.jpg',
   },
   {
     name: 'Ar. Mustan',
     role: 'Studio Incharge',
     index: '03',
     credentials: 'Lead Architect · Project Coordination',
-    image: 'images/team-mustan.jpg',
+    image: 'images/team/mustan.jpg',
   },
   {
     name: 'Er. Lata',
     role: 'Studio Incharge',
     index: '04',
     credentials: 'Lead Engineer · Structural & Execution',
-    image: 'images/team-lata.jpg',
+    image: 'images/team/lata.jpg',
   },
 ];
 
 export const clients = [
-  { name: 'S.B. Jain Institute of Technology, Management & Research', image: 'images/clg1.png' },
-  { name: 'Delhi Public School', image: 'images/clientdps.png' },
-  { name: 'Shri Shankaracharya Technical Campus, Bhilai', image: 'images/client3.png' },
-  { name: 'G H Raisoni University', image: 'images/client4-removebg.png' },
-  { name: 'Vidyanchal The School', image: 'images/vidyanchal.png' },
-  { name: 'Sanskar International School', image: 'images/sanskarschool.png' },
-  { name: 'Happy Faces The Concept School', image: 'images/happyfaces.png' },
-  { name: 'Jindal World School', image: 'images/jindalschool.jpg' },
-  { name: 'Yugantar Public School', image: 'images/yugantarschool.png' },
+  { name: 'S.B. Jain Institute of Technology, Management & Research', image: 'images/clients/sb-jain.png' },
+  { name: 'Delhi Public School', image: 'images/clients/delhi-public-school.png' },
+  { name: 'Shri Shankaracharya Technical Campus, Bhilai', image: 'images/clients/shankaracharya-campus.png' },
+  { name: 'G H Raisoni University', image: 'images/clients/raisoni-university.png' },
+  { name: 'Vidyanchal The School', image: 'images/clients/vidyanchal.png' },
+  { name: 'Sanskar International School', image: 'images/clients/sanskar-international.png' },
+  { name: 'Happy Faces The Concept School', image: 'images/clients/happy-faces.png' },
+  { name: 'Jindal World School', image: 'images/clients/jindal-school.jpg' },
+  { name: 'Yugantar Public School', image: 'images/clients/yugantar-school.png' },
 ];
 
 /** Named clients for copy (from the brief and the logo wall). */
@@ -186,19 +186,19 @@ export const clientNames = ['Delhi Public School', 'DPS World', 'GD Goenka', 'Ji
  * Layout alternates one wide 16:9 frame with a pair of 4:5 frames.
  */
 export const featured: { slug: string; image?: string }[] = [
-  { slug: 'delhi-public-school-amravati', image: 'images/dps_amravati_aerial.png' },
+  { slug: 'delhi-public-school-amravati', image: 'images/schools/dps-amravati-aerial.png' },
   { slug: 'jito-delhi-public-school-chh-sambhaji-nagar' },
   { slug: 'triveni-multispeciality-hospital-bilaspur' },
   { slug: 'shankaracharya-medical-college-bhilai' },
   { slug: 'yugantar-public-school-rajnandgaon' },
   { slug: 'green-city-township-rajnandgaon' },
-  { slug: 'vivek-mandir-school-gondia', image: 'images/GONDIA SCHOOL.jpg' },
+  { slug: 'vivek-mandir-school-gondia', image: 'images/schools/gondia-school.jpg' },
 ];
 
 export const heroSlides = [
   {
     index: '01',
-    image: 'images/dps_amravati_aerial.png',
+    image: 'images/schools/dps-amravati-aerial.png',
     alt: 'Aerial photograph of Delhi Public School, Amravati (M.S.), designed by K2 Architects',
     title: 'Delhi Public School',
     location: 'Amravati (M.S.)',
@@ -206,7 +206,7 @@ export const heroSlides = [
   },
   {
     index: '02',
-    image: 'images/PRAGATI ENG. COLLEGE RAIPUR.jpg',
+    image: 'images/colleges/pragati-eng-college-raipur.jpg',
     alt: 'Pragati Engineering College campus in Raipur (C.G.), designed by K2 Architects',
     title: 'Pragati Engineering College',
     location: 'Raipur (C.G.)',
@@ -214,7 +214,7 @@ export const heroSlides = [
   },
   {
     index: '03',
-    image: 'images/CITM BHILAI.jpg',
+    image: 'images/colleges/citm-bhilai.jpg',
     alt: 'CITM Bhilai (C.G.) institutional campus, designed by K2 Architects',
     title: 'CITM',
     location: 'Bhilai (C.G.)',
