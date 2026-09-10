@@ -83,3 +83,86 @@ tr:hover .windex__title, .windex__title:focus-visible { text-decoration-color: v
 .gallery__nav button { width: 2.75rem; height: 2.75rem; border: 1px solid var(--color-ink); display: grid; place-items: center; font-size: var(--text-lg); transition: background var(--dur-hover) var(--ease), color var(--dur-hover) var(--ease); }
 .gallery__nav button:hover { background: var(--color-ink); color: var(--color-paper); }
 @media (max-width: 47.99rem) { .gallery { padding-top: 0.5rem; } .gallery__foot { flex-wrap: wrap; } }
+
+/* Practice Project Register (Unphotographed Commissions) */
+.works-empty-photo {
+  padding-block: clamp(2rem, 4vw, 3.5rem);
+  color: var(--color-ink-2);
+  font-size: var(--text-base);
+}
+.works-register {
+  margin-top: clamp(3.5rem, 7vw, 6rem);
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+  border-top: 1px solid var(--color-rule);
+}
+.works-register__head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+@media (min-width: 48rem) {
+  .works-register__head {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+.works-register__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 40rem) {
+  .works-register__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 64rem) {
+  .works-register__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+}
+@media (min-width: 80rem) {
+  .works-register__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.works-register__item {
+  padding: 1rem 1.25rem;
+  background: var(--color-paper-2);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 5.5rem;
+  border: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.works-register__item:hover {
+  border-color: var(--color-rule-2);
+}
+.works-register__sector {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+.works-register__title {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-ink);
+  line-height: 1.35;
+}
+.works-register__loc {
+  font-size: var(--text-xs);
+  margin-top: 0.5rem;
+}
+.works-register__empty {
+  padding-block: 2rem;
+  font-size: var(--text-sm);
+  color: var(--color-ink-2);
+  font-style: italic;
+}

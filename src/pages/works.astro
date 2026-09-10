@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import WorksIndex from '../components/works/WorksIndex';
-import type { WorkItem, SectorOption } from '../components/works/types';
+import type { WorkItem, ArchiveItem, SectorOption } from '../components/works/types';
 import { projects, photographedProjects, unphotographedProjects, projectCount, sectorCount, CATEGORY_ORDER, SECTORS, hasYears } from '../lib/projects';
 import { rendition, thumb } from '../lib/images';
 import '../styles/works.css';
@@ -22,6 +22,16 @@ const items: WorkItem[] = photographedProjects.map((p) => {
     gallery: p.images.map((src) => { const r = rendition(src, { widths: [800, 1200, 1600, 2000, 2400] }); return { src: r.src, srcset: r.srcset, width: r.width, height: r.height }; }),
   };
 });
+
+const archiveItems: ArchiveItem[] = unphotographedProjects.map((p) => ({
+  title: p.title,
+  sector: p.sector,
+  category: p.category,
+  city: p.city,
+  location: p.location,
+  year: p.year,
+}));
+
 const sectors: SectorOption[] = CATEGORY_ORDER.map((key) => ({ key, label: SECTORS[key], count: projects.filter((p) => p.category === key).length }));
 
 const collection = {
@@ -66,28 +76,7 @@ const collection = {
       <h1 class="display-3xl page-head__title" data-split>Works</h1>
       <p class="page-head__count muted" data-reveal data-delay="0.2"><span class="tnum">{projectCount}</span> projects, <span class="tnum">{sectorCount}</span> sectors. Click any project for its gallery.</p>
     </div>
-    <WorksIndex client:load items={items} sectors={sectors} hasYears={hasYears} />
-
-    {unphotographedProjects.length > 0 && (
-      <section class="works-register" aria-label="Practice Project Archive">
-        <header class="works-register__head">
-          <div>
-            <p class="label muted">Complete Practice Register · Institutional & Civic Archive</p>
-            <h2 class="display-xl">Additional Commissions & Works</h2>
-          </div>
-          <p class="works-register__count muted label"><span class="tnum">{unphotographedProjects.length}</span> archived commissions across India</p>
-        </header>
-        <div class="works-register__grid">
-          {unphotographedProjects.map((p) => (
-            <article class="works-register__item">
-              <span class="works-register__sector label muted">{p.sector}</span>
-              <h3 class="works-register__title">{p.title}</h3>
-              <span class="works-register__loc muted">{p.location}</span>
-            </article>
-          ))}
-        </div>
-      </section>
-    )}
+    <WorksIndex client:load items={items} archive={archiveItems} sectors={sectors} hasYears={hasYears} totalCount={projectCount} />
   </section>
 </Base>
 
@@ -97,20 +86,4 @@ const collection = {
   .page-head__title { grid-column: 1 / -1; margin-left: -0.03em; }
   .page-head__count { grid-column: 1 / -1; font-size: var(--text-sm); }
   @media (min-width: 64rem) { .page-head__title { grid-column: 1 / span 7; } .page-head__count { grid-column: 9 / span 4; padding-bottom: 0.5rem; } }
-
-  .works-register { margin-top: clamp(4rem, 8vw, 7rem); padding-top: clamp(2rem, 4vw, 3.5rem); border-top: 1px solid var(--color-rule); }
-  .works-register__head { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2.5rem; }
-  @media (min-width: 48rem) {
-    .works-register__head { flex-direction: row; justify-content: space-between; align-items: flex-end; }
-  }
-  .works-register__grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
-  @media (min-width: 40rem) { .works-register__grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 64rem) { .works-register__grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; } }
-  @media (min-width: 80rem) { .works-register__grid { grid-template-columns: repeat(4, 1fr); } }
-
-  .works-register__item { padding: 1rem 1.25rem; background: var(--color-paper-2); border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; min-height: 5.5rem; border: 1px solid transparent; transition: border-color 0.2s ease; }
-  .works-register__item:hover { border-color: var(--color-rule-2); }
-  .works-register__sector { font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
-  .works-register__title { font-family: var(--font-sans); font-size: var(--text-sm); font-weight: 500; color: var(--color-ink); line-height: 1.35; }
-  .works-register__loc { font-size: var(--text-xs); margin-top: 0.5rem; }
 </style>
