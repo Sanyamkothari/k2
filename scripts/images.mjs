@@ -24,19 +24,33 @@ const slug = (s) => s.replace(/\.[^.]+$/, '').toLowerCase().replace(/[^a-z0-9]+/
 
 async function exists(p) { try { await fs.access(p); return true; } catch { return false; } }
 
+async function getFiles(dir) {
+  const entries = await fs.readdir(dir, { withFileTypes: true });
+  const files = [];
+  for (const entry of entries) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...await getFiles(full));
+    } else if (EXT.test(entry.name)) {
+      files.push(full);
+    }
+  }
+  return files;
+}
+
 async function main() {
   await fs.mkdir(OUT, { recursive: true });
   await fs.mkdir(path.dirname(MANIFEST), { recursive: true });
-  const files = (await fs.readdir(SRC)).filter((f) => EXT.test(f)).sort();
+  const files = (await getFiles(SRC)).sort();
   const manifest = {};
   let made = 0, skipped = 0;
   const t0 = Date.now();
 
-  for (const file of files) {
-    const full = path.join(SRC, file);
+  for (const full of files) {
+    const rel = path.relative(SRC, full).split(path.sep).join('/');
     const buf = await fs.readFile(full);
     const hash = createHash('md5').update(buf).digest('hex').slice(0, 8);
-    const name = `${slug(file)}-${hash}`;
+    const name = `${slug(rel)}-${hash}`;
     const image = sharp(buf, { limitInputPixels: false }).rotate();
     const meta = await image.metadata();
     const w = meta.width, h = meta.height;
@@ -60,7 +74,7 @@ async function main() {
       made += missing.length;
     } else skipped += 1;
     const largest = widths[widths.length - 1];
-    manifest[`images/${file}`] = { name, width: w, height: h, widths, largest, ratio: +(w / h).toFixed(4) };
+    manifest[`images/${rel}`] = { name, width: w, height: h, widths, largest, ratio: +(w / h).toFixed(4) };
   }
 
   // Remove renditions whose source is gone or changed.
