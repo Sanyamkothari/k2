@@ -148,13 +148,13 @@ const breadcrumbs = {
 
     <!-- Additional Documented Sector Commissions -->
     {unphotographed.length > 0 && (
-      <section class="sector-register" aria-label={`Additional ${SECTORS[category]} Commissions`}>
+      <section class="sector-register" aria-label={`More Completed ${SECTORS[category]} Projects`}>
         <div class="sector-register__head">
           <div>
-            <p class="label muted">Practice Archive · Documented Commissions</p>
-            <h3 class="display-lg">{photographed.length > 0 ? `More Projects in ${SECTORS[category]}` : `Projects in ${SECTORS[category]}`}</h3>
+            <p class="label muted">Project Archive</p>
+            <h3 class="display-lg">{photographed.length > 0 ? `More Completed Projects in ${SECTORS[category]}` : `Completed Projects in ${SECTORS[category]}`}</h3>
           </div>
-          <p class="label muted tnum">{unphotographed.length} practice record{unphotographed.length === 1 ? '' : 's'}</p>
+          <p class="label muted tnum">{unphotographed.length} completed project{unphotographed.length === 1 ? '' : 's'}</p>
         </div>
         <div class="sector-register__grid">
           {unphotographed.map((p) => (

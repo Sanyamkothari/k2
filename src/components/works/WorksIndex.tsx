@@ -133,7 +133,7 @@ export default function WorksIndex({ items, archive = [], sectors, hasYears, tot
           </m.ul>
         ) : (
           <div className="works-empty-photo">
-            <p className="muted">All documented commissions in this sector are listed in the practice register below.</p>
+            <p className="muted">Completed projects in this sector are listed below.</p>
           </div>
         )
       ) : (
@@ -141,27 +141,25 @@ export default function WorksIndex({ items, archive = [], sectors, hasYears, tot
           <IndexTable items={visible} hasYears={hasYears} onOpen={openProject} />
         ) : (
           <div className="works-empty-photo">
-            <p className="muted">All documented commissions in this sector are listed in the practice register below.</p>
+            <p className="muted">Completed projects in this sector are listed below.</p>
           </div>
         )
       )}
 
       {archive.length > 0 && (
-        <section className="works-register" aria-label="Practice Project Archive">
+        <section className="works-register" aria-label="Completed Projects Archive">
           <header className="works-register__head">
             <div>
               <p className="label muted">
-                {sector === 'all'
-                  ? 'Complete Practice Register · Institutional & Civic Archive'
-                  : 'Practice Register · Institutional & Civic Archive'}
+                {sector === 'all' ? 'Project Archive' : `Project Archive · ${label}`}
               </p>
               <h2 className="display-xl">
-                Additional Commissions & Works{sector !== 'all' ? ` — ${label}` : ''}
+                More Completed Projects{sector !== 'all' ? ` — ${label}` : ''}
               </h2>
             </div>
             <p className="works-register__count muted label">
               <span className="tnum">{visibleArchive.length}</span>{' '}
-              archived commission{visibleArchive.length === 1 ? '' : 's'}{' '}
+              completed project{visibleArchive.length === 1 ? '' : 's'}{' '}
               {sector === 'all' ? 'across India' : `in ${label}`}
             </p>
           </header>
@@ -178,7 +176,7 @@ export default function WorksIndex({ items, archive = [], sectors, hasYears, tot
             </div>
           ) : (
             <p className="works-register__empty muted">
-              All documented commissions in {label} are featured in the photography gallery above.
+              All projects in {label} are featured in the photo gallery above.
             </p>
           )}
         </section>
