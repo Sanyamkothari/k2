@@ -15,17 +15,17 @@ export const GET: APIRoute = () => {
       priority: '1.0',
       images: [
         {
-          loc: `${baseUrl}/images/schools/dps-amravati-aerial.png`,
+          loc: `${baseUrl}/images/dps_amravati_aerial.png`,
           title: 'Delhi Public School Amravati Campus — K2 Architects',
           caption: 'Aerial photograph of Delhi Public School campus master planned by K2 Architects in Amravati, Maharashtra.',
         },
         {
-          loc: `${baseUrl}/images/schools/dps-katni-aerial.jpg`,
+          loc: `${baseUrl}/images/DPS%20KATNI%20aerial.jpg`,
           title: 'Delhi Public School Katni Master Plan — K2 Architects',
           caption: 'Campus master plan rendering of Delhi Public School in Katni, Madhya Pradesh.',
         },
         {
-          loc: `${baseUrl}/images/colleges/ayurvedic-college-raigarh.jpg`,
+          loc: `${baseUrl}/images/AYURVEDIC_COLLEGE_RAIGARH.jpg`,
           title: 'Ayurvedic College and Hospital Raigarh — K2 Architects',
           caption: 'Institutional healthcare campus architecture in Raigarh, Chhattisgarh.',
         },
@@ -49,17 +49,17 @@ export const GET: APIRoute = () => {
       priority: '0.8',
       images: [
         {
-          loc: `${baseUrl}/images/schools/dps-katni-aerial.jpg`,
+          loc: `${baseUrl}/images/DPS%20KATNI%20aerial.jpg`,
           title: 'K2 Architects Studio and Campus Master Planning',
           caption: 'Institutional master planning by Principal Architect Ar. Sachin Kothari and Landscape Architect Ar. Riya Kothari.',
         },
         {
-          loc: `${baseUrl}/images/team/sachin-kothari.jpg`,
+          loc: `${baseUrl}/images/team1.jpg`,
           title: 'Ar. Sachin Kothari — Principal Architect',
           caption: 'Founder and Principal Architect at K2 Architects Nagpur.',
         },
         {
-          loc: `${baseUrl}/images/team/riya-kothari.jpg`,
+          loc: `${baseUrl}/images/team333pre2.png`,
           title: 'Ar. Riya Kothari — Landscape Architect',
           caption: 'Landscape Architect and Partner at K2 Architects Nagpur.',
         },
