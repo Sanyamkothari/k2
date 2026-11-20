@@ -75,7 +75,7 @@ const collection = {
   <section class="page-head container-x">
     <div class="grid-12 page-head__grid">
       <h1 class="display-3xl page-head__title" data-split>Works</h1>
-      <p class="page-head__count muted" data-reveal data-delay="0.2"><span class="tnum">{projectCount}</span> projects, <span class="tnum">{sectorCount}</span> sectors. Click any project for its gallery.</p>
+      <p class="page-head__count muted" data-reveal data-delay="0.2">Selected works across <span class="tnum">{sectorCount}</span> sectors. Click any project for its gallery.</p>
     </div>
     <WorksIndex client:load items={items} archive={archiveItems} sectors={sectors} hasYears={hasYears} totalCount={projectCount} />
   </section>

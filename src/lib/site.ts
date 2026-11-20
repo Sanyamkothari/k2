@@ -2,7 +2,6 @@
  * Site content: every fact from the original site, rewritten shorter.
  * Edit here; components only render.
  */
-import { projectCount } from './projects';
 
 export const site = {
   name: 'K2 Architects',
@@ -10,7 +9,7 @@ export const site = {
   city: 'Nagpur',
   since: 1999,
   description:
-    'K2 Architects is an architecture practice founded in Nagpur, Maharashtra in 1999. 450+ schools, colleges, hospitals, hostels, townships and commercial buildings across seven Indian states.',
+    'K2 Architects is an architectural practice founded in Nagpur, Maharashtra in 1999. 450+ educational campuses, hospitals, banquet complexes, townships, and commercial developments delivered across India.',
   phone: '9422101718',
   phoneDisplay: '+91 94221 01718',
   email: 'ar8880@gmail.com',
@@ -44,14 +43,14 @@ export const services = [
   { name: 'Hospital & Healthcare Architecture', description: 'NABH-compliant multi-speciality hospital complexes, medical colleges, diagnostic centres, and healthcare facilities.' },
   { name: 'Banquet & Hospitality Venues', description: 'Grand celebration venues, marriage halls, and commercial hospitality complexes designed for major gatherings.' },
   { name: 'Residential Townships & Housing', description: 'Integrated residential townships, apartment complexes, commercial plazas, and mixed-use developments.' },
-  { name: 'Landscape Ecology & Biophilic Design', description: 'Sustainable micro-climates, water harvesting, native botanical integration, and therapeutic campus greens.' },
+  { name: 'Campus Landscape & Environmental Design', description: 'Site grading, rainwater harvesting, native shading plantation, pedestrian campus circulation, and climate-responsive outdoor spaces.' },
   { name: 'Luxury Bungalows & Private Estates', description: 'Bespoke country villas, farmhouses, and private family residences.' },
 ];
 
 export const faqs = [
   {
     question: 'What architectural services does K2 Architects offer?',
-    answer: 'K2 Architects specialises in architectural design for educational campuses (schools and colleges), multi-speciality hospital complexes, and grand banquet venues. Alongside these core sectors, our practice delivers complete architectural and engineering consultancy for residential developments, commercial complexes, and private residences.'
+    answer: 'K2 Architects specialises in architectural design for educational campuses (schools and colleges), multi-speciality hospital complexes, and grand banquet venues. Alongside these core sectors, our practice delivers complete architectural design and planning for residential developments, commercial complexes, and private residences.'
   },
   {
     question: 'Where is K2 Architects located and which regions does it serve?',
@@ -59,7 +58,7 @@ export const faqs = [
   },
   {
     question: 'Who leads the studio at K2 Architects?',
-    answer: 'The practice is led by Principal Architect Ar. Sachin Kothari (Council of Architecture-registered, with 25+ years of institutional design experience) alongside Landscape Architect & Partner Ar. Riya Kothari, specialising in environmental design, sustainable micro-climates, and landscape ecology.'
+    answer: 'The practice is led by Principal Architect Ar. Sachin Kothari (Council of Architecture-registered, with 25+ years of institutional design experience) alongside Landscape Architect & Partner Ar. Riya Kothari, specialising in campus landscape architecture, native environmental planning, and outdoor campus circulation.'
   },
   {
     question: 'What is K2 Architects’ experience in school and educational campus design?',
@@ -78,11 +77,11 @@ export const nav = [
   { href: '/contact', label: 'Contact' },
 ];
 
-export const credentials = [
+export const credentials: Array<{ value: number | string; suffix: string; label: string; isText?: boolean }> = [
   { value: 25, suffix: '+', label: 'Years of practice' },
   { value: 450, suffix: '+', label: 'Projects delivered' },
-  { value: 7, suffix: '', label: 'Indian states' },
-  { value: projectCount, suffix: '', label: 'Works in this portfolio' },
+  { value: 'Pan-India', suffix: '', label: 'Project reach', isText: true },
+  { value: 8, suffix: '', label: 'Specialised sectors' },
 ];
 
 /** The eight sectors of the portfolio, matching Works filters and categories. */
@@ -146,9 +145,9 @@ export const sectors = [
 ];
 
 export const manifesto = [
-  'Over 25 years of building schools, hospitals and campuses across Central India.',
-  'Every project begins with the people who will use it, and ends with a building that will outlast us.',
-  'Consortiums with national organisations let a Nagpur studio deliver at national scale.',
+  'Over 25 years designing landmark educational campuses, healthcare facilities, and gathering venues.',
+  'Every project begins with the people who will use it, and ends with architecture built to outlast us.',
+  'Headquartered in Nagpur at the geographic center of India, delivering architectural commissions across the nation.',
 ];
 
 export const team = [
