@@ -430,7 +430,7 @@ const cloneNext = slides[0];
     if (trackEl.dataset.carouselInit === 'true') return;
     trackEl.dataset.carouselInit = 'true';
 
-    const totalRealSlides = 3; // DPS (0), Pragati (1), CITM (2)
+    const totalRealSlides = 3; // Pragati (0), CITM (1), DPS (2)
     let currentIndex = 1; // Track index 1 corresponds to real slide 0
     let isTransitioning = false;
     let timer: ReturnType<typeof setInterval> | null = null;
