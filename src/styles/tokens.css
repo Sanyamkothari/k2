@@ -28,7 +28,7 @@
   --text-2xl: clamp(2.25rem, 4vw, 3.5rem);     /* 36–56 section titles */
   --text-3xl: clamp(2.75rem, 5.5vw, 5rem);     /* 44–80 statements */
   --text-4xl: clamp(3rem, 7vw, 7rem);          /* closing */
-  --text-hero: clamp(3.5rem, 9vw, 9rem);       /* hero */
+  --text-hero: clamp(2.5rem, 8vw, 9rem);       /* hero */
 
   --leading-display: 0.95;
   --leading-tight: 1.1;

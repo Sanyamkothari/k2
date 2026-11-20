@@ -5,5 +5,5 @@
  * FORMSPREE_ID: create a form at https://formspree.io and paste its id here
  *           (e.g. "xabcdefg"). Leave empty to fall back to a mailto: link.
  */
-export const SITE_URL = process.env.SITE_URL || 'https://www.k2architects.in';
+export const SITE_URL = process.env.SITE_URL || 'https://www.k2architects.co.in';
 export const FORMSPREE_ID = process.env.FORMSPREE_ID || '';

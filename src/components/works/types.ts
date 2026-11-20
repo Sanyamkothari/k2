@@ -11,6 +11,7 @@ export interface WorkItem {
   cover: Img;
   preview: string;
   gallery: Img[];
+  position?: string;
 }
 export interface ArchiveItem {
   title: string;

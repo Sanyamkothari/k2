@@ -7,7 +7,7 @@ import { featured } from '../../lib/site';
 const items = featured.map((f) => {
   const p = bySlug.get(f.slug);
   if (!p) throw new Error(`Featured slug not found: ${f.slug}. Run "npm run slugs" to list valid slugs.`);
-  return { ...p, cover: (f.image ?? p.image)! };
+  return { ...p, cover: (f.image ?? p.image)!, position: f.position ?? p.position };
 });
 
 // Wide / pair / wide / pair / wide …
@@ -28,7 +28,7 @@ while (i < items.length) {
     {rows.map((row) =>
       row.kind === 'wide' ? (
         <a href={`/works?project=${row.items[0].slug}`} class="work work--wide">
-          <Picture src={row.items[0].cover} alt={row.items[0].alt} ratio="wide" sizes="(min-width: 64rem) 84vw, 92vw" parallax={6} />
+          <Picture src={row.items[0].cover} alt={row.items[0].alt} ratio="wide" sizes="(min-width: 64rem) 84vw, 92vw" parallax={6} position={row.items[0].position} />
           <div class="work__meta">
             <h3 class="work__title display-xl">{row.items[0].title}</h3>
             <p class="label muted">{row.items[0].sector} · {row.items[0].city}</p>
@@ -38,7 +38,7 @@ while (i < items.length) {
         <div class="pair">
           {row.items.map((p, j) => (
             <a href={`/works?project=${p.slug}`} class:list={['work', 'work--tall', { 'work--offset': j === 1 }]}>
-              <Picture src={p.cover} alt={p.alt} ratio="portrait" sizes="(min-width: 64rem) 36vw, 92vw" />
+              <Picture src={p.cover} alt={p.alt} ratio="portrait" sizes="(min-width: 64rem) 36vw, 92vw" position={p.position} />
               <div class="work__meta">
                 <h3 class="work__title display-xl">{p.title}</h3>
                 <p class="label muted">{p.sector} · {p.city}</p>

@@ -29,7 +29,7 @@ export const REGION_HUBS: Record<string, RegionHub> = {
     headline: 'Campus master planning and architecture for generational institutions across all Indian states.',
     description: 'National architectural consultancy headquartered in Central India. 450+ CBSE/ICSE schools, medical colleges, universities, and NABH hospitals master planned across India.',
     editorial:
-      'Headquartered in Nagpur at the geographic center of India (the historic Zero Mile Marker), K2 Architects delivers institutional master planning and comprehensive architectural engineering across the country. Our central location provides direct 1-to-2 hour flight and express rail connectivity to every Indian metropolitan hub and state capital, from Delhi NCR and Mumbai to Bengaluru, Hyderabad, and Kolkata. Combined with long-standing national consortium partnerships, our studio offers the institutional rigor, affiliation compliance (CBSE, ICSE, AICTE, NMC, NABH), and rapid site coordination demanded by nationwide educational networks and healthcare trusts.',
+      'Headquartered in Nagpur at the geographic centre of India (the historic Zero Mile Marker), K2 Architects delivers institutional master planning and comprehensive architectural engineering across the country. Our central location provides direct 1-to-2 hour flight and express rail connectivity to every Indian metropolitan hub and state capital, from Delhi NCR and Mumbai to Bengaluru, Hyderabad, and Kolkata. Combined with long-standing national consortium partnerships, our studio offers the institutional rigour, affiliation compliance (CBSE, ICSE, AICTE, NMC, NABH), and rapid site coordination demanded by nationwide educational networks and healthcare trusts.',
     strategicAdvantage:
       'Zero-Mile Strategic Advantage: Headquartered at the geographic heart of India, our studio provides rapid nationwide mobility, direct flight links to all major metros, and national consortiums enabling agile on-site supervision in any state.',
     keyCities: [
@@ -51,7 +51,7 @@ export const REGION_HUBS: Record<string, RegionHub> = {
         desc: 'Turnkey academic master planning adhering strictly to national board affiliation norms, student pedestrian safety, athletic zoning, and energy efficiency.',
       },
       {
-        title: 'NABH Multi-Speciality Hospitals & Medical Colleges',
+        title: 'NABH Multi-speciality Hospitals & Medical Colleges',
         desc: 'Rigorous clinical zoning, sterile corridors, emergency ingress, ICU/OT suites, infection control pathways, and future expandability.',
       },
       {
@@ -66,7 +66,7 @@ export const REGION_HUBS: Record<string, RegionHub> = {
     flagshipSlugs: [
       'delhi-public-school-amravati',
       'shankaracharya-medical-college-bhilai',
-      'triveni-multispeciality-hospital-bilaspur',
+      'triveni-multi-speciality-hospital-bilaspur',
       'jito-delhi-public-school-chh-sambhaji-nagar',
       'delhi-public-school-katni',
       'indian-public-school-sambalpur',
@@ -100,7 +100,7 @@ export const REGION_HUBS: Record<string, RegionHub> = {
       },
       {
         title: 'Private University Campuses',
-        desc: 'Multidisciplinary faculty blocks, student union centers, residential halls, and green courtyards.',
+        desc: 'Multidisciplinary faculty blocks, student union centres, residential halls, and green courtyards.',
       },
       {
         title: 'Healthcare & Specialty Clinics',
@@ -112,7 +112,7 @@ export const REGION_HUBS: Record<string, RegionHub> = {
       'delhi-public-school-amravati',
       'jito-delhi-public-school-chh-sambhaji-nagar',
       'delhi-public-school-katni',
-      'g-d-goenka-international-school-raipur',
+      'delhi-public-school-raigarh',
       'shankaracharya-medical-college-bhilai',
     ],
   },
@@ -122,9 +122,9 @@ export const REGION_HUBS: Record<string, RegionHub> = {
     title: 'Architects in Maharashtra — Institutional, Hospital & Campus Design',
     badge: 'Headquarters & State Practice',
     headline: '25+ years of landmark educational, healthcare, and civic infrastructure across Maharashtra.',
-    description: 'Headquartered in Nagpur, K2 Architects has delivered hundreds of landmark schools, colleges, multi-specialty hospitals, and residential developments across Maharashtra.',
+    description: 'Headquartered in Nagpur, K2 Architects has delivered hundreds of landmark schools, colleges, multi-speciality hospitals, and residential developments across Maharashtra.',
     editorial:
-      "From our Nagpur studio, K2 Architects has helped shape Maharashtra's built landscape for more than a quarter of a century. Our portfolio spans acclaimed CBSE school campuses in Amravati, Chhatrapati Sambhaji Nagar, Akola, and Gondia, multi-specialty hospitals in Parbhani, engineering colleges in Malkapur, and high-density civic spaces. We master the hot-composite climate of the Deccan plateau with courtyard shading, optimized daylighting, and robust local masonry craft.",
+      "From our Nagpur studio, K2 Architects has helped shape Maharashtra's built landscape for more than a quarter of a century. Our portfolio spans acclaimed CBSE school campuses in Amravati, Chhatrapati Sambhaji Nagar, Akola, and Gondia, multi-speciality hospitals in Parbhani, engineering colleges in Malkapur, and high-density civic spaces. We master the hot-composite climate of the Deccan plateau with courtyard shading, optimised daylighting, and robust local masonry craft.",
     strategicAdvantage:
       'Statewide Presence: Comprehensive familiarity with Maharashtra Town Planning regulations, Unified Development Control and Promotion Regulations (UDCPR), and municipal compliance.',
     keyCities: [
@@ -144,10 +144,10 @@ export const REGION_HUBS: Record<string, RegionHub> = {
     focusAreas: [
       {
         title: 'Educational Campus Networks',
-        desc: 'Over 200+ schools and colleges designed with climate-responsive double corridors, verandahs, and landscaped assembly courts.',
+        desc: '200+ schools and colleges designed with climate-responsive double corridors, verandahs, and landscaped assembly courts.',
       },
       {
-        title: 'Multi-Speciality Hospitals & Trauma Centers',
+        title: 'Multi-speciality Hospitals & Trauma Centres',
         desc: 'NABH-compliant healthcare facilities with emergency departments, diagnostic labs, and sterile surgical suites.',
       },
       {
@@ -159,9 +159,9 @@ export const REGION_HUBS: Record<string, RegionHub> = {
       'delhi-public-school-amravati',
       'jito-delhi-public-school-chh-sambhaji-nagar',
       'vivek-mandir-school-gondia',
-      'p-p-multispeciality-hospital-parbhani',
+      'p-p-multi-speciality-hospital-parbhani',
       'v-b-kolte-engineering-college-malkapur',
-      'happy-faces-concept-school-washim',
+      'vidyanchal-the-school-akot-akola',
     ],
   },
   'madhya-pradesh': {
@@ -170,7 +170,7 @@ export const REGION_HUBS: Record<string, RegionHub> = {
     title: 'School, University & Hospital Architects in Madhya Pradesh',
     badge: 'Central Region · Madhya Pradesh',
     headline: 'End-to-end campus master planning and healthcare architecture across Madhya Pradesh.',
-    description: '25+ years of institutional architecture in Madhya Pradesh. Designing CBSE campuses, universities, multi-specialty medical centers, and public infrastructure across Bhopal, Indore, Katni, and Jabalpur.',
+    description: '25+ years of institutional architecture in Madhya Pradesh. Designing CBSE campuses, universities, multi-speciality medical centres, and public infrastructure across Bhopal, Indore, Katni, and Jabalpur.',
     editorial:
       'Positioned directly adjacent to Madhya Pradesh, K2 Architects is a trusted master planner for institutional foundations throughout the state. From the comprehensive campus master plan of Delhi Public School in Katni to regional colleges in Betul and healthcare infrastructure, our firm understands the regulatory requirements of MP statutory boards and town planning directorates, delivering robust, climate-resilient architecture that endures.',
     strategicAdvantage:
@@ -205,7 +205,7 @@ export const REGION_HUBS: Record<string, RegionHub> = {
       'delhi-public-school-katni',
       'mansarovar-school-betul',
       'delhi-public-school-amravati',
-      'triveni-multispeciality-hospital-bilaspur',
+      'triveni-multi-speciality-hospital-bilaspur',
       'shankaracharya-medical-college-bhilai',
       'yugantar-public-school-rajnandgaon',
     ],
@@ -218,7 +218,7 @@ export const REGION_HUBS: Record<string, RegionHub> = {
     headline: 'The architectural practice behind iconic medical colleges, public schools, and master-planned townships in Chhattisgarh.',
     description: 'K2 Architects has designed and delivered premier landmarks in Chhattisgarh including Shri Shankaracharya Medical College in Bhilai, Triveni Hospital in Bilaspur, DPS Raigarh, and Green City Township.',
     editorial:
-      "Chhattisgarh represents one of K2 Architects' most extensive portfolios of delivered masterworks. Our studio designed the sprawling Shri Shankaracharya Technical Campus & Medical College in Bhilai, Triveni Multispeciality Hospital in Bilaspur, Ayurvedic College & Hospital in Raigarh, DPS Raigarh, Krishna Public Schools in Raipur, and the multi-acre Green City Township in Rajnandgaon. We provide comprehensive architectural, structural coordination, and landscape master planning tailored to Chhattisgarh's industrial and educational growth.",
+      "Chhattisgarh represents one of K2 Architects' most extensive portfolios of delivered masterworks. Our studio designed the sprawling Shri Shankaracharya Technical Campus & Medical College in Bhilai, Triveni Multi-speciality Hospital in Bilaspur, Ayurvedic College & Hospital in Raigarh, DPS Raigarh, Krishna Public Schools in Raipur, and the multi-acre Green City Township in Rajnandgaon. We provide comprehensive architectural, structural coordination, and landscape master planning tailored to Chhattisgarh's industrial and educational growth.",
     strategicAdvantage:
       'Unmatched Portfolio in CG: Decades of successful execution across Raipur, Bhilai, Bilaspur, and Raigarh with proven local authority approvals and turnkey contractor coordination.',
     keyCities: [
@@ -234,7 +234,7 @@ export const REGION_HUBS: Record<string, RegionHub> = {
     matchStates: ['Chhattisgarh'],
     focusAreas: [
       {
-        title: 'Medical Colleges & Multi-Speciality Hospitals',
+        title: 'Medical Colleges & Multi-speciality Hospitals',
         desc: 'Full-scale medical college campus planning with attached 500+ bed teaching hospitals meeting NMC standards.',
       },
       {
@@ -248,7 +248,7 @@ export const REGION_HUBS: Record<string, RegionHub> = {
     ],
     flagshipSlugs: [
       'shankaracharya-medical-college-bhilai',
-      'triveni-multispeciality-hospital-bilaspur',
+      'triveni-multi-speciality-hospital-bilaspur',
       'delhi-public-school-raigarh',
       'green-city-township-rajnandgaon',
       'yugantar-public-school-rajnandgaon',
@@ -283,12 +283,12 @@ export const REGION_HUBS: Record<string, RegionHub> = {
         desc: 'Deep overhangs, elevated plinths, and robust storm-water management tailored to coastal and monsoon extremes.',
       },
       {
-        title: 'Multi-Speciality Healthcare Complexes',
-        desc: 'Patient-centric medical centers with natural lighting, efficient diagnostics, and low running energy costs.',
+        title: 'Multi-speciality Healthcare Complexes',
+        desc: 'Patient-centric medical centres with natural lighting, efficient diagnostics, and low running energy costs.',
       },
       {
         title: 'Institutional Campuses',
-        desc: 'Pedestrianized campus networks connecting academic zones, student hostels, and sports grounds.',
+        desc: 'Pedestrianised campus networks connecting academic zones, student hostels, and sports grounds.',
       },
     ],
     flagshipSlugs: [
@@ -296,7 +296,7 @@ export const REGION_HUBS: Record<string, RegionHub> = {
       'delhi-public-school-raigarh',
       'delhi-public-school-amravati',
       'shankaracharya-medical-college-bhilai',
-      'triveni-multispeciality-hospital-bilaspur',
+      'triveni-multi-speciality-hospital-bilaspur',
       'yugantar-public-school-rajnandgaon',
     ],
   },
@@ -308,7 +308,7 @@ export const REGION_HUBS: Record<string, RegionHub> = {
     headline: 'High-performance campus master planning, industrial architecture, and institutional design for Gujarat.',
     description: 'Comprehensive master planning and architectural engineering for CBSE schools, industrial complexes, and commercial townships in Ahmedabad, Surat, Vadodara, and Rajkot.',
     editorial:
-      "Gujarat's entrepreneurial growth requires architecture that maximizes floor plate efficiency, achieves rapid project delivery, and delivers exceptional financial value. K2 Architects brings 25+ years of multi-sector capability—from heavy industrial plants and logistics facilities to international educational campuses and luxury townships—serving forward-looking trusts and industrial groups across Western India.",
+      "Gujarat's entrepreneurial growth requires architecture that maximises floor plate efficiency, achieves rapid project delivery, and delivers exceptional financial value. K2 Architects brings 25+ years of multi-sector capability—from heavy industrial plants and logistics facilities to international educational campuses and luxury townships—serving forward-looking trusts and industrial groups across Western India.",
     strategicAdvantage:
       'Direct Transit & Industry Expertise: Regular daily flights and trunk express rail lines from Nagpur to Ahmedabad and Surat ensure seamless project leadership and design review.',
     keyCities: [
@@ -327,7 +327,7 @@ export const REGION_HUBS: Record<string, RegionHub> = {
         desc: 'Cost-efficient, future-ready learning spaces with smart technology integration and flexible academic wings.',
       },
       {
-        title: 'Industrial Plants & Logistics Centers',
+        title: 'Industrial Plants & Logistics Centres',
         desc: 'Engineered structural bays, heavy vehicular circulation, fire compliance, and worker welfare facilities.',
       },
       {
@@ -340,8 +340,8 @@ export const REGION_HUBS: Record<string, RegionHub> = {
       'jito-delhi-public-school-chh-sambhaji-nagar',
       'shankaracharya-medical-college-bhilai',
       'green-city-township-rajnandgaon',
-      'triveni-multispeciality-hospital-bilaspur',
-      'g-d-goenka-international-school-raipur',
+      'triveni-multi-speciality-hospital-bilaspur',
+      'delhi-public-school-raigarh',
     ],
   },
   'south-india': {
@@ -350,11 +350,11 @@ export const REGION_HUBS: Record<string, RegionHub> = {
     title: 'Educational Campus & Healthcare Architecture — South India',
     badge: 'Southern Region · Hyderabad & Bengaluru',
     headline: 'Advanced campus master planning, biophilic design, and healthcare architecture for Southern India.',
-    description: 'Institutional master planning for international schools, engineering universities, and NABH multi-specialty hospitals across Hyderabad, Bengaluru, Visakhapatnam, and Vijayawada.',
+    description: 'Institutional master planning for international schools, engineering universities, and NABH multi-speciality hospitals across Hyderabad, Bengaluru, Visakhapatnam, and Vijayawada.',
     editorial:
       'Southern India is a national leader in educational excellence and medical innovation. K2 Architects partners with higher education groups, medical foundations, and CBSE/ICSE educational trusts across Telangana, Andhra Pradesh, and Karnataka. Led by Landscape Architect Ar. Riya Kothari, our studio integrates biophilic campus green networks, passive solar orientation, and water harvesting into high-capacity academic and healthcare facilities.',
     strategicAdvantage:
-      'Rapid North-South Connectivity: 1-hour direct flights from Nagpur to Hyderabad and Bengaluru allow rapid mobilization and collaborative reviews with southern clients.',
+      'Rapid North-South Connectivity: 1-hour direct flights from Nagpur to Hyderabad and Bengaluru allow rapid mobilisation and collaborative reviews with southern clients.',
     keyCities: [
       'Hyderabad (Telangana)',
       'Bengaluru (Karnataka)',
@@ -371,7 +371,7 @@ export const REGION_HUBS: Record<string, RegionHub> = {
         desc: 'Landscape ecology integrated into daily student life: shaded outdoor learning spaces, rainwater percolation, and native tree canopies.',
       },
       {
-        title: 'NABH Multi-Speciality Hospitals',
+        title: 'NABH Multi-speciality Hospitals',
         desc: 'Advanced medical spatial layouts facilitating infection control, modular expansion, and positive patient psychology.',
       },
       {
@@ -382,7 +382,7 @@ export const REGION_HUBS: Record<string, RegionHub> = {
     flagshipSlugs: [
       'delhi-public-school-amravati',
       'shankaracharya-medical-college-bhilai',
-      'triveni-multispeciality-hospital-bilaspur',
+      'triveni-multi-speciality-hospital-bilaspur',
       'yugantar-public-school-rajnandgaon',
       'jito-delhi-public-school-chh-sambhaji-nagar',
       'green-city-township-rajnandgaon',
@@ -419,7 +419,7 @@ export const REGION_HUBS: Record<string, RegionHub> = {
       },
       {
         title: 'Civic & Gathering Architecture',
-        desc: 'High-capacity community auditoriums, celebratory banquets, and cultural centers designed to host thousands.',
+        desc: 'High-capacity community auditoriums, celebratory banquets, and cultural centres designed to host thousands.',
       },
     ],
     flagshipSlugs: [
@@ -428,7 +428,7 @@ export const REGION_HUBS: Record<string, RegionHub> = {
       'delhi-public-school-katni',
       'shankaracharya-medical-college-bhilai',
       'yugantar-public-school-rajnandgaon',
-      'happy-faces-concept-school-washim',
+      'indian-public-school-sambalpur',
     ],
   },
 };

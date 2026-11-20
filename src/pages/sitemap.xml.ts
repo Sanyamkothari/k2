@@ -17,12 +17,12 @@ export const GET: APIRoute = () => {
         {
           loc: `${baseUrl}/images/schools/dps-amravati-aerial.png`,
           title: 'Delhi Public School Amravati Campus — K2 Architects',
-          caption: 'Aerial photograph of Delhi Public School campus master planned by K2 Architects in Amravati, Maharashtra.',
+          caption: 'Aerial photograph of Delhi Public School campus designed by K2 Architects in Amravati, Maharashtra.',
         },
         {
           loc: `${baseUrl}/images/schools/dps-katni-aerial.jpg`,
-          title: 'Delhi Public School Katni Master Plan — K2 Architects',
-          caption: 'Campus master plan rendering of Delhi Public School in Katni, Madhya Pradesh.',
+          title: 'Delhi Public School Katni Campus — K2 Architects',
+          caption: 'Campus architectural rendering of Delhi Public School in Katni, Madhya Pradesh.',
         },
         {
           loc: `${baseUrl}/images/colleges/ayurvedic-college-raigarh.jpg`,
@@ -50,8 +50,8 @@ export const GET: APIRoute = () => {
       images: [
         {
           loc: `${baseUrl}/images/schools/dps-katni-aerial.jpg`,
-          title: 'K2 Architects Studio and Campus Master Planning',
-          caption: 'Institutional master planning by Principal Architect Ar. Sachin Kothari and Landscape Architect Ar. Riya Kothari.',
+          title: 'K2 Architects Studio & Educational Architecture',
+          caption: 'Institutional campus architecture by Principal Architect Ar. Sachin Kothari and Landscape Architect Ar. Riya Kothari.',
         },
         {
           loc: `${baseUrl}/images/team/sachin-kothari.jpg`,

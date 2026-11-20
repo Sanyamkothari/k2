@@ -73,6 +73,7 @@
       "title": "JITO DELHI PUBLIC SCHOOL",
       "description": "CHH. SAMBHAJI NAGAR (M.S.)",
       "image": "images/schools/jito-dps-aurangabad.jpg",
+      "position": "92% 50%",
       "images": [
         "images/schools/jito-dps-aurangabad.jpg"
       ]
@@ -89,30 +90,13 @@
     {
       "id": 10,
       "title": "DELHI WORLD PUBLIC SCHOOL",
-      "description": "MAHENDRAGARH (C.G.)",
+      "description": "MANENDRAGARH (C.G.)",
       "image": "images/schools/dwps-manendragarh-aerial.jpg",
       "images": [
         "images/schools/dwps-manendragarh-aerial.jpg"
       ]
     },
-    {
-      "id": 11,
-      "title": "DELHI WORLD PUBLIC SCHOOL",
-      "description": "PARLI VAIJNATH (M.S.)",
-      "image": "images/schools/dwps-parli-render.png",
-      "images": [
-        "images/schools/dwps-parli-render.png"
-      ]
-    },
-    {
-      "id": 12,
-      "title": "SANSKARBHARTI PUBLIC SCHOOL",
-      "description": "WARORA (M.S.)",
-      "image": "images/schools/sanskarbharti-warora.jpg",
-      "images": [
-        "images/schools/sanskarbharti-warora.jpg"
-      ]
-    },
+
     {
       "id": 13,
       "title": "NEERAJ PUBLIC SCHOOL",
@@ -149,26 +133,7 @@
         "images/schools/podar-pusad.png"
       ]
     },
-    {
-      "id": 17,
-      "title": "HAPPY FACES CONCEPT SCHOOL",
-      "description": "WASHIM (M.S.)",
-      "image": "images/schools/happy-faces-washim.jpg",
-      "images": [
-        "images/schools/happy-faces-washim.jpg",
-        "images/hostels/washim-hostel.jpg"
-      ]
-    },
-    {
-      "id": 18,
-      "title": "G.D. GOENKA INTERNATIONAL SCHOOL",
-      "description": "RAIPUR (C.G.)",
-      "image": "images/schools/gd-goenka-render.png",
-      "images": [
-        "images/schools/gd-goenka-render.png",
-        "images/schools/gd-goenka-photo.jpg"
-      ]
-    },
+
     {
       "id": 19,
       "title": "DELHI PUBLIC SCHOOL",
@@ -345,7 +310,7 @@
     },
     {
       "id": 45,
-      "title": "SAINT PAULS PUBLIC SCHOOL",
+      "title": "SAINT PAUL'S PUBLIC SCHOOL",
       "description": "AKOLA (M.S.)"
     },
     {
@@ -431,7 +396,7 @@
     {
       "id": 62,
       "title": "SANT NANDLAL SMRITI VIDYA MANDIR",
-      "description": "MALSISAR (RAJASTHAN)"
+      "description": "MALSISAR (Raj.)"
     },
     {
       "id": 63,
@@ -446,7 +411,7 @@
     {
       "id": 65,
       "title": "MAHESHWARI ENGLISH CONVENT SCHOOL",
-      "description": "ILKAL (KARNATAKA)"
+      "description": "ILKAL (Kar.)"
     },
     {
       "id": 66,
@@ -490,7 +455,7 @@
     },
     {
       "id": 74,
-      "title": "SAU SHANTABAI TAPDIA PUBLIC SCHOOL",
+      "title": "SAU. SHANTABAI TAPDIA PUBLIC SCHOOL",
       "description": "KAIJ (M.S.)"
     },
     {
@@ -550,7 +515,7 @@
     },
     {
       "id": 3,
-      "title": "Leo galaxy",
+      "title": "LEO GALAXY",
       "description": "NAGPUR (M.S.)",
       "image": "images/residential/leo-galaxy.jpg",
       "images": [
@@ -568,7 +533,7 @@
     },
     {
       "id": 5,
-      "title": "Heda Shopping Complex",
+      "title": "HEDA SHOPPING COMPLEX",
       "description": "WASHIM (M.S.)",
       "image": "images/residential/heda-shopping-complex.jpg",
       "images": [
@@ -577,7 +542,7 @@
     },
     {
       "id": 6,
-      "title": "Shri Saptshrungi Heights",
+      "title": "SHRI SAPTSHRUNGI HEIGHTS",
       "description": "KHAMGAON (M.S.)",
       "image": "images/residential/khamgaon-shri-saptshrungi.jpg",
       "images": [
@@ -659,7 +624,7 @@
     },
     {
       "id": 2,
-      "title": "SHANKRACHARYA HOSTEL",
+      "title": "SHANKARACHARYA HOSTEL",
       "description": "BHILAI (C.G.)",
       "image": "images/hostels/bhilai-shankaracharya-hostel.jpg",
       "images": [
@@ -686,7 +651,7 @@
     },
     {
       "id": 5,
-      "title": "RUNGHTA HOSTEL COMPLEX",
+      "title": "RUNGTA HOSTEL COMPLEX",
       "description": "BHILAI (C.G.)",
       "image": "images/hostels/runghta-ariel-view-hos.jpg",
       "images": [
@@ -714,7 +679,7 @@
     },
     {
       "id": 8,
-      "title": "DHARMSHALA & CAMPUS PLANNING",
+      "title": "DHARAMSHALA & CAMPUS PLANNING",
       "description": "BHADRAWATI (M.S.)"
     },
     {
@@ -763,7 +728,7 @@
     },
     {
       "id": 4,
-      "title": "BUNGLOW FOR MR.SHARMA",
+      "title": "BUNGALOW FOR MR. SHARMA",
       "description": "MALKAPUR (M.S.)",
       "image": "images/bungalows/malkapur-sharma-residence.jpg",
       "images": [
@@ -790,7 +755,7 @@
     },
     {
       "id": 7,
-      "title": "BAGMAR BUNGLOW BANGLOWS",
+      "title": "BAGMAR BUNGALOW",
       "description": "JABALPUR (M.P.)",
       "image": "images/bungalows/bagmar-jabalpur.jpg",
       "images": [
@@ -799,7 +764,7 @@
     },
     {
       "id": 8,
-      "title": "JILHEWAR RESIDENCE ARNI",
+      "title": "JILHEWAR RESIDENCE",
       "description": "ARNI (M.S.)",
       "image": "images/bungalows/suhas-jilhewar-residence.jpg",
       "images": [
@@ -866,7 +831,7 @@
     },
     {
       "id": 4,
-      "title": "SHOPPING CENTER",
+      "title": "SHOPPING CENTRE",
       "description": "JALNA (M.S.)",
       "image": "images/hospitality/jalna-shopping-center.jpg",
       "images": [
@@ -894,6 +859,7 @@
       "title": "TRIVENI MULTISPECIALITY HOSPITAL",
       "description": "BILASPUR (C.G.)",
       "image": "images/healthcare/bilaspur-hospital-1.jpg",
+      "position": "10% 70%",
       "images": [
         "images/healthcare/bilaspur-hospital-1.jpg"
       ]
@@ -901,15 +867,11 @@
     {
       "id": 3,
       "title": "MEDI-COMPLEX",
-      "description": "BETUL (M.P.)",
-      "image": "images/colleges/baitul-poly.jpg",
-      "images": [
-        "images/colleges/baitul-poly.jpg"
-      ]
+      "description": "BETUL (M.P.)"
     },
     {
       "id": 4,
-      "title": "MEDISHINE HEALTH CARE MULTISPECIALITY",
+      "title": "MEDISHINE HEALTH CARE MULTI-SPECIALITY HOSPITAL",
       "description": "RAIPUR (C.G.)",
       "image": "images/healthcare/medishine-healthcare-multispeciality.jpg",
       "images": [
@@ -918,7 +880,7 @@
     },
     {
       "id": 5,
-      "title": "CARDIOLOGY CENTER",
+      "title": "CARDIOLOGY CENTRE",
       "description": "LATUR (M.S.)",
       "image": "images/healthcare/latur-cardiology-center.jpg",
       "images": [
@@ -927,7 +889,7 @@
     },
     {
       "id": 6,
-      "title": "SNEHI HOSPITAL ",
+      "title": "SNEHI HOSPITAL",
       "description": "KAWARDHA (C.G.)",
       "image": "images/healthcare/kawardha-snehi-hospital.jpg",
       "images": [
@@ -936,7 +898,7 @@
     },
     {
       "id": 7,
-      "title": "CHANDRAYAN MULTY-HOSPITAL",
+      "title": "CHANDRAYAN MULTI-HOSPITAL",
       "description": "KAWARDHA (C.G.)",
       "image": "images/healthcare/chandrayan-multy-hospital-kawardha.jpg",
       "images": [
@@ -963,12 +925,12 @@
     },
     {
       "id": 10,
-      "title": "ORTHOPEDIC & GYNAECOLOGY HOSPITAL",
+      "title": "ORTHOPAEDIC & GYNAECOLOGY HOSPITAL",
       "description": "PUSAD (M.S.)"
     },
     {
       "id": 11,
-      "title": "200 DENTAL CHAIRED DENTAL HOSPITAL",
+      "title": "200-CHAIR DENTAL HOSPITAL",
       "description": "RAJNANDGAON (C.G.)"
     },
     {
@@ -1007,7 +969,7 @@
     },
     {
       "id": 4,
-      "title": "V.B KOLTE ENG.COLLEGE",
+      "title": "V.B. KOLTE ENG.COLLEGE",
       "description": "MALKAPUR (M.S.)",
       "image": "images/colleges/kolte-eng-college-malkapur.jpg",
       "images": [
@@ -1071,7 +1033,7 @@
     },
     {
       "id": 12,
-      "title": "SIR S.B. JAIN INSTITUTE OF TECHNOLOGY & MANAGEMENT",
+      "title": "S.B. JAIN INSTITUTE OF TECHNOLOGY, MANAGEMENT & RESEARCH",
       "description": "NAGPUR (M.S.)"
     },
     {
@@ -1117,7 +1079,7 @@
     {
       "id": 21,
       "title": "SOUTH GUJARAT INSTITUTE OF ENGINEERING",
-      "description": "SURAT (GUJARAT)"
+      "description": "SURAT (Guj.)"
     },
     {
       "id": 22,
@@ -1141,7 +1103,7 @@
     },
     {
       "id": 26,
-      "title": "SARSVATI DHANVANTARI DENTAL COLLEGE",
+      "title": "SARASWATI DHANVANTARI DENTAL COLLEGE",
       "description": "PARBHANI (M.S.)"
     },
     {
@@ -1178,7 +1140,7 @@
     },
     {
       "id": 3,
-      "title": "WARE HOUSES",
+      "title": "WAREHOUSES",
       "description": "ARNI (M.S.)"
     }
   ]

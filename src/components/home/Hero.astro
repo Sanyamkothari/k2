@@ -15,7 +15,7 @@ const cloneNext = slides[0];
 <section class="hero" aria-label="Introduction" aria-roledescription="carousel" id="hero-carousel">
   <div class="hero__viewport figure" data-parallax="8">
     <div class="hero__track" id="hero-track">
-      <!-- Clone of last slide (CITM) for infinite backward transition -->
+      <!-- Clone of last slide (DPS) for infinite backward transition -->
       <div class="hero__slide is-clone" aria-hidden="true">
         <picture>
           {clonePrev.rendition.avifSrcset && <source type="image/avif" srcset={clonePrev.rendition.avifSrcset} sizes="100vw" />}
@@ -34,7 +34,7 @@ const cloneNext = slides[0];
         </picture>
       </div>
 
-      <!-- Real Slides: 0 (DPS), 1 (Pragati), 2 (CITM) -->
+      <!-- Real Slides: 0 (Pragati), 1 (CITM), 2 (DPS) -->
       {slides.map((slide, i) => (
         <div
           class:list={['hero__slide', { 'is-active': i === 0 }]}
@@ -61,7 +61,7 @@ const cloneNext = slides[0];
         </div>
       ))}
 
-      <!-- Clone of first slide (DPS) for infinite forward transition -->
+      <!-- Clone of first slide (Pragati) for infinite forward transition -->
       <div class="hero__slide is-clone" aria-hidden="true">
         <picture>
           {cloneNext.rendition.avifSrcset && <source type="image/avif" srcset={cloneNext.rendition.avifSrcset} sizes="100vw" />}

@@ -1,12 +1,22 @@
 # K2 Architects — shared-host configuration
 RewriteEngine On
+RewriteBase /
+
+# Priority rewrite for /works to avoid directory collision
+RewriteRule ^works/?$ works.html [L]
+
+# Legacy 301 redirects
 RewriteRule ^projects(\.html)?$ /works [R=301,L]
 RewriteRule ^contactus(\.html)?$ /contact [R=301,L]
-RewriteRule ^about$ /studio [R=301,L]
+RewriteRule ^about(\.html)?$ /studio [R=301,L]
+
 # Serve extensionless routes from their .html files
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*)$ $1.html [L]
+
+# Custom 404 Error Page
+ErrorDocument 404 /404.html
 # Enterprise HTTP Security Headers
 <IfModule mod_headers.c>
   Header set X-Content-Type-Options "nosniff"

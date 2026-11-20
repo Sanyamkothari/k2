@@ -8,6 +8,7 @@
     "dev": "astro dev",
     "prebuild": "node scripts/images.mjs",
     "build": "astro build",
+    "postbuild": "cp dist/works.html dist/works/index.html",
     "preview": "astro preview",
     "check": "astro check",
     "images": "node scripts/images.mjs",

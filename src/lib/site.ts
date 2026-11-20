@@ -15,7 +15,7 @@ export const site = {
   phoneDisplay: '+91 94221 01718',
   email: 'ar8880@gmail.com',
   address: {
-    line1: '101, Ozone Apartment',
+    line1: '101, Ozone Apartments',
     line2: 'Puranik Layout, Bharat Nagar',
     line3: 'Amravati Road, Nagpur',
     locality: 'Nagpur',
@@ -36,18 +36,14 @@ export const site = {
     'Punjab',
     'Gujarat',
     'Odisha',
-    'Delhi NCR',
-    'Uttar Pradesh',
-    'Telangana',
-    'Karnataka',
   ],
 };
 
 export const services = [
-  { name: 'Campus Master Planning', description: 'Comprehensive master planning for CBSE, ICSE and international school campuses, universities, and technical institutes.' },
-  { name: 'Hospital & Healthcare Architecture', description: 'NABH-compliant multi-specialty hospital complexes, medical colleges, diagnostic centers, and healthcare facilities.' },
-  { name: 'Institutional Architecture', description: 'Educational infrastructure, polytechnic institutions, administrative clusters, and research centers.' },
-  { name: 'Townships & High-Density Residential', description: 'Master-planned residential townships, apartment complexes, commercial plazas, and mixed-use developments.' },
+  { name: 'Educational Campus Architecture', description: 'Comprehensive architectural design for CBSE, ICSE, and international schools, colleges, and university campuses.' },
+  { name: 'Hospital & Healthcare Architecture', description: 'NABH-compliant multi-speciality hospital complexes, medical colleges, diagnostic centres, and healthcare facilities.' },
+  { name: 'Banquet & Hospitality Venues', description: 'Grand celebration venues, marriage halls, and commercial hospitality complexes designed for major gatherings.' },
+  { name: 'Residential Townships & Housing', description: 'Integrated residential townships, apartment complexes, commercial plazas, and mixed-use developments.' },
   { name: 'Landscape Ecology & Biophilic Design', description: 'Sustainable micro-climates, water harvesting, native botanical integration, and therapeutic campus greens.' },
   { name: 'Luxury Bungalows & Private Estates', description: 'Bespoke country villas, farmhouses, and private family residences.' },
 ];
@@ -55,23 +51,23 @@ export const services = [
 export const faqs = [
   {
     question: 'What architectural services does K2 Architects offer?',
-    answer: 'K2 Architects provides comprehensive end-to-end architectural consultancy, including educational campus master planning, healthcare and hospital design, high-density residential townships, commercial complexes, landscape ecology, and luxury private residences.'
+    answer: 'K2 Architects specialises in architectural design for educational campuses (schools and colleges), multi-speciality hospital complexes, and grand banquet venues. Alongside these core sectors, our practice delivers complete architectural and engineering consultancy for residential developments, commercial complexes, and private residences.'
   },
   {
-    question: 'Where is K2 Architects located and which regions do they serve?',
-    answer: 'The practice is headquartered in Nagpur, Maharashtra (101, Ozone Apartment, Puranik Layout, Bharat Nagar, Amravati Road). Over 25 years, K2 Architects has delivered 450+ landmark projects across seven Indian states: Maharashtra, Chhattisgarh, Madhya Pradesh, Andhra Pradesh, Punjab, Gujarat, and Odisha.'
+    question: 'Where is K2 Architects located and which regions does it serve?',
+    answer: 'The practice is headquartered in Nagpur, Maharashtra (101, Ozone Apartments, Puranik Layout, Bharat Nagar, Amravati Road). While based in Central India, K2 Architects undertakes and delivers architectural projects all over India, partnering with educational trusts, hospital groups, and promoters nationwide.'
   },
   {
     question: 'Who leads the studio at K2 Architects?',
-    answer: 'The practice is led by Principal Architect Ar. Sachin Kothari (Council of Architecture registered with 25+ years of institutional design experience) alongside Landscape Architect & Partner Ar. Riya Kothari, specializing in environmental design, sustainable micro-climates, and landscape ecology.'
+    answer: 'The practice is led by Principal Architect Ar. Sachin Kothari (Council of Architecture-registered, with 25+ years of institutional design experience) alongside Landscape Architect & Partner Ar. Riya Kothari, specialising in environmental design, sustainable micro-climates, and landscape ecology.'
   },
   {
     question: 'What is K2 Architects’ experience in school and educational campus design?',
-    answer: 'K2 Architects has designed and master-planned campuses for major national educational networks including Delhi Public School (DPS), DPS World, Sanskar International, Jindal World School, Vidyanchal, and Shri Shankaracharya Technical Campus, delivering world-class academic, residential, and sporting infrastructure.'
+    answer: 'K2 Architects has designed campuses for major national educational networks including Delhi Public School (DPS), Delhi World Public School, Sanskar International, Jindal World School, Vidyanchal, and Shri Shankaracharya Technical Campus, delivering comprehensive academic, residential, and sports infrastructure.'
   },
   {
     question: 'How do you initiate a project consultation with K2 Architects?',
-    answer: 'You can reach out to our principal studio team via phone at +91 94221 01718, email ar8880@gmail.com, or submit a brief on our Contact page. Our studio typically replies within two business days.'
+    answer: 'You can reach out to our principal studio team via phone at +91 94221 01718, email ar8880@gmail.com, or submit a brief on our Contact page. Our studio typically replies within two working days.'
   }
 ];
 
@@ -89,47 +85,68 @@ export const credentials = [
   { value: projectCount, suffix: '', label: 'Works in this portfolio' },
 ];
 
-/** The five sectors from the original About page, each tied to a category and a preview image. */
+/** The eight sectors of the portfolio, matching Works filters and categories. */
 export const sectors = [
   {
     index: '01',
-    name: 'Education & Institutions',
-    line: 'Campus design, institutional facilities, university master planning.',
+    name: 'Schools',
+    line: 'Architectural design for CBSE, ICSE, and international school campuses.',
     category: 'engineering',
     image: 'images/schools/dps-amravati-aerial.png',
   },
   {
     index: '02',
-    name: 'Health & Public Places',
-    line: 'Multi-speciality hospitals, healthcare institutions, teerth master planning.',
+    name: 'Colleges & Campuses',
+    line: 'Engineering faculties, polytechnic institutes, and university campus design.',
+    category: 'college',
+    image: 'images/colleges/pragati-eng-college-raipur.jpg',
+  },
+  {
+    index: '03',
+    name: 'Hospitals & Healthcare',
+    line: 'NABH-compliant multi-speciality hospital complexes and medical facilities.',
     category: 'medi',
     image: 'images/healthcare/bilaspur-hospital-1.jpg',
   },
   {
-    index: '03',
-    name: 'Townships & Farmhouses',
-    line: 'Multi-storied apartments, mini and major townships, independent bungalows.',
+    index: '04',
+    name: 'Hostels & Public Buildings',
+    line: 'Student hostel complexes, community facilities, and civic infrastructure.',
+    category: 'hostel',
+    image: 'images/hostels/washim-hostel.jpg',
+  },
+  {
+    index: '05',
+    name: 'Residential & Commercial',
+    line: 'Multi-storied apartment towers, shopping complexes, and commercial plazas.',
+    category: 'residential',
+    image: 'images/residential/khamgaon-shreeram-plaza.jpg',
+  },
+  {
+    index: '06',
+    name: 'Bungalows & Townships',
+    line: 'Integrated residential townships, country farmhouses, and private estates.',
     category: 'bungalow',
     image: 'images/bungalows/green-city.jpg',
   },
   {
-    index: '04',
-    name: 'Industrial',
-    line: 'Industrial plants, factory buildings, a wire-drawing plant.',
-    category: 'residential',
-    image: 'images/hostels/gaushala-aerial-view.jpg',
+    index: '07',
+    name: 'Banquets & Hospitality',
+    line: 'Grand celebratory venues, marriage complexes, and hospitality architecture.',
+    category: 'banquets',
+    image: 'images/hospitality/complex-hotel-hingoli.jpg',
   },
   {
-    index: '05',
-    name: 'Urban Development',
-    line: 'Development planning, land use, land development.',
-    category: 'bungalow',
-    image: 'images/bungalows/janjgir-township.jpg',
+    index: '08',
+    name: 'Industrial',
+    line: 'Manufacturing units, processing plants, and warehousing facilities.',
+    category: 'industrial',
+    image: 'images/hostels/gaushala-aerial-view.jpg',
   },
 ];
 
 export const manifesto = [
-  'Twenty-five years of building schools, hospitals and campuses across central India.',
+  'Over 25 years of building schools, hospitals and campuses across Central India.',
   'Every project begins with the people who will use it, and ends with a building that will outlast us.',
   'Consortiums with national organisations let a Nagpur studio deliver at national scale.',
 ];
@@ -138,6 +155,7 @@ export const team = [
   {
     name: 'Ar. Sachin Kothari',
     role: 'Principal Architect',
+    discipline: 'Architecture',
     index: '01',
     credentials: 'COA Registered · Founder',
     image: 'images/team/sachin-kothari.jpg',
@@ -145,20 +163,23 @@ export const team = [
   {
     name: 'Ar. Riya Kothari',
     role: 'Landscape Architect',
+    discipline: 'Landscape',
     index: '02',
     credentials: 'B.Arch · Landscape Architecture',
     image: 'images/team/riya-kothari.jpg',
   },
   {
     name: 'Ar. Mustan',
-    role: 'Studio Incharge',
+    role: 'Studio In-charge',
+    discipline: 'Architecture',
     index: '03',
     credentials: 'Lead Architect · Project Coordination',
     image: 'images/team/mustan.jpg',
   },
   {
     name: 'Er. Lata',
-    role: 'Studio Incharge',
+    role: 'Studio In-charge',
+    discipline: 'Engineering',
     index: '04',
     credentials: 'Lead Engineer · Structural & Execution',
     image: 'images/team/lata.jpg',
@@ -169,7 +190,7 @@ export const clients = [
   { name: 'S.B. Jain Institute of Technology, Management & Research', image: 'images/clients/sb-jain.png' },
   { name: 'Delhi Public School', image: 'images/clients/delhi-public-school.png' },
   { name: 'Shri Shankaracharya Technical Campus, Bhilai', image: 'images/clients/shankaracharya-campus.png' },
-  { name: 'G H Raisoni University', image: 'images/clients/raisoni-university.png' },
+  { name: 'G.H. Raisoni University', image: 'images/clients/raisoni-university.png' },
   { name: 'Vidyanchal The School', image: 'images/clients/vidyanchal.png' },
   { name: 'Sanskar International School', image: 'images/clients/sanskar-international.png' },
   { name: 'Happy Faces The Concept School', image: 'images/clients/happy-faces.png' },
@@ -178,34 +199,26 @@ export const clients = [
 ];
 
 /** Named clients for copy (from the brief and the logo wall). */
-export const clientNames = ['Delhi Public School', 'DPS World', 'GD Goenka', 'Jindal', 'Vidyanchal', 'Sanskar', 'Happy Faces', 'Yugantar'];
+export const clientNames = ['Delhi Public School', 'DPS World', 'G.D. Goenka', 'Jindal', 'Vidyanchal', 'Sanskar', 'Happy Faces', 'Yugantar'];
 
 /**
  * Selected Works on the home page: slugs from projects.ts, in order.
  * `image` overrides the cover with a specific gallery image where a better frame exists.
  * Layout alternates one wide 16:9 frame with a pair of 4:5 frames.
  */
-export const featured: { slug: string; image?: string }[] = [
+export const featured: { slug: string; image?: string; position?: string }[] = [
   { slug: 'delhi-public-school-amravati', image: 'images/schools/dps-amravati-aerial.png' },
-  { slug: 'jito-delhi-public-school-chh-sambhaji-nagar' },
-  { slug: 'triveni-multispeciality-hospital-bilaspur' },
+  { slug: 'jito-delhi-public-school-chh-sambhaji-nagar', position: '92% 50%' },
+  { slug: 'triveni-multi-speciality-hospital-bilaspur', position: '10% 70%' },
   { slug: 'shankaracharya-medical-college-bhilai' },
   { slug: 'yugantar-public-school-rajnandgaon' },
-  { slug: 'green-city-township-rajnandgaon' },
+  { slug: 'pakal-residence-chh-sambhaji-nagar' },
   { slug: 'vivek-mandir-school-gondia', image: 'images/schools/gondia-school.jpg' },
 ];
 
 export const heroSlides = [
   {
     index: '01',
-    image: 'images/schools/dps-amravati-aerial.png',
-    alt: 'Aerial photograph of Delhi Public School, Amravati (M.S.), designed by K2 Architects',
-    title: 'Delhi Public School',
-    location: 'Amravati (M.S.)',
-    slug: 'delhi-public-school-amravati',
-  },
-  {
-    index: '02',
     image: 'images/colleges/pragati-eng-college-raipur.jpg',
     alt: 'Pragati Engineering College campus in Raipur (C.G.), designed by K2 Architects',
     title: 'Pragati Engineering College',
@@ -213,12 +226,20 @@ export const heroSlides = [
     slug: 'pragati-engineering-college-raipur',
   },
   {
-    index: '03',
+    index: '02',
     image: 'images/colleges/citm-bhilai.jpg',
     alt: 'CITM Bhilai (C.G.) institutional campus, designed by K2 Architects',
     title: 'CITM',
     location: 'Bhilai (C.G.)',
     slug: 'citm-bhilai',
+  },
+  {
+    index: '03',
+    image: 'images/schools/dps-amravati-aerial.png',
+    alt: 'Aerial photograph of Delhi Public School, Amravati (M.S.), designed by K2 Architects',
+    title: 'Delhi Public School',
+    location: 'Amravati (M.S.)',
+    slug: 'delhi-public-school-amravati',
   },
 ];
 

@@ -106,9 +106,23 @@ function initReveals() {
     lines.forEach((l) => { l.style.transform = 'translateY(110%)'; });
     el.style.opacity = '1';
     const delay = Number(el.dataset.delay || 0);
-    inView(el, () => {
-      animate(lines, { transform: ['translateY(110%)', 'translateY(0%)'] }, { duration: 0.9, ease: EASE, delay: stagger(0.08, { startDelay: delay }) }).then(() => { el.innerHTML = original; });
-    }, { amount: 0.4 });
+
+    const trigger = () => {
+      animate(
+        lines,
+        { transform: ['translateY(110%)', 'translateY(0%)'] },
+        { duration: 0.65, ease: EASE, delay: stagger(0.05, { startDelay: delay }) }
+      ).then(() => {
+        el.innerHTML = original;
+      });
+    };
+
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      trigger();
+    } else {
+      inView(el, () => { trigger(); }, { amount: 0.1 });
+    }
   });
 
   document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => {

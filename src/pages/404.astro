@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { projectCount } from '../lib/projects';
 ---
 
 <Base title="Page not found" description="The page you were looking for could not be found. Explore K2 Architects portfolio or return home." noindex={true}>
@@ -24,7 +25,7 @@ import Base from '../layouts/Base.astro';
             <li>
               <a href="/works" class="link not-found__link">
                 <span class="label">02</span>
-                <span>Explore Works (69 Projects)</span>
+                <span>Explore Works ({projectCount} Projects)</span>
                 <span class="arrow" aria-hidden="true">→</span>
               </a>
             </li>

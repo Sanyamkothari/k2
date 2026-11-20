@@ -8,7 +8,7 @@ const contactPoint = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
   name: 'Contact Studio & Consultations — K2 Architects',
-  description: 'Initiate an architectural dialogue or consultation with K2 Architects in Nagpur, Maharashtra for campus master planning, hospital design, and townships.',
+  description: 'Initiate an architectural dialogue or consultation with K2 Architects in Nagpur, Maharashtra for educational campuses, hospital design, and banquet complexes.',
   url: new URL('/contact', Astro.site).toString(),
   mainEntity: {
     '@id': new URL('/#organization', Astro.site).toString(),
@@ -16,7 +16,7 @@ const contactPoint = {
 };
 ---
 
-<Base title="Contact & Consultations" description="Consult with K2 Architects in Nagpur for educational campuses, hospital architecture, townships, and landscape ecology across Central India." jsonLd={[contactPoint]}>
+<Base title="Contact & Consultations" description="Consult with K2 Architects in Nagpur for educational campuses, hospital architecture, banquet complexes, and residences all over India." jsonLd={[contactPoint]}>
   <section class="contact container-x">
     <div class="contact__grid">
       <div class="contact__left">
@@ -47,7 +47,7 @@ const contactPoint = {
 
       <div class="contact__right" data-reveal data-delay="0.3">
         <form class="form" id="contact-form" method="POST" action={action || undefined} data-mode={action ? 'post' : 'mailto'} data-email={site.email} novalidate>
-          <p class="form__intro muted">A few lines is enough. We reply within two working days.</p>
+          <p class="form__intro muted">A few lines are enough. We reply within two working days.</p>
           <div class="field">
             <label for="f-name">Name</label>
             <input id="f-name" name="name" type="text" autocomplete="name" required />

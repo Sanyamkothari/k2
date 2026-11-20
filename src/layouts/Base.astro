@@ -20,7 +20,7 @@ const { title, description = site.description, ogImage = '/og.jpg', transparentN
 const cleanPath = Astro.url.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '') || '/';
 const canonical = new URL(cleanPath, Astro.site);
 const ogUrl = new URL(ogImage, Astro.site);
-const fullTitle = title === site.name ? `${site.name} — Architecture & Campus Master Planning, Nagpur` : `${title} — ${site.name}`;
+const fullTitle = title === site.name ? `${site.name} — Educational, Healthcare & Banquet Architecture, Nagpur` : `${title} — ${site.name}`;
 
 const business = {
   '@context': 'https://schema.org',
@@ -34,41 +34,42 @@ const business = {
   image: ogUrl.toString(),
   telephone: `+91${site.phone}`,
   email: site.email,
-  priceRange: '$$$',
   foundingDate: String(site.since),
   hasCredential: 'Council of Architecture (COA) Registered Architects',
   knowsLanguage: ['English', 'Hindi', 'Marathi'],
   serviceType: [
     'Pan-India Architectural Consultancy',
-    'Campus Master Planning',
+    'Educational Campus Architecture',
     'CBSE & ICSE School Architecture',
     'Hospital & Healthcare Architecture (NABH Compliant)',
+    'Banquet & Hospitality Venues',
     'Colleges & University Campuses',
     'Townships & High-Density Residential',
     'Landscape Ecology & Biophilic Design',
   ],
-  founders: [
-    {
-      '@type': 'Person',
-      name: 'Ar. Sachin Kothari',
-      jobTitle: 'Principal Architect & Founder',
-      hasCredential: {
-        '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'degree',
-        name: 'Bachelor of Architecture (B.Arch)',
-      },
-      memberOf: {
-        '@type': 'Organization',
-        name: 'Council of Architecture (India)',
-        url: 'https://www.coa.gov.in',
-      },
-      knowsAbout: [
-        'Campus Master Planning',
-        'Institutional Architecture',
-        'Hospital & Healthcare Design',
-        'Township Master Planning',
-      ],
+  founder: {
+    '@type': 'Person',
+    name: 'Ar. Sachin Kothari',
+    jobTitle: 'Principal Architect & Founder',
+    hasCredential: {
+      '@type': 'EducationalOccupationalCredential',
+      credentialCategory: 'degree',
+      name: 'Bachelor of Architecture (B.Arch)',
     },
+    memberOf: {
+      '@type': 'Organization',
+      name: 'Council of Architecture (India)',
+      url: 'https://www.coa.gov.in',
+    },
+    knowsAbout: [
+      'Educational Campus Design',
+      'Institutional Architecture',
+      'Hospital & Healthcare Design',
+      'Banquet Complex Design',
+      'Township Planning',
+    ],
+  },
+  employee: [
     {
       '@type': 'Person',
       name: 'Ar. Riya Kothari',
@@ -106,17 +107,17 @@ const business = {
   ],
   openingHours: 'Mo-Sa 10:00-18:00',
   knowsAbout: [
-    'Institutional architecture',
+    'Educational campus design',
     'School design',
-    'Hospital design',
-    'Campus master planning',
+    'Hospital & healthcare design',
+    'Banquet complex design',
     'Township planning',
     'Landscape ecology',
     'Biophilic design',
   ],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'Architectural & Master Planning Services',
+    name: 'Architectural & Engineering Services',
     itemListElement: services.map((s) => ({
       '@type': 'Offer',
       itemOffered: {
@@ -175,13 +176,13 @@ const breadcrumb = (cleanPath !== '/' && !hasBreadcrumb) ? {
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1600" />
     <meta property="og:image:height" content="900" />
-    <meta property="og:image:alt" content={`${site.name} — Architecture & Campus Master Planning`} />
+    <meta property="og:image:alt" content={`${site.name} — Educational, Healthcare & Banquet Architecture`} />
     <meta property="og:locale" content="en_IN" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogUrl} />
-    <meta name="twitter:image:alt" content={`${site.name} — Architecture & Campus Master Planning`} />
+    <meta name="twitter:image:alt" content={`${site.name} — Educational, Healthcare & Banquet Architecture`} />
 
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />

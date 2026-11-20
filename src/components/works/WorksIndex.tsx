@@ -119,7 +119,7 @@ export default function WorksIndex({ items, archive = [], sectors, hasYears, tot
                   >
                     <a href={`/works?project=${p.slug}`} className="wcard" onClick={(e) => { e.preventDefault(); openProject(p.slug, e.currentTarget); }}>
                       <div className={`figure ratio-${ratio}`}>
-                        <img src={p.cover.src} srcSet={p.cover.srcset} sizes={ratio === 'wide' ? '(min-width: 64rem) 58vw, 92vw' : '(min-width: 64rem) 28vw, (min-width: 40rem) 45vw, 92vw'} width={p.cover.width} height={p.cover.height} alt={p.alt} loading={i < 4 ? 'eager' : 'lazy'} decoding="async" />
+                        <img src={p.cover.src} srcSet={p.cover.srcset} sizes={ratio === 'wide' ? '(min-width: 64rem) 58vw, 92vw' : '(min-width: 64rem) 28vw, (min-width: 40rem) 45vw, 92vw'} width={p.cover.width} height={p.cover.height} alt={p.alt} loading={i < 4 ? 'eager' : 'lazy'} decoding="async" style={p.position ? { objectPosition: p.position } : undefined} />
                       </div>
                       <div className="wcard__meta">
                         <span className="wcard__title">{p.title}</span>

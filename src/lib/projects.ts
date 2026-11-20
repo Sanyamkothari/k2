@@ -13,12 +13,14 @@ export interface RawProject {
   image?: string;
   images?: string[];
   year?: number | string;
+  position?: string;
 }
 
 export interface Project {
   slug: string;
   category: Category;
   sector: string;
+  sectorSingular: string;
   title: string;
   rawCity: string;
   city: string;
@@ -30,6 +32,7 @@ export interface Project {
   year?: string;
   alt: string;
   hasPhoto: boolean;
+  position?: string;
 }
 
 export interface PhotographedProject extends Project {
@@ -47,6 +50,19 @@ export const SECTORS: Record<Category, string> = {
   banquets: 'Banquets & Hospitality',
   industrial: 'Industrial',
 };
+
+/** Singular sector labels for individual project metadata and headlines. */
+export const SECTOR_SINGULAR: Record<Category, string> = {
+  engineering: 'School',
+  college: 'College & campus',
+  medi: 'Hospital & healthcare',
+  hostel: 'Hostel & public building',
+  residential: 'Residential & commercial',
+  bungalow: 'Bungalow & township',
+  banquets: 'Banquet & hospitality',
+  industrial: 'Industrial',
+};
+
 export const CATEGORY_ORDER = Object.keys(SECTORS) as Category[];
 
 export const STATE_NAMES: Record<string, string> = {
@@ -56,6 +72,14 @@ export const STATE_NAMES: Record<string, string> = {
   'U.P.': 'Uttar Pradesh',
   'A.P.': 'Andhra Pradesh',
   ODISHA: 'Odisha',
+  'RAJASTHAN': 'Rajasthan',
+  'KARNATAKA': 'Karnataka',
+  'GUJARAT': 'Gujarat',
+  'RAJ.': 'Rajasthan',
+  'KAR.': 'Karnataka',
+  'GUJ.': 'Gujarat',
+  'W.B.': 'West Bengal',
+  'WB': 'West Bengal',
 };
 
 export const STATE_CODES: Record<string, string> = {
@@ -71,16 +95,34 @@ export const STATE_CODES: Record<string, string> = {
   'AP': 'A.P.',
   'ODISHA': 'Odisha',
   'OD': 'Odisha',
+  'RAJASTHAN': 'Raj.',
+  'RAJ.': 'Raj.',
+  'RAJ': 'Raj.',
+  'KARNATAKA': 'Kar.',
+  'KAR.': 'Kar.',
+  'KAR': 'Kar.',
+  'GUJARAT': 'Guj.',
+  'GUJ.': 'Guj.',
+  'GUJ': 'Guj.',
+  'W.B.': 'W.B.',
+  'WB': 'W.B.',
+  'West Bengal': 'W.B.',
   Maharashtra: 'M.S.',
   Chhattisgarh: 'C.G.',
   'Madhya Pradesh': 'M.P.',
   'Uttar Pradesh': 'U.P.',
   'Andhra Pradesh': 'A.P.',
   Odisha: 'Odisha',
+  Rajasthan: 'Raj.',
+  Karnataka: 'Kar.',
+  Gujarat: 'Guj.',
 };
 
 const SMALL_WORDS = new Set(['of', 'for', 'and', 'the', 'at', 'in']);
-const KEEP_UPPER = new Set(['DPS', 'CITM', 'MSM', 'RMCH', 'JITO', 'GD', 'P.P.', 'R.K.', 'G.D.', 'V.B', 'V.B.', 'ENG.', 'MR.']);
+const KEEP_UPPER = new Set([
+  'DPS', 'CITM', 'MSM', 'RMCH', 'JITO', 'GD', 'P.P.', 'R.K.', 'G.D.', 'V.B', 'V.B.', 'ENG.', 'MR.',
+  'DB', 'BBA', 'MBA', 'MCA', 'HUDCO', 'NABH', 'CBSE', 'ICSE'
+]);
 
 /** ALL CAPS in the data -> Title Case at render time. Keeps initialisms. */
 export function titleCase(input: string): string {
@@ -91,17 +133,22 @@ export function titleCase(input: string): string {
     .replace(/MULTY-HOSPITAL/gi, 'Multi-Hospital')
     .replace(/BUNGLOW/gi, 'Bungalow')
     .replace(/BANGLOWS/gi, 'Bungalows')
-    .replace(/MULTISPECIALITY/gi, 'Multispeciality')
+    .replace(/MULTISPECIALITY/gi, 'Multi-speciality')
+    .replace(/MULTI-SPECIALITY/gi, 'Multi-speciality')
+    .replace(/ORTHOPEDIC/gi, 'Orthopaedic')
     .split(' ')
     .map((word, i) => {
-      const bare = word.replace(/[()]/g, '');
+      const bare = word.replace(/[(),]/g, '');
       if (KEEP_UPPER.has(bare)) return word;
       const lower = word.toLowerCase();
       if (i > 0 && SMALL_WORDS.has(lower)) return lower;
       return lower.replace(/(^|[(\-.])([a-z])/g, (_m, p, c) => p + c.toUpperCase());
     })
     .join(' ')
-    .replace(/Mr\.([A-Z])/g, 'Mr. $1');
+    .replace(/Mr\.([A-Z])/g, 'Mr. $1')
+    .replace(/\bMulti-Speciality\b/g, 'Multi-speciality')
+    .replace(/\bthe School\b/g, 'The School')
+    .replace(/\bthe Concept School\b/g, 'The Concept School');
 }
 
 function parseLocation(desc: string): { rawCity: string; city: string; state: string; stateCode: string } {
@@ -146,6 +193,7 @@ function build(): Project[] {
         slug,
         category,
         sector: SECTORS[category],
+        sectorSingular: SECTOR_SINGULAR[category],
         title,
         rawCity,
         city,
@@ -157,6 +205,7 @@ function build(): Project[] {
         year: p.year ? String(p.year) : undefined,
         alt: `${title}, ${city} — ${SECTORS[category]} by K2 Architects`,
         hasPhoto,
+        position: p.position,
       });
     }
   }
@@ -176,26 +225,26 @@ export const SECTOR_DATA: Record<Category, { title: string; headline: string; de
   engineering: {
     title: 'School & Educational Campus Architecture',
     headline: 'Campuses designed for learning, community, and generational longevity.',
-    description: 'Master planning and architectural design for CBSE, ICSE, and international school campuses across India by K2 Architects.',
-    longDesc: 'For over 25 years, K2 Architects has planned and delivered landmark educational campuses for premier national networks including Delhi Public School (DPS), Sanskar International, and Jindal World School. From academic clusters and high-efficiency circulation spines to integrated athletic fields and biophilic outdoor courtyards, each campus is designed for safety, operational economy, and inspiring pedagogy.',
+    description: 'Comprehensive architectural design for CBSE, ICSE, and international school campuses across India by K2 Architects.',
+    longDesc: 'For over 25 years, K2 Architects has designed and delivered landmark educational campuses for premier national networks including Delhi Public School (DPS), Sanskar International, and Jindal World School. From academic clusters and high-efficiency circulation spines to integrated athletic fields and biophilic outdoor courtyards, each campus is designed for safety, operational economy, and inspiring pedagogy.',
   },
   college: {
     title: 'Colleges, Universities & Technical Campuses',
     headline: 'High-capacity academic environments engineered for higher education.',
-    description: 'Engineering colleges, polytechnic institutes, and university master planning across Central India.',
-    longDesc: 'Our studio combines large-scale spatial organization with climatic responsiveness to design university campuses, engineering faculties, and polytechnic institutes. We integrate lecture halls, research laboratories, administrative headquarters, and student housing into cohesive, walkable campus master plans.',
+    description: 'Engineering faculties, polytechnic institutes, and university campus design across Central India.',
+    longDesc: 'Our studio combines large-scale spatial organisation with climatic responsiveness to design university campuses, engineering faculties, and polytechnic institutes. We integrate lecture halls, research laboratories, administrative headquarters, and student housing into cohesive, walkable campus environments.',
   },
   medi: {
     title: 'Hospital & Healthcare Architecture',
-    headline: 'NABH-compliant multi-specialty healthcare and medical complexes.',
-    description: 'Multi-specialty hospitals, trauma centers, and medical colleges engineered for sterile flow and patient care.',
-    longDesc: 'Healthcare architecture demands structural precision and rigorous clinical zoning. K2 Architects designs NABH-compliant multi-specialty hospitals, diagnostic centers, and medical colleges that prioritize sterile and non-sterile circulation, rapid emergency ingress, patient dignity, and therapeutic natural daylighting.',
+    headline: 'NABH-compliant multi-speciality healthcare and medical complexes.',
+    description: 'Multi-speciality hospitals, trauma centres, and medical colleges engineered for sterile flow and patient care.',
+    longDesc: 'Healthcare architecture demands structural precision and rigorous clinical zoning. K2 Architects designs NABH-compliant multi-speciality hospitals, diagnostic centres, and medical colleges that prioritise sterile and non-sterile circulation, rapid emergency ingress, patient dignity, and therapeutic natural daylighting.',
   },
   hostel: {
     title: 'Hostels & Public Buildings',
     headline: 'High-density institutional residential living and civic structures.',
-    description: 'Student hostel complexes, civic community centers, and institutional residential infrastructure.',
-    longDesc: 'Designing high-density residential facilities for universities and institutes requires balancing security, operational management, natural ventilation, and vibrant communal interaction. Our hostel master plans create dignified, enduring student living environments.',
+    description: 'Student hostel complexes, civic community centres, and institutional residential infrastructure.',
+    longDesc: 'Designing high-density residential facilities for universities and institutes requires balancing security, operational management, natural ventilation, and vibrant communal interaction. Our hostel designs create dignified, enduring student living environments.',
   },
   residential: {
     title: 'Residential Towers & Commercial Plazas',
@@ -205,7 +254,7 @@ export const SECTOR_DATA: Record<Category, { title: string; headline: string; de
   },
   bungalow: {
     title: 'Bungalows, Townships & Private Estates',
-    headline: 'Bespoke residences, country farmhouses, and master-planned townships.',
+    headline: 'Bespoke residences, country farmhouses, and integrated residential townships.',
     description: 'Luxury private villas, farmhouses, and integrated residential townships in Maharashtra and Central India.',
     longDesc: 'Our residential practice ranges from multi-acre integrated townships to bespoke private family estates. We celebrate indoor-outdoor connectivity, natural materials, private courtyards, and deep shade tailored to the hot-composite climate of Central India.',
   },
@@ -219,6 +268,6 @@ export const SECTOR_DATA: Record<Category, { title: string; headline: string; de
     title: 'Industrial Architecture & Warehousing',
     headline: 'High-efficiency industrial manufacturing plants, processing units, and logistics infrastructure.',
     description: 'Manufacturing plants, pressing units, and high-capacity warehousing complexes designed for heavy logistical operations.',
-    longDesc: 'Industrial architecture prioritizes structural economy, logistical vehicular circulation, high-span roofing, and worker welfare. Our practice plans industrial processing facilities, manufacturing plants, and warehousing hubs engineered for operational durability and seamless material transit.',
+    longDesc: 'Industrial architecture prioritises structural economy, logistical vehicular circulation, high-span roofing, and worker welfare. Our practice plans industrial processing facilities, manufacturing plants, and warehousing hubs engineered for operational durability and seamless material transit.',
   },
 };

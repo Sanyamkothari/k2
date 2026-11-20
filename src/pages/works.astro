@@ -20,6 +20,7 @@ const items: WorkItem[] = photographedProjects.map((p) => {
     cover: { src: cover.src, srcset: cover.srcset, width: cover.width, height: cover.height },
     preview: thumb(p.image!, 800).src,
     gallery: p.images.map((src) => { const r = rendition(src, { widths: [800, 1200, 1600, 2000, 2400] }); return { src: r.src, srcset: r.srcset, width: r.width, height: r.height }; }),
+    position: p.position,
   };
 });
 
@@ -37,7 +38,7 @@ const sectors: SectorOption[] = CATEGORY_ORDER.map((key) => ({ key, label: SECTO
 const collection = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: 'Works & Architectural Master Plans — K2 Architects',
+  name: 'Works & Architecture Portfolio — K2 Architects',
   description: `${projectCount} landmark projects across ${sectorCount} architectural sectors by K2 Architects Nagpur.`,
   url: new URL('/works', Astro.site).toString(),
   mainEntity: {
@@ -70,7 +71,7 @@ const collection = {
 };
 ---
 
-<Base title="Works & Architectural Master Plans" description={`Explore ${projectCount} landmark architectural projects across 7 states by K2 Architects Nagpur—educational campuses, multi-specialty hospitals, townships, and residences.`} jsonLd={[collection]}>
+<Base title="Works & Architecture Portfolio" description={`Explore ${projectCount} landmark architectural projects across India by K2 Architects Nagpur—educational campuses, multi-speciality hospitals, banquet venues, and residences.`} jsonLd={[collection]}>
   <section class="page-head container-x">
     <div class="grid-12 page-head__grid">
       <h1 class="display-3xl page-head__title" data-split>Works</h1>
